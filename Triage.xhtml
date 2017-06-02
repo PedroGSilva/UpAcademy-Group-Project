@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+	<ui:composition template="template/prime/mud.xhtml">
+
+		<ui:define name="content">
+
+				<p:accordionPanel multiple="true">
+
+					<p:tab title="MTS - RED - Discriminator">
+						<h:panelGrid columns="2" cellpadding="10">
+							<p:graphicImage 
+								name="images/red.png" />
+							<p:selectManyCheckbox id="grid1"
+								value="#{checkboxView.selectedQuestionsRed}" layout="responsive"
+								columns="3">
+								<f:selectItems value="#{checkboxView.red}" var="red"
+									itemLabel="#{red}" itemValue="#{red}" />
+							</p:selectManyCheckbox>
+						</h:panelGrid>
+					</p:tab>
+
+					<p:tab title="MTS - ORANGE - Discriminator">
+						<h:panelGrid columns="2" cellpadding="10">
+							<p:graphicImage
+								name="images/orange.png" />
+							<p:selectManyCheckbox id="grid2"
+								value="#{checkboxView.selectedQuestionsOrange}" layout="responsive" 
+								columns="3">
+								<f:selectItems value="#{checkboxView.orange}" var="orange"
+									itemLabel="#{orange}" itemValue="#{orange}" />
+							</p:selectManyCheckbox>
+						</h:panelGrid>
+					</p:tab>
+
+
+					<p:tab title="MTS - YELLOW - Discriminator">
+						<h:panelGrid columns="2" cellpadding="10">
+							<p:graphicImage
+								name="images/yellow.png" />
+							<p:selectManyCheckbox id="grid3"
+								value="#{checkboxView.selectedQuestionsYellow}"
+								layout="responsive" columns="3">
+								<f:selectItems value="#{checkboxView.yellow}" var="yellow"
+									itemLabel="#{yellow}" itemValue="#{yellow}" />
+							</p:selectManyCheckbox>
+						</h:panelGrid>
+					</p:tab>
+
+					<p:tab title="MTS - GREEN - Discriminator">
+						<h:panelGrid columns="2" cellpadding="10">
+							<p:graphicImage
+								name="images/green.png" />
+							<p:selectManyCheckbox id="grid4"
+								value="#{checkboxView.selectedQuestionsGreen}"
+								layout="responsive" columns="3">
+								<f:selectItems value="#{checkboxView.green}" var="green"
+									itemLabel="#{green}" itemValue="#{green}" />
+							</p:selectManyCheckbox>
+						</h:panelGrid>
+					</p:tab>
+
+					<p:tab title="MTS - BLUE - Discriminator">
+						<h:panelGrid columns="2" cellpadding="10">
+							<p:graphicImage
+								name="images/blue.png" />
+						</h:panelGrid>
+					</p:tab>
+				</p:accordionPanel>
+
+		</ui:define>
+
+
+	</ui:composition>
+
+</h:body>
+
+</html>
+
+
+
