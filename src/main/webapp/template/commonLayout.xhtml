@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        
+        <title>E•Med| Emergency Priority Triage</title>
+        
+        <!-- [favicon] begin -->
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+        <!-- [favicon] end --> 
+        
+        <!-- CSS Main -->
+        <h:outputStylesheet name="style.css" library="css" />
+        <h:outputStylesheet name="memento.css" library="css" />
+        <h:outputStylesheet name="lessthen960.css" library="css" />
+        <h:outputStylesheet name="css/lessthen600.css.css" library="css" />
+        <h:outputStylesheet name="css/lessthen480.css.css" library="css" />
+        <h:outputStylesheet name="reset.css" library="css" />
+        
+        <!-- CSS Plugin -->
+		<h:outputStylesheet name="tipsy.css" library="css" />
+		<h:outputStylesheet name="buttons.min.css" library="css" />
+		<h:outputStylesheet name="labels.min.css" library="css" />
+		<h:outputStylesheet name="wells.min.css" library="css" />
+		<h:outputStylesheet name="prettyPhoto.css" library="css" />
+        
+        <!-- CSS Slider -->
+        <h:outputStylesheet name="slider-thumbnails.css" library="css" />
+        
+        <h:outputStylesheet name="home-ii.css" library="css" />
+        
+        <h:outputStylesheet name="slider-elastic.css" library="css" />
+        
+        <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
+</h:head>
+
+<h:body>
+
+	<div id="page">
+
+		<div id="header">
+			<ui:insert name="header">
+				<ui:include src="/template/mainMenu.xhtml" />
+			</ui:insert>
+		</div>
+
+		<div id="content">
+			<ui:insert name="content">
+				<ui:include src="/template/mainContent.xhtml" />
+			</ui:insert>
+		</div>
+
+	</div>
+
+</h:body>
+</html>
