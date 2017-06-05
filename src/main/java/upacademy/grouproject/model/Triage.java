@@ -16,7 +16,7 @@ public class Triage implements Serializable {
 	@GeneratedValue
 	private Long id;
 	// Patient
-	private Patient patientNHSCN;
+	private Patient nHS;
 	// Priority level
 	private char priorityLevel;
 
@@ -31,13 +31,6 @@ public class Triage implements Serializable {
 		this.id = id;
 	}
 
-	public Patient getPatientNHSCN() {
-		return patientNHSCN;
-	}
-
-	public void setPatientNHSCN(Patient patientNHSCN) {
-		this.patientNHSCN = patientNHSCN;
-	}
 
 	public char getPriorityLevel() {
 		return priorityLevel;
@@ -45,6 +38,14 @@ public class Triage implements Serializable {
 
 	public void setPriorityLevel(char priorityLevel) {
 		this.priorityLevel = priorityLevel;
+	}
+
+	public Patient getnHS() {
+		return nHS;
+	}
+
+	public void setnHS(Patient nHS) {
+		this.nHS = nHS;
 	}
 
 }
