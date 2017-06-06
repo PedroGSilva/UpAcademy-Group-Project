@@ -9,10 +9,12 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import upacademy.grouproject.model.Triage;
 
 @Named("triageService")
+@Transactional
 @RequestScoped
 public class TriageService implements Serializable{
 	private static final long serialVersionUID = 1L;

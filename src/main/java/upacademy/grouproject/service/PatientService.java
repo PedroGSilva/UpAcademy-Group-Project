@@ -6,10 +6,12 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import upacademy.grouproject.model.Patient;
 
 @Named("patientService")
+@Transactional
 @RequestScoped
 public class PatientService implements Serializable {
 	private static final long serialVersionUID = 1L;
