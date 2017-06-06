@@ -21,7 +21,7 @@ public class TriageService implements Serializable{
 	@PersistenceContext(name="database")
 	static EntityManager em;
 	
-	//Ticket caller (simple, based on priority only)
+	//Sort Triage on database (simple, based on priority only)
 	public List <Triage> priorityLine () {
 		Query query = em.createQuery("SELECT e FROM TRIAGE e"); // 
 		List <Triage> triageList = query.getResultList();
@@ -29,6 +29,5 @@ public class TriageService implements Serializable{
 		//List <Triage> sortedList = triageList.sort((Triage o1, Triage o2) -> o1.getPriorityLevel().compareTo(o2.getPriorityLevel()));
 		List <Triage> sortedList2 = triageList.stream().sorted().collect(Collectors.toList());
 		return sortedList2;
-		
 	}
 }
