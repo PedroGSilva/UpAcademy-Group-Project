@@ -1,11 +1,13 @@
 package upacademy.grouproject.service;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import upacademy.grouproject.model.Team;
@@ -21,14 +23,21 @@ public class TeamService implements Serializable {
 	static EntityManager em;
 
 	// Add team to database
-	public void createTeam(Team team) {
+	public String createTeam(Team team, String nextPage) {
 		em.persist(team);
+		return nextPage;
+	}
+
+	public Collection<Team> listTeams() {
+		Query query = em.createQuery("SELECT e FROM Team e");
+		return (Collection<Team>) query.getResultList();
 	}
 
 	// Remove team from database
-	public void removeTeam(Long ID) {
+	public String removeTeam(Long ID, String nextPage) {
 		Team teamRemove = em.find(Team.class, ID);
 		em.remove(teamRemove);
+		return nextPage;
 	}
 
 	// Edit team merge to database

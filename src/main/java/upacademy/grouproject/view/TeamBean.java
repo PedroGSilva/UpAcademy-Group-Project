@@ -16,6 +16,7 @@ public class TeamBean implements Serializable {
 
 	private Team team = new Team();
 
+	// Empty team constructor
 	public Team getTeam() {
 		return team;
 	}

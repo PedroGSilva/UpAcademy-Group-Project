@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<ui:composition template="/template/commonLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<ui:define name="content">
+		<div class="title">
+			<h3>Teams list</h3>
+		</div>
+
+		<h:form>
+			<p:dataTable var="team" value="#{teamBean.teamService.listTeams()}">
+				<p:column headerText="Id">
+					<h:outputText value="#{team.ID}" />
+				</p:column>
+
+				<p:column headerText="Team name">
+					<h:outputText value="#{team.teamName}" />
+				</p:column>
+
+				<p:column headerText="Team professionals">
+					<h:outputText value="#{team.profNames}" />
+				</p:column>
+
+				<p:column headerText="Team priority level">
+					<h:outputText value="#{team.teamPriority}" />
+				</p:column>
+
+				<p:column headerText="Team room">
+					<h:outputText value="#{team.teamRoom}" />
+				</p:column>
+
+				<p:column>
+					<p:commandButton icon="ui-icon-trash"
+						action="#{teamBean.teamService.removeTeam(team.ID, 'createTeam')}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+	</ui:define>
+
+
+</ui:composition>

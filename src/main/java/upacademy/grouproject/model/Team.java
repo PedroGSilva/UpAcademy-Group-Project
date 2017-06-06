@@ -13,6 +13,8 @@ public class Team implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long ID;
+	// Team name
+	private String teamName;
 	// Professionals on the team
 	private String profNames;
 	// Attended priority level
@@ -20,6 +22,7 @@ public class Team implements Serializable {
 	// Team room
 	private Long teamRoom;
 
+	
 	// Getters & Setters
 	public Long getID() {
 		return ID;
@@ -51,6 +54,14 @@ public class Team implements Serializable {
 
 	public void setProfNames(String profNames) {
 		this.profNames = profNames;
+	}
+
+	public String getTeamName() {
+		return teamName;
+	}
+
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 
 }
