@@ -3,8 +3,14 @@ package upacademy.grouproject.view;
 import java.io.Serializable;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.primefaces.event.SelectEvent;
+import org.primefaces.event.UnselectEvent;
 
 import upacademy.grouproject.model.Team;
 import upacademy.grouproject.service.TeamService;
@@ -21,6 +27,11 @@ public class TeamBean implements Serializable {
 		return team;
 	}
 
+	private Team selectedTeam;
+
+	@Inject
+	private TeamService teamService;
+
 	// Getters & Setters
 	public void setTeam(Team team) {
 		this.team = team;
@@ -34,7 +45,13 @@ public class TeamBean implements Serializable {
 		this.teamService = teamService;
 	}
 
-	@Inject
-	private TeamService teamService;
+	public Team getSelectedTeam() {
+		return selectedTeam;
+	}
+
+	public void setSelectedTeam(Team selectedTeam) {
+		this.selectedTeam = selectedTeam;
+	}
+	
 
 }
