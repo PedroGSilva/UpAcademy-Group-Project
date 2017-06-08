@@ -1,4 +1,4 @@
-package repository;
+package upacademy.grouproject.repository;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

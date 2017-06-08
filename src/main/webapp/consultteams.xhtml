@@ -37,40 +37,40 @@
 				</p:column>
 
 				<p:column headerText="Edit / Remove">
-					<p:commandButton icon="ui-icon-pencil" type="button" onclick="PF('editdlg').show();" update=":form:teamDetail">
-						<f:setPropertyActionListener value="#{team}" target="#{teamBean.selectedTeam}" />
-					</p:commandButton>
+					<!-- <p:commandButton icon="ui-icon-pencil" type="button" onclick="PF('editdlg').show();" update=":form:teamDetail">
+						<f:setPropertyActionListener value="#{team}" target="#{teamBean.selectedTeam}" /> 
+					</p:commandButton>-->
 					<p:commandButton icon="ui-icon-trash" 
 						action="#{teamBean.teamService.deleteTeam(team.ID, 'createteam')}" />
 				</p:column>
 			</p:dataTable>
 
-			<p:dialog header="Edit team" widgetVar="editdlg" modal="true"
+			<!-- <p:dialog header="Edit team" widgetVar="editdlg" modal="true"
 				height="500">
 				<p:outputPanel id="teamDetail">
 					<h:panelGrid columns="2" rendered="#{not empty teamBean.selectedTeam}" columnClasses="label,value">
 						<h:outputText value="Team name: " />
 						<h:outputText value="#{teamBean.selectedTeam.teamName}" />
-						<!-- <p:inputText id="teamName" value="#{teamBean.team.teamName}" /> -->
+						<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
 
 						<h:outputText value="Name of the professionals: " />
 						<h:outputText value="#{teamBean.selectedTeam.profNames}" />
-						<!-- <p:inputText id="profNames" value="#{teamBean.team.profNames}" /> -->
+						<p:inputText id="profNames" value="#{teamBean.team.profNames}" />
 
 						<h:outputText value="Team attended priority level: " />
 						<h:outputText value="#{teamBean.selectedTeam.teamPriority}" />
-						<!-- <p:inputText id="teamPriority"
-							value="#{teamBean.team.teamPriority}" /> -->
+						<p:inputText id="teamPriority"
+							value="#{teamBean.team.teamPriority}" />
 
 						<h:outputText value="Team room: " />
 						<h:outputText value="#{teamBean.selectedTeam.teamRoom}" />
-						<!-- <p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}" min="1"
-							stepFactor="1" prefix="room " /> -->
+						<p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}" min="1"
+							stepFactor="1" prefix="room " />
 
-						<!-- <p:commandLink id="createTeamButton" value="Create team"/> -->
+						<p:commandLink id="createTeamButton" value="Create team"/>
 					</h:panelGrid>
 				</p:outputPanel>
-			</p:dialog>
+			</p:dialog> -->
 		</h:form>
 
 	</ui:define>

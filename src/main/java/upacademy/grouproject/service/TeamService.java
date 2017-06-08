@@ -6,7 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import repository.TeamRepository;
+import upacademy.grouproject.repository.TeamRepository;
 import upacademy.grouproject.model.Team;
 
 @Named("teamService")
@@ -21,7 +21,8 @@ public class TeamService {
 		tr.persistEntity(team);
 		return nextpage;
 	}
-
+	
+	// Consult existing teams
 	public Collection<Team> consultTeam() {
 		String team = "Team";
 		return tr.returnEntities(team);
@@ -33,7 +34,7 @@ public class TeamService {
 		return nextPage;
 	}
 
-	// Edit team merge to database
+	// Merge team to database
 	public void editTeam(Long ID) {
 		tr.mergeEntity(Team.class, ID);
 	}

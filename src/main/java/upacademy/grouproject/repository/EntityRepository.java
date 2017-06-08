@@ -1,4 +1,4 @@
-package repository;
+package upacademy.grouproject.repository;
 
 import java.util.Collection;
 
