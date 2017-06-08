@@ -43,5 +43,10 @@ public class TeamBean {
 	public void setSelectedTeam(Team selectedTeam) {
 		this.selectedTeam = selectedTeam;
 	}
+	
+	public Class<Team> teste(){
+		return Team.class;
+		
+	}
 
 }

@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-public abstract class EntityRepository<T extends Object> {
+public class EntityRepository<T extends Object> {
 
 	// unitName defined in persistence.xml
 	@PersistenceContext(name = "database")
@@ -23,12 +23,12 @@ public abstract class EntityRepository<T extends Object> {
 	}
 
 	// Remove team from database
-	public void removeEntity(Class<T> c, Long ID) {
-		Object entRemove = em.find(c, ID);
+	public void removeEntity(Class<T> ent, Long ID) {
+		Object entRemove = em.find(ent, ID);
 		em.remove(entRemove);
 	}
 
-	// Edit team merge to database
+	// Edit team merge to database - Don't work yet
 	public void mergeEntity(Class<T> c, Long ID) {
 		Object entEdit = em.find(c, ID);
 		em.merge(entEdit);

@@ -15,7 +15,7 @@
 		</div>
 
 		<h:form id="form">
-			<p:dataTable var="team" value="#{teamBean.teamService.consultTeam()}">
+			<p:dataTable var="team" value="#{teamBean.teamService.consultEnity('Team')}">
 				<p:column headerText="Id">
 					<h:outputText value="#{team.ID}" />
 				</p:column>
@@ -41,7 +41,7 @@
 						<f:setPropertyActionListener value="#{team}" target="#{teamBean.selectedTeam}" /> 
 					</p:commandButton>-->
 					<p:commandButton icon="ui-icon-trash" 
-						action="#{teamBean.teamService.deleteTeam(team.ID, 'createteam')}" />
+						action="#{teamBean.teamService.deleteEntity(team.ID, teamBean.teste, 'createteam')}" />
 				</p:column>
 			</p:dataTable>
 
