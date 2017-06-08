@@ -1,50 +1,41 @@
 package upacademy.grouproject.service;
 
-import java.io.Serializable;
 import java.util.Collection;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.transaction.Transactional;
 
-
+import repository.TeamRepository;
 import upacademy.grouproject.model.Team;
 
 @Named("teamService")
-@Transactional
 @RequestScoped
-public class TeamService implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class TeamService {
 
-	// unitName defined in persistence.xml
-	@PersistenceContext(name = "database")
-	static EntityManager em;
+	@Inject
+	TeamRepository tr = new TeamRepository();
 
 	// Add team to database
-	public String createTeam(Team team, String nextPage) {
-		em.persist(team);
-		return nextPage;
+	public String createTeam(Team team, String nextpage) {
+		tr.persistEntity(team);
+		return nextpage;
 	}
 
-	public Collection<Team> listTeams() {
-		Query query = em.createQuery("SELECT e FROM Team e");
-		return (Collection<Team>) query.getResultList();
+	public Collection<Team> consultTeam() {
+		String team = "Team";
+		return tr.returnEntities(team);
 	}
 
 	// Remove team from database
-	public String removeTeam(Long ID, String nextPage) {
-		Team teamRemove = em.find(Team.class, ID);
-		em.remove(teamRemove);
+	public String deleteTeam(Long ID, String nextPage) {
+		tr.removeEntity(Team.class, ID);
 		return nextPage;
 	}
 
 	// Edit team merge to database
 	public void editTeam(Long ID) {
-		Team teamEdit = em.find(Team.class, ID);
-		em.merge(teamEdit);
+		tr.mergeEntity(Team.class, ID);
 	}
 
 }
