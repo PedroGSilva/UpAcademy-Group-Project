@@ -92,9 +92,9 @@
 					<!--CUSTOM CHART START -->
 					<div class="border-head">
 						<h3>Team List</h3>
-						<div class="">
+						<div class="form-panel">
 							<h:form id="form">
-								<p:dataTable var="team"
+								<p:dataTable var="team" style="text-align:center;"
 									value="#{teamBean.teamService.consultEnity('Team')}">
 									<p:column headerText="Id">
 										<h:outputText value="#{team.ID}" />

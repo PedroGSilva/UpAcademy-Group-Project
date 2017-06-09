@@ -97,7 +97,7 @@
 
 					<div class="inputs">
 						<h:form styleClass="form">
-							<p:panel header="Create new team">
+							<p:panel >
 								<p:messages autoUpdate="true" />
 								<h:panelGrid columns="2" cellpadding="5" styleClass="ui-grid"
 									style="margin:20px">
@@ -115,16 +115,13 @@
 									<p:outputLabel for="teamPriority"
 										value="Team attended priority level: " />
 									<p:selectOneMenu id="teamPriority"
-										value="#{teamBean.team.teamPriority}" style="width:125px">
+										value="#{teamBean.team.teamPriority}" style="width:60px">
 										<f:selectItem itemLabel="A" itemValue="A" />
 										<f:selectItem itemLabel="B" itemValue="B" />
 										<f:selectItem itemLabel="C" itemValue="C" />
 										<f:selectItem itemLabel="D" itemValue="D" />
 										<f:selectItem itemLabel="E" itemValue="E" />
 									</p:selectOneMenu>
-
-
-
 
 								</h:panelGrid>
 								<p:commandButton id="createTeamButton" value="Create team"
