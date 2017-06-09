@@ -5,7 +5,8 @@
 	<ui:composition template="/template/commonLayout.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 	
 	<ui:define name="leftbar">
     	<!-- <body> -->
@@ -94,7 +95,64 @@
                       <!--CUSTOM CHART START -->
                       <div class="border-head">
                           <h3>Patient List</h3>
+
                       </div>
+
+						<h:form>
+							<p:dataTable var="patient" value="#{patientBean.patientService.consultEnity('Patient')}">
+								<p:column headerText="Id">
+									<h:outputText value="#{patient.ID}" />
+								</p:column>
+								
+								<p:column headerText="NSHC">
+									<h:outputText value="#{patient.nHS}" />
+								</p:column>
+				
+								<p:column headerText="Patient Name">
+									<h:outputText value="#{patient.name}" />
+								</p:column>
+				
+								<p:column headerText="Blood Type">
+									<h:outputText value="#{patient.bloodType}" />
+								</p:column>
+				
+								<p:column headerText="Date of Birth">
+									<h:outputText value="#{patient.dateofbirth}" />
+								</p:column>
+								
+								<p:column headerText="District">
+									<h:outputText value="#{patient.adddistrict}" />
+								</p:column>
+				
+								<p:column headerText="Town Hall">
+									<h:outputText value="#{patient.addtownhall}" />
+								</p:column>
+								
+								<p:column headerText="Street">
+									<h:outputText value="#{patient.addstreet}" />
+								</p:column>
+								
+								<p:column headerText="Door Num/Floor">
+									<h:outputText value="#{patient.addnumfloor}" />
+								</p:column>
+								
+								<p:column headerText="Town">
+									<h:outputText value="#{patient.addtown}" />
+								</p:column>
+								
+								<p:column headerText="Zip-Code">
+									<h:outputText value="#{patient.addzipcode}" />
+								</p:column>
+								
+								<p:column headerText="Edit / Remove">
+									<p:commandButton icon="ui-icon-pencil"
+										action="#{patientBean.patientService.deleteEntity(patient.ID,patientBean.teste1(), 'patientCreate')}" />
+									<p:commandButton icon="ui-icon-trash"
+										action="#{patientBean.patientService.deleteEntity(patient.ID,patientBean.teste1(), 'patientCreate')}" />
+								</p:column>	
+							</p:dataTable>
+														
+						</h:form> 
                       
                       </div>
                       <!--custom chart end-->
