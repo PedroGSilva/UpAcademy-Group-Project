@@ -13,16 +13,15 @@ public class Patient implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long ID;
+
 	// National Health Service Card Number
-	private Long nHS;
+	private int nHS;
 	// Patient name
 	private String name;
-	// Patient address
-	private String adress;
 	// Patient blood type
 	private String bloodType;
 	// Patient date of birth
-	private Long dateofbirth;
+	private String dateofbirth;
 	// Patient district (city)
 	private String adddistrict;
 	// Patient twon hall (city)
@@ -30,11 +29,11 @@ public class Patient implements Serializable {
 	// Patient street
 	private String addstreet;
 	// Patient door number and floor
-	private Long addnumfloor;
+	private String addnumfloor;
 	// Patient zipcode
-	private Long addzipcode;
+	private String addzipcode;
 	// Patient twon
-	private Long addtown;
+	private String addtown;
 	
 	// Empty patient constructor
 	public Patient() {
@@ -42,11 +41,11 @@ public class Patient implements Serializable {
 
 	// Getters & Setters
 
-	public Long getnHS() {
+	public int getnHS() {
 		return nHS;
 	}
 
-	public void setnHS(Long nHS) {
+	public void setnHS(int nHS) {
 		this.nHS = nHS;
 	}
 
@@ -58,14 +57,6 @@ public class Patient implements Serializable {
 		this.name = name;
 	}
 
-	public String getAdress() {
-		return adress;
-	}
-
-	public void setAdress(String adress) {
-		this.adress = adress;
-	}
-
 	public String getBloodType() {
 		return bloodType;
 	}
@@ -74,11 +65,11 @@ public class Patient implements Serializable {
 		this.bloodType = bloodType;
 	}
 	
-	public Long getDateofbirth() {
+	public String getDateofbirth() {
 		return dateofbirth;
 	}
 
-	public void setDateofbirth(Long dateofbirth) {
+	public void setDateofbirth(String dateofbirth) {
 		this.dateofbirth = dateofbirth;
 	}
 
@@ -106,28 +97,36 @@ public class Patient implements Serializable {
 		this.addstreet = addstreet;
 	}
 
-	public Long getAddnumfloor() {
+	public String getAddnumfloor() {
 		return addnumfloor;
 	}
 
-	public void setAddnumfloor(Long addnumfloor) {
+	public void setAddnumfloor(String addnumfloor) {
 		this.addnumfloor = addnumfloor;
 	}
 
-	public Long getAddzipcode() {
+	public String getAddzipcode() {
 		return addzipcode;
 	}
 
-	public void setAddzipcode(Long addzipcode) {
+	public void setAddzipcode(String addzipcode) {
 		this.addzipcode = addzipcode;
 	}
 
-	public Long getAddtown() {
+	public String getAddtown() {
 		return addtown;
 	}
 
-	public void setAddtown(Long addtown) {
+	public void setAddtown(String addtown) {
 		this.addtown = addtown;
+	}
+	
+	public Long getID() {
+		return ID;
+	}
+
+	public void setID(Long iD) {
+		ID = iD;
 	}
 
 }
