@@ -1,171 +1,351 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+	
+	<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-<body>
-	<ui:composition>
-	<!-- START WRAPPER -->
-        <div class="body no_js responsive stretched-layout chrome wrapper group">
-            <!-- START HEADER -->
-            <div id="header" class="group">
-                <div class="group inner">
-                    
-                    <!-- START LOGO -->
-                    <div id="logo" class="group">
-                        <h1>
-                            <a class="logo-text" href="index.html" title="E•Med">E<span>•</span>Med</a>                        
-                        </h1>
-                        <p>Emergency Priority Triage</p>
-                    </div>
-                    <!-- END LOGO -->  
-                    
-                    <!-- START NAV -->
-                    <div id="nav" class="group">
-                        <ul id="menu-main-nav" class="level-1">
-                            
-                            <li>
-                                <a href="index.html"><i class="icon-home"></i>Home</a>
-                            </li>
-                            
-                            <li>
-                                <a href="portfolio-full-description.html"><i class="icon-film"></i>Patient</a>
-                                <ul class="sub-menu">
-                                    <li><a href="portfolio-full-description.html">New Patient</a></li>
-                                    <li><a href="portfolio-full-description.html">Edit Patient</a></li>
-                                    <li><a href="portfolio-full-description.html">Search Patient</a></li>
-                                </ul>
-                            </li>
-                            
-                            <li>
-                                <a href="portfolio.html"><i class="icon-picture"></i> Triage</a>
-                                <ul class="sub-menu">
-                                    <li><a href="portfolio-full-description.html">New Ticket</a></li>
-                                    <li><a href="portfolio-full-description.html">Call Ticket</a></li>
-                                    <li><a href="portfolio-full-description.html">Delete Ticket</a></li>
-                                </ul>
-                            </li>
-                            
-                            <li>
-                                <a href="features.html"><i class="icon-file"></i>Help</a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    <!-- END NAV -->     
-                </div>
-            </div>
-            <!-- END HEADER -->
-        
-            <!-- SLIDER -->
-			<!-- BEGIN #slider -->
-			<div id="slider" class="ei-slider elastic">
-			    
-			    <div class="ei-slider-loading">Loading</div>
-			    
-			    <ul class="ei-slider-large">
-			        <li class="first slide-1 slide align- image-content-type">
-			            <img src="images/pic01.jpg" width="1920" height="400" alt="Patient Triage" />
-			            <div class="ei-title">
-			                <h2>Patient triage</h2>
-			                <h3>based on the Manchester Method</h3>
-			            </div>
-			        </li>
-			       </ul>
-<!--			        <li class="slide-2 slide align- image-content-type">
-			            <img src="images/pic02.jpg" width="1280" height="500" alt="Love the red fruit.." />
-			            <div class="ei-title">
-			                <h2>Fast emergency service</h2>
-			                <h3>and accurate treatments</h3>
-			            </div>
-			        </li>
-			        <li class="last slide-3 slide align- image-content-type">
-			            <a href="#"><img src="images/pic03.jpg" width="1000" height="338" alt="" /></a>
-			            <div class="ei-title">
-			                <h2>Trust our team</h2>
-			                <h3>and our service of excelence</h3>
-			            </div>
-			        </li>
-			    </ul>
--->			    
-			    <!-- ei-slider-large -->
-			    <ul class="ei-slider-thumbs">
-			        <li class="ei-slider-element">Current</li>
-			        <li><a href="#">Patient triage - based on the Manchester Method</a><img src="images/pic01.jpg" alt="Patient triage - based on the Manchester Method" /></li>
-			        <!--
-			        <li><a href="#">Fast emergency service - and accurate treatments</a><img src="images/pic02.jpg" alt=" Fast emergency service - and accurate treatments " /></li>
-			        <li><a href="#">Trust our team - and our service of excelence</a><img src="images/pic03.jpg" alt="Trust our team - and our service of excelence" /></li>
-			    </ul>
-					-->
-			    <!-- ei-slider-thumbs -->    
-			    <div class="shadow"></div>
-			  	</ul>
+		<!-- <body> -->
+
+		<section id="container"> 
+		<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+		<!--main content start--> 
+		<section id="main-content"> 
+		<section
+			class="wrapper"> <!-- TICKET PANEL -->
+		<div class="row mt">
+			<div class="col-lg-12">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 mb">
+						<div class="weather-3 weather-3C pn centered">
+							<i class="fa"></i>
+							<h1>Previously Called</h1>
+							<div class="info">
+								<div class="row">
+									<h3 class="centered">C03</h3>
+									<div class="col-sm-6 col-xs-6 pull-left">
+										<p class="goleft">
+											<i class="fa"></i>Pedro Silva
+										</p>
+									</div>
+									<div class="col-sm-6 col-xs-6 pull-right">
+										<p class="goright">
+											<i class="fa"></i>Room 3
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-4 col-sm-4 mb">
+						<div class="weather-3 weather-3A pn centered">
+							<i class="fa"></i>
+							<h1>Now Calling</h1>
+							<div class="info">
+								<div class="row">
+									<h3 class="centered">A02</h3>
+									<div class="col-sm-6 col-xs-6 pull-left">
+										<p class="goleft">
+											<i class="fa"></i>Joao Valentim
+										</p>
+									</div>
+									<div class="col-sm-6 col-xs-6 pull-right">
+										<p class="goright">
+											<i class="fa"></i>Room 1
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-4 col-sm-4 mb">
+						<div class="weather-3 weather-3B pn centered">
+							<i class="fa"></i>
+							<h1>Next in Line</h1>
+							<div class="info">
+								<div class="row">
+									<h3 class="centered">B07</h3>
+									<div class="col-sm-6 col-xs-6 pull-left">
+										<p class="goleft">
+											<i class="fa"></i>Joao Marques
+										</p>
+									</div>
+									<div class="col-sm-6 col-xs-6 pull-right">
+										<p class="goright">
+											<i class="fa"></i>Room 2
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- ei-slider -->    
-			<!-- END #slider -->
-			<script type="text/javascript">      
-		        var     yiw_slider_type = 'elastic',
-		                yiw_slider_elastic_speed = 800,
-		                yiw_slider_elastic_timeout = 3000,
-		                yiw_slider_elastic_autoplay = true,
-		                yiw_slider_elastic_animation = 'sides';
-		    </script>
+		</div>
 
-			<div class="inner home-row group">
-			    <div class="widget-first widget one-third widget-icon-text group">
-			        <h2><img class="icon-img" src="images/icons/smile.png" alt="" /> Meet </h2>
-			        <p>Suitable for hospital and emergency sites. </p>
-			    </div>
-			    <div class="widget one-third widget-icon-text group">
-			        <h2><i class="icon-envelope"></i> Contact the team!</h2>
-			        <p>Feel free to contact us for additional info or for a free quote!</p>
-			    </div>
-			    <div class="widget-last widget one-third widget-icon-text group">
-			        <h2><i class="icon-heart-empty reverse"></i> You will <span>love us</span>.</h2>
-			        <p>You have only to try E•Med. We are sure: you will love this triage web app.</p>
-			    </div>
+		<div class="row">
+			<div class="col-lg-9 main-chart">
+
+				<div class="col-md-4 col-sm-4 col-md-offset-4">
+					<button type="button" class="btn btn-primary btn-lg btn-block">Call
+						Ticket</button>
+				</div>
+
+				<div class="row mtbox">
+					<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+						<div class="box1">
+							<img src="assets/img/orangecircle.png" alt="Red Tickets" />
+							<h3>5</h3>
+						</div>
+						<p>5 Red Tickets waiting.</p>
+					</div>
+					<div class="col-md-2 col-sm-2 box0">
+						<div class="box1">
+							<img src="assets/img/orangecircle.png" alt="Orange Tickets" />
+							<h3>9</h3>
+						</div>
+						<p>9 Orange Tickets waiting.</p>
+					</div>
+					<div class="col-md-2 col-sm-2 box0">
+						<div class="box1">
+							<img src="assets/img/orangecircle.png" alt="Yellow Tickets" />
+							<h3>23</h3>
+						</div>
+						<p>3 Yellow Tickets waiting.</p>
+					</div>
+					<div class="col-md-2 col-sm-2 box0">
+						<div class="box1">
+							<img src="assets/img/orangecircle.png" alt="Green Tickets" />
+							<h3>7</h3>
+						</div>
+						<p>7 Green Tickets waiting.</p>
+					</div>
+					<div class="col-md-2 col-sm-2 box0">
+						<div class="box1">
+							<img src="assets/img/orangecircle.png" alt="Blue Tickets" />
+							<h3>15</h3>
+						</div>
+						<p>15 Blue Tickets waiting.</p>
+					</div>
+
+				</div>
+				<!-- /row mt -->
+
+				<div class="row mt">
+					<!--CUSTOM CHART START -->
+					<div class="border-head">
+						<h3>Called Tickets</h3>
+					</div>
+					<div class="custom-bar-chart">
+						<ul class="y-axis">
+							<li><span>100</span></li>
+							<li><span>80</span></li>
+							<li><span>60</span></li>
+							<li><span>40</span></li>
+							<li><span>20</span></li>
+							<li><span>0</span></li>
+						</ul>
+						<div class="bar">
+							<div class="title">RED</div>
+							<div class="value tooltips" data-original-title="85"
+								data-toggle="tooltip" data-placement="top">85%</div>
+						</div>
+						<div class="bar ">
+							<div class="title">ORA</div>
+							<div class="value tooltips" data-original-title="50"
+								data-toggle="tooltip" data-placement="top">50%</div>
+						</div>
+						<div class="bar ">
+							<div class="title">YEL</div>
+							<div class="value tooltips" data-original-title="60"
+								data-toggle="tooltip" data-placement="top">60%</div>
+						</div>
+						<div class="bar ">
+							<div class="title">BLU</div>
+							<div class="value tooltips" data-original-title="45"
+								data-toggle="tooltip" data-placement="top">45%</div>
+						</div>
+						<div class="bar">
+							<div class="title">GRE</div>
+							<div class="value tooltips" data-original-title="32"
+								data-toggle="tooltip" data-placement="top">32%</div>
+						</div>
+					</div>
+					<!--custom chart end-->
+				</div>
+				<!-- /row -->
+
 			</div>
-			
-			<div class="clear"></div>
-		</div>     
-		<!-- END WRAPPER -->
-        
+			<!-- /col-lg-9 END SECTION MIDDLE -->
 
-        <!-- START FOOTER -->
-        <div id="copyright" class="group">
-            <div class="inner group">
-                <div class="center">
-                	<p>
-                    	Copyright <a href="http://yithemes.com/live/?theme=memento"><strong>E•Med</strong></a> 2017 -
-                    	Powered by <a href="http://yithemes.com" title="Free HTML Template"><strong>UpAcademy</strong></a><br></br>
-                    	<p></p>
-						<a href="#" class="socials facebook" style="font-size:30px;" title="Facebook">F</a>
-						<a href="#" class="socials twitter" style="font-size:30px;" original-title="Twitter">L</a>
-						<a href="#" class="socials skype" style="font-size:30px;" original-title="Skype">H</a>
-						<a href="#" class="socials google" style="font-size:30px;" original-title="Google">G</a>
-						<a href="#" class="socials linkedin" style="font-size:30px;" original-title="Linkedin">I</a>
-						<a href="#" class="socials rss" style="font-size:30px;" original-title="Rss">R</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript" src="js/jquery.custom.js"></script>
-        <script type="text/javascript" src="js/contact.js"></script>
-<script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36516261-21']);
-  _gaq.push(['_trackPageview']);
+			<!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+			<div class="col-lg-3 ds">
+				<!--COMPLETED ACTIONS DONUTS CHART-->
+				<h3>NOTIFICATIONS</h3>
 
-</script>
+				<!-- First Action -->
+				<div class="desc">
+					<div class="thumb">
+						<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+					</div>
+					<div class="details">
+						<p>
+							<muted>2 Minutes Ago</muted>
+							<br /> <a href="#">James Brown</a> was added to the Patient List.<br />
+						</p>
+					</div>
+				</div>
+				<!-- Second Action -->
+				<div class="desc">
+					<div class="thumb">
+						<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+					</div>
+					<div class="details">
+						<p>
+							<muted>3 Hours Ago</muted>
+							<br /> <a href="#">Diana Kennedy</a> was added to the Patient
+							List.<br />
+						</p>
+					</div>
+				</div>
+				<!-- Third Action -->
+				<div class="desc">
+					<div class="thumb">
+						<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+					</div>
+					<div class="details">
+						<p>
+							<muted>7 Hours Ago</muted>
+							<br /> <a href="#">Ticket A013</a> was now called.<br />
+						</p>
+					</div>
+				</div>
+				<!-- Fourth Action -->
+				<div class="desc">
+					<div class="thumb">
+						<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+					</div>
+					<div class="details">
+						<p>
+							<muted>11 Hours Ago</muted>
+							<br /> <a href="#">Ticket A013</a> was created.<br />
+						</p>
+					</div>
+				</div>
+				<!-- Fifth Action -->
+				<div class="desc">
+					<div class="thumb">
+						<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+					</div>
+					<div class="details">
+						<p>
+							<muted>18 Hours Ago</muted>
+							<br /> <a href="#">Daniel Pratt</a> was added to the Patient
+							List.<br />
+						</p>
+					</div>
+				</div>
+
+				<!-- USERS ONLINE SECTION -->
+				<h3>WORKING TEAMS</h3>
+				<!-- First Member -->
+				<div class="desc">
+					<div class="thumb">
+						<img class="img-circle" src="assets/img/ui-divya.jpg" width="35px"
+							height="35px" align="" />
+					</div>
+					<div class="details">
+						<p>
+							<a href="#">Team 1</a><br />
+							<muted>Available - Room 1</muted>
+						</p>
+					</div>
+				</div>
+				<!-- Second Member -->
+				<div class="desc">
+					<div class="thumb">
+						<img class="img-circle" src="assets/img/ui-sherman.jpg"
+							width="35px" height="35px" align="" />
+					</div>
+					<div class="details">
+						<p>
+							<a href="#">Team 2</a><br />
+							<muted>Busy - Room 2</muted>
+						</p>
+					</div>
+				</div>
+				<!-- Third Member -->
+				<div class="desc">
+					<div class="thumb">
+						<img class="img-circle" src="assets/img/ui-danro.jpg" width="35px"
+							height="35px" align="" />
+					</div>
+					<div class="details">
+						<p>
+							<a href="#">Team 3</a><br />
+							<muted>Now with patients - Room 3</muted>
+						</p>
+					</div>
+				</div>
+				<!-- Fourth Member -->
+				<div class="desc">
+					<div class="thumb">
+						<img class="img-circle" src="assets/img/ui-zac.jpg" width="35px"
+							height="35px" align="" />
+					</div>
+					<div class="details">
+						<p>
+							<a href="#">Team 4</a><br />
+							<muted>Available - Room 4</muted>
+						</p>
+					</div>
+				</div>
+				<!-- Fifth Member -->
+				<div class="desc">
+					<div class="thumb">
+						<img class="img-circle" src="assets/img/ui-sam.jpg" width="35px"
+							height="35px" align="" />
+					</div>
+					<div class="details">
+						<p>
+							<a href="#">Team 5</a><br />
+							<muted>Lunch - Room 5</muted>
+						</p>
+					</div>
+				</div>
+
+				<!-- CALENDAR-->
+				<div id="calendar" class="mb">
+					<div class="panel green-panel no-margin">
+						<div class="panel-body">
+							<div id="date-popover" class="popover top"
+								style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
+								<div class="arrow"></div>
+								<h3 class="popover-title" style="disadding: none;"></h3>
+								<div id="date-popover-content" class="popover-content"></div>
+							</div>
+							<div id="my-calendar"></div>
+						</div>
+					</div>
+				</div>
+				<!-- / calendar -->
+
+			</div>
+			<!-- /col-lg-3 -->
+		</div>
+		</section> 
+		</section> 
+		</section>
+		
+		<!-- </body> -->
 	</ui:composition>
-</body>
-</html>
