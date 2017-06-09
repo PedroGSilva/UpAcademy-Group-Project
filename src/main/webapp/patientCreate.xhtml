@@ -93,69 +93,69 @@
 
 		<div class="row">
 			<div class="col-lg-9 main-chart">
-				<div class="row mt">
+				<div class="row mt form-panel">
 					<!--CUSTOM CHART START -->
 					<div class="border-head">
 						<h3>Create new patient</h3>
 						<h:form styleClass="form">
-							<p:panel>
-								<h:panelGrid columns="3" columnClasses="column" cellpadding="5">
-									<h:outputLabel for="nHS" value="Insert NCSH: " />
-									<p:inputText id="nHS" value="#{patientBean.patient.nHS}" />
-									<h:outputLabel value=" " />
 
-									<h:outputLabel for="name" value="Name: " />
-									<p:inputText id="name" value="#{patientBean.patient.name}" />
-									<h:outputLabel value=" " />
+							<h:panelGrid columns="3" columnClasses="column" cellpadding="5"
+								styleClass="primefacesfont">
+								<h:outputLabel for="nHS" value="Insert NCSH: " />
+								<p:inputText id="nHS" value="#{patientBean.patient.nHS}" />
+								<h:outputLabel value=" " />
 
-									<h:outputLabel for="bloodType" value="Blood Type: " />
-									<p:inputText id="bloodType"
-										value="#{patientBean.patient.bloodType}" />
-									<h:outputLabel value=" " />
+								<h:outputLabel for="name" value="Name: " />
+								<p:inputText id="name" value="#{patientBean.patient.name}" />
+								<h:outputLabel value=" " />
 
-									<h:outputLabel for="dateofbirth" value="Date of Birth: " />
-									<p:inputText id="dateofbirth"
-										value="#{patientBean.patient.dateofbirth}" />
-									<h:outputLabel value=" " />
+								<h:outputLabel for="bloodType" value="Blood Type: " />
+								<p:inputText id="bloodType"
+									value="#{patientBean.patient.bloodType}" />
+								<h:outputLabel value=" " />
 
-									<h:outputLabel value="Address: " />
-									<h:outputLabel value=" " />
-									<h:outputLabel value=" " />
+								<h:outputLabel for="dateofbirth" value="Date of Birth: " />
+								<p:inputText id="dateofbirth"
+									value="#{patientBean.patient.dateofbirth}" />
+								<h:outputLabel value=" " />
 
-									<h:outputLabel value=" " />
-									<h:outputLabel for="adddistrict" value="District: " />
-									<p:inputText id="adddistrict"
-										value="#{patientBean.patient.adddistrict}" />
+								<h:outputLabel value="Address: " />
+								<h:outputLabel value=" " />
+								<h:outputLabel value=" " />
 
-									<h:outputLabel value=" " />
-									<h:outputLabel for="addtownhall" value="Town Hall: " />
-									<p:inputText id="addtownhall"
-										value="#{patientBean.patient.addtownhall}" />
+								<h:outputLabel value=" " />
+								<h:outputLabel for="adddistrict" value="District: " />
+								<p:inputText id="adddistrict"
+									value="#{patientBean.patient.adddistrict}" />
 
-									<h:outputLabel value=" " />
-									<h:outputLabel for="addstreet" value="Street: " />
-									<p:inputText id="addstreet"
-										value="#{patientBean.patient.addstreet}" />
+								<h:outputLabel value=" " />
+								<h:outputLabel for="addtownhall" value="Town Hall: " />
+								<p:inputText id="addtownhall"
+									value="#{patientBean.patient.addtownhall}" />
 
-									<h:outputLabel value=" " />
-									<h:outputLabel for="addnumfloor" value="Door Nº, Floor: " />
-									<p:inputText id="addnumfloor"
-										value="#{patientBean.patient.addnumfloor}" />
+								<h:outputLabel value=" " />
+								<h:outputLabel for="addstreet" value="Street: " />
+								<p:inputText id="addstreet"
+									value="#{patientBean.patient.addstreet}" />
 
-									<h:outputLabel value=" " />
-									<h:outputLabel for="addzipcode" value="Zip Code: " />
-									<p:inputText id="addzipcode"
-										value="#{patientBean.patient.addzipcode}" />
+								<h:outputLabel value=" " />
+								<h:outputLabel for="addnumfloor" value="Door Nº, Floor: " />
+								<p:inputText id="addnumfloor"
+									value="#{patientBean.patient.addnumfloor}" />
 
-									<h:outputLabel value=" " />
-									<h:outputLabel for="addtown" value="Town: " />
-									<p:inputText id="addtown"
-										value="#{patientBean.patient.addtown}" />
+								<h:outputLabel value=" " />
+								<h:outputLabel for="addzipcode" value="Zip Code: " />
+								<p:inputText id="addzipcode"
+									value="#{patientBean.patient.addzipcode}" />
 
-									<p:commandButton value="Create patient"
-										action="#{patientBean.patientService.createEntity(patientBean.patient, 'patientList')}" />
-								</h:panelGrid>
-							</p:panel>
+								<h:outputLabel value=" " />
+								<h:outputLabel for="addtown" value="Town: " />
+								<p:inputText id="addtown" value="#{patientBean.patient.addtown}" />
+
+								<p:commandButton value="Create patient"
+									action="#{patientBean.patientService.createEntity(patientBean.patient, 'patientList')}" />
+							</h:panelGrid>
+
 						</h:form>
 					</div>
 

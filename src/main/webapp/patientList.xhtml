@@ -49,7 +49,7 @@
 						<span>Team Manager</span>
 				</a>
 					<ul class="sub">
-						<li><a href="teamCreate.html">Create New Team</a></li>
+						<li><a href="teamCreate.xhtml">Create New Team</a></li>
 						<li><a href="teamList.xhtml">Team List</a></li>
 						<li><a href="teamEdit.xhtml">Edit Team</a></li>
 					</ul></li>
@@ -88,68 +88,66 @@
 
 		<div class="row">
 			<div class="col-lg-9 main-chart">
-				<div class="row mt">
+				<div class="row mt form-panel">
 					<!--CUSTOM CHART START -->
 					<div class="border-head">
 						<h3>Patient List</h3>
-						<div class="form-panel">
-							<h:form>
-								<p:dataTable var="patient"
-									value="#{patientBean.patientService.consultEnity('Patient')}">
-									<p:column headerText="Id">
-										<h:outputText value="#{patient.ID}" />
-									</p:column>
 
-									<p:column headerText="NSHC">
-										<h:outputText value="#{patient.nHS}" />
-									</p:column>
+						<h:form>
+							<p:dataTable var="patient" styleClass="primefacesfont"
+								value="#{patientBean.patientService.consultEnity('Patient')}">
+								<p:column headerText="Id">
+									<h:outputText value="#{patient.ID}" />
+								</p:column>
 
-									<p:column headerText="Patient Name">
-										<h:outputText value="#{patient.name}" />
-									</p:column>
+								<p:column headerText="NSHC">
+									<h:outputText value="#{patient.nHS}" />
+								</p:column>
 
-									<p:column headerText="Blood Type">
-										<h:outputText value="#{patient.bloodType}" />
-									</p:column>
+								<p:column headerText="Patient Name">
+									<h:outputText value="#{patient.name}" />
+								</p:column>
 
-									<p:column headerText="Date of Birth">
-										<h:outputText value="#{patient.dateofbirth}" />
-									</p:column>
+								<p:column headerText="Blood Type">
+									<h:outputText value="#{patient.bloodType}" />
+								</p:column>
 
-									<p:column headerText="District">
-										<h:outputText value="#{patient.adddistrict}" />
-									</p:column>
+								<p:column headerText="Date of Birth">
+									<h:outputText value="#{patient.dateofbirth}" />
+								</p:column>
 
-									<p:column headerText="Town Hall">
-										<h:outputText value="#{patient.addtownhall}" />
-									</p:column>
+								<p:column headerText="District">
+									<h:outputText value="#{patient.adddistrict}" />
+								</p:column>
 
-									<p:column headerText="Street">
-										<h:outputText value="#{patient.addstreet}" />
-									</p:column>
+								<p:column headerText="Town Hall">
+									<h:outputText value="#{patient.addtownhall}" />
+								</p:column>
 
-									<p:column headerText="Door Num/Floor">
-										<h:outputText value="#{patient.addnumfloor}" />
-									</p:column>
+								<p:column headerText="Street">
+									<h:outputText value="#{patient.addstreet}" />
+								</p:column>
 
-									<p:column headerText="Town">
-										<h:outputText value="#{patient.addtown}" />
-									</p:column>
+								<p:column headerText="Door Num/Floor">
+									<h:outputText value="#{patient.addnumfloor}" />
+								</p:column>
 
-									<p:column headerText="Zip-Code">
-										<h:outputText value="#{patient.addzipcode}" />
-									</p:column>
+								<p:column headerText="Town">
+									<h:outputText value="#{patient.addtown}" />
+								</p:column>
 
-									<p:column headerText="Edit / Remove">
-										<!-- <p:commandButton icon="ui-icon-pencil"
-											action="#{patientBean.patientService.deleteEntity(patient.ID,patientBean.teste1(), 'patientCreate')}" /> -->
-										<p:commandButton icon="ui-icon-trash"
-											action="#{patientBean.patientService.deleteEntity(patient.ID,patientBean.teste1(), 'patientCreate')}" />
-									</p:column>
-								</p:dataTable>
+								<p:column headerText="Zip-Code">
+									<h:outputText value="#{patient.addzipcode}" />
+								</p:column>
 
-							</h:form>
-						</div>
+								<p:column headerText="Edit / Remove">
+									<p:commandButton icon="ui-icon-trash"
+										action="#{patientBean.patientService.deleteEntity(patient.ID,patientBean.teste1(), 'patientCreate')}" />
+								</p:column>
+							</p:dataTable>
+
+						</h:form>
+
 					</div>
 
 

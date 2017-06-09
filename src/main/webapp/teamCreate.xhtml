@@ -89,7 +89,7 @@
 
 		<div class="row">
 			<div class="col-lg-9 main-chart">
-				<div class="row mt">
+				<div class="row mt form-panel">
 					<!--CUSTOM CHART START -->
 					<div class="border-head">
 						<h3>Create new team</h3>
@@ -97,11 +97,11 @@
 
 					<div class="inputs">
 						<h:form styleClass="form">
-							<p:panel >
+							
 								<p:messages autoUpdate="true" />
-								<h:panelGrid columns="2" cellpadding="5" styleClass="ui-grid"
+								<h:panelGrid columns="2" cellpadding="5" styleClass="primefacesfont"
 									style="margin:20px">
-									<h:outputLabel for="teamName" value="Team name: " />
+									<h:outputLabel for="teamName" value="Team name: " styleClass="primefacesfont"/>
 									<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
 
 									<h:outputLabel for="profNames"
@@ -114,19 +114,19 @@
 
 									<p:outputLabel for="teamPriority"
 										value="Team attended priority level: " />
-									<p:selectOneMenu id="teamPriority"
+									<h:selectOneMenu id="teamPriority"
 										value="#{teamBean.team.teamPriority}" style="width:60px">
 										<f:selectItem itemLabel="A" itemValue="A" />
 										<f:selectItem itemLabel="B" itemValue="B" />
 										<f:selectItem itemLabel="C" itemValue="C" />
 										<f:selectItem itemLabel="D" itemValue="D" />
 										<f:selectItem itemLabel="E" itemValue="E" />
-									</p:selectOneMenu>
+									</h:selectOneMenu>
 
 								</h:panelGrid>
-								<p:commandButton id="createTeamButton" value="Create team"
+								<p:commandButton id="createTeamButton" value="Create team" 
 									action="#{teamBean.teamService.createEntity(teamBean.team, 'teamList')}" />
-							</p:panel>
+							
 						</h:form>
 					</div>
 

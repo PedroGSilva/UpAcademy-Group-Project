@@ -88,13 +88,13 @@
 
 		<div class="row">
 			<div class="col-lg-9 main-chart">
-				<div class="row mt">
+				<div class="row mt form-panel">
 					<!--CUSTOM CHART START -->
 					<div class="border-head">
 						<h3>Team List</h3>
-						<div class="form-panel">
+						
 							<h:form id="form">
-								<p:dataTable var="team" style="text-align:center;"
+								<p:dataTable var="team" style="text-align:center;" styleClass="primefacesfont"
 									value="#{teamBean.teamService.consultEnity('Team')}">
 									<p:column headerText="Id">
 										<h:outputText value="#{team.ID}" />
@@ -120,7 +120,7 @@
 										<!-- <p:commandButton icon="ui-icon-pencil" type="button" onclick="PF('editdlg').show();" update=":form:teamDetail">
 						<f:setPropertyActionListener value="#{team}" target="#{teamBean.selectedTeam}" /> 
 					</p:commandButton>-->
-										<p:commandButton icon="ui-icon-trash"
+										<p:commandButton icon="ui-icon-trash" 
 											action="#{teamBean.teamService.deleteEntity(team.ID, teamBean.teste(), 'teamCreate')}" />
 									</p:column>
 								</p:dataTable>
@@ -152,7 +152,7 @@
 				</p:outputPanel>
 			</p:dialog> -->
 							</h:form>
-						</div>
+						
 					</div>
 				</div>
 				<!--custom chart end-->
