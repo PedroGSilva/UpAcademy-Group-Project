@@ -18,7 +18,7 @@ public class Team implements Serializable {
 	// Professionals on the team
 	private String profNames;
 	// Attended priority level
-	private char teamPriority;
+	private String teamPriority;
 	// Team room
 	private Long teamRoom;
 
@@ -32,11 +32,11 @@ public class Team implements Serializable {
 		ID = iD;
 	}
 
-	public char getTeamPriority() {
+	public String getTeamPriority() {
 		return teamPriority;
 	}
 
-	public void setTeamPriority(char teamPriority) {
+	public void setTeamPriority(String teamPriority) {
 		this.teamPriority = teamPriority;
 	}
 
