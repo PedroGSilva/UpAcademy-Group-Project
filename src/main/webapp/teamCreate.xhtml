@@ -97,36 +97,41 @@
 
 					<div class="inputs">
 						<h:form styleClass="form">
-							
-								<p:messages autoUpdate="true" />
-								<h:panelGrid columns="2" cellpadding="5" styleClass="primefacesfont"
-									style="margin:20px">
-									<h:outputLabel for="teamName" value="Team name: " styleClass="primefacesfont"/>
-									<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
 
-									<h:outputLabel for="profNames"
-										value="Name of the professionals: " />
-									<p:inputText id="profNames" value="#{teamBean.team.profNames}" />
+							<h:panelGrid columns="3" cellpadding="2"
+								styleClass="primefacesfont" style="margin:20px">
+								<h:outputLabel for="teamName" value="Team name: " />
+								<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
+								<p:message for="teamName" />
 
-									<h:outputLabel for="teamRoom" value="Team room: " />
-									<p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}"
-										min="1" stepFactor="1" prefix="room " />
 
-									<p:outputLabel for="teamPriority"
-										value="Team attended priority level: " />
-									<h:selectOneMenu id="teamPriority"
-										value="#{teamBean.team.teamPriority}" style="width:60px">
-										<f:selectItem itemLabel="A" itemValue="A" />
-										<f:selectItem itemLabel="B" itemValue="B" />
-										<f:selectItem itemLabel="C" itemValue="C" />
-										<f:selectItem itemLabel="D" itemValue="D" />
-										<f:selectItem itemLabel="E" itemValue="E" />
-									</h:selectOneMenu>
+								<h:outputLabel for="profNames"
+									value="Name of the professionals: " />
+								<p:inputText id="profNames" value="#{teamBean.team.profNames}" />
+								<p:message for="profNames" />
 
-								</h:panelGrid>
-								<p:commandButton id="createTeamButton" value="Create team" 
-									action="#{teamBean.teamService.createEntity(teamBean.team, 'teamList')}" />
-							
+								<h:outputLabel for="teamRoom" value="Team room: " />
+								<p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}"
+									min="1" stepFactor="1" prefix="room " />
+								<p:message for="teamRoom" />
+
+								<p:outputLabel for="teamPriority"
+									value="Team attended priority level: " />
+								<p:selectOneRadio id="teamPriority"
+									value="#{teamBean.team.teamPriority}"
+									style=" margin-left:10px;">
+									<f:selectItem itemLabel="A" itemValue="A" />
+									<f:selectItem itemLabel="B" itemValue="B" />
+									<f:selectItem itemLabel="C" itemValue="C" />
+									<f:selectItem itemLabel="D" itemValue="D" />
+									<f:selectItem itemLabel="E" itemValue="E" />
+								</p:selectOneRadio>
+
+							</h:panelGrid>
+							<p:commandButton id="createTeamButton" value="Create team"
+								ajax="false" validateClient="true"
+								action="#{teamBean.teamService.createEntity(teamBean.team, 'teamList')}" />
+
 						</h:form>
 					</div>
 
