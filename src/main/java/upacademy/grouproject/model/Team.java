@@ -3,16 +3,11 @@ package upacademy.grouproject.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
-public class Team implements Serializable {
+public class Team extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue
-	private Long ID;
+
 	// Team name
 	private String teamName;
 	// Professionals on the team
@@ -22,16 +17,7 @@ public class Team implements Serializable {
 	// Team room
 	private Long teamRoom;
 
-	
 	// Getters & Setters
-	public Long getID() {
-		return ID;
-	}
-
-	public void setID(Long iD) {
-		ID = iD;
-	}
-
 	public String getTeamPriority() {
 		return teamPriority;
 	}

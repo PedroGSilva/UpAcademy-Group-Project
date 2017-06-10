@@ -6,7 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-public class EntityRepository<T extends Object> {
+
+public class EntityRepository<T> {
 
 	// unitName defined in persistence.xml
 	@PersistenceContext(name = "database")

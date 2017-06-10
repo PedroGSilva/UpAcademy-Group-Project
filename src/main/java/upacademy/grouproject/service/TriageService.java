@@ -1,14 +1,7 @@
 package upacademy.grouproject.service;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import upacademy.grouproject.model.Triage;
@@ -16,20 +9,17 @@ import upacademy.grouproject.model.Triage;
 @Named("triageService")
 @Transactional
 @RequestScoped
-public class TriageService implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class TriageService /*extends EntityService<Triage>*/{
 	
-	// unitName defined in persistence.xml
-	@PersistenceContext(name="database")
-	static EntityManager em;
+	// Not finished yet, needs testing and needs to be adapted to the new architecture --> IMPORTANT
 	
 	//Sort Triage on database (simple, based on priority only)
-	public List <Triage> priorityLine () {
+/*	public List <Triage> priorityLine () {
 		Query query = em.createQuery("SELECT e FROM TRIAGE e"); // 
 		List <Triage> triageList = query.getResultList();
 		
 		//List <Triage> sortedList = triageList.sort((Triage o1, Triage o2) -> o1.getPriorityLevel().compareTo(o2.getPriorityLevel()));
 		List <Triage> sortedList2 = triageList.stream().sorted().collect(Collectors.toList());
 		return sortedList2;
-	}
+	}*/
 }

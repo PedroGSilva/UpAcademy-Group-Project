@@ -3,16 +3,10 @@ package upacademy.grouproject.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
-public class Patient implements Serializable {
+public class Patient extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue
-	private Long ID;
 
 	// National Health Service Card Number
 	private int nHS;
@@ -34,7 +28,7 @@ public class Patient implements Serializable {
 	private String addzipcode;
 	// Patient twon
 	private String addtown;
-	
+
 	// Empty patient constructor
 	public Patient() {
 	}
@@ -64,7 +58,7 @@ public class Patient implements Serializable {
 	public void setBloodType(String bloodType) {
 		this.bloodType = bloodType;
 	}
-	
+
 	public String getDateofbirth() {
 		return dateofbirth;
 	}
@@ -119,14 +113,6 @@ public class Patient implements Serializable {
 
 	public void setAddtown(String addtown) {
 		this.addtown = addtown;
-	}
-	
-	public Long getID() {
-		return ID;
-	}
-
-	public void setID(Long iD) {
-		ID = iD;
 	}
 
 }
