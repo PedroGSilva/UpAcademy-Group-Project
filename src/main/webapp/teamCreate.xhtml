@@ -100,6 +100,7 @@
 
 							<h:panelGrid columns="3" cellpadding="2"
 								styleClass="primefacesfont" style="margin:20px">
+								
 								<h:outputLabel for="teamName" value="Team name: " />
 								<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
 								<p:message for="teamName" />
@@ -126,6 +127,7 @@
 									<f:selectItem itemLabel="D" itemValue="D" />
 									<f:selectItem itemLabel="E" itemValue="E" />
 								</p:selectOneRadio>
+								<p:message for="teamPriority" />
 
 							</h:panelGrid>
 							<p:commandButton id="createTeamButton" value="Create team"

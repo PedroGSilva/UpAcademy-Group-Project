@@ -3,6 +3,7 @@ package upacademy.grouproject.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -10,15 +11,17 @@ public class Team extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// Team name
-	@Size(min=2,max=15, message="Please insert team name")
+	@Size(min = 2, max = 15, message = "Please insert team name")
 	private String teamName;
 	// Professionals on the team
-	@Size(min=2,max=30, message="Please insert professionals names")
+	@Size(min = 2, max = 30, message = "Please insert professionals names")
 	private String profNames;
-	// Attended priority level
-	private String teamPriority;
 	// Team room
+	@NotNull(message = "Please insert a room")
 	private Long teamRoom;
+	// Attended priority level
+	@NotNull(message = "Please choose a priority")
+	private String teamPriority;
 
 	// Getters & Setters
 	public String getTeamPriority() {
