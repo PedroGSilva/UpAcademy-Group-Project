@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="/template/commonLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="leftbar">
+		<!-- <body> -->
+
+		<section id="container"> <!-- **********************************************************************************************************************************************************
+      	MAIN SIDEBAR MENU
+      	*********************************************************************************************************************************************************** -->
+		<!--sidebar start--> <aside>
+		<div id="sidebar" class="nav-collapse ">
+			<!-- sidebar menu start-->
+			<ul class="sidebar-menu" id="nav-accordion">
+
+				<p class="centered">
+					<a href="profile.html"><img src="assets/img/ui-sam.jpg"
+						class="img-circle" width="60" /></a>
+				</p>
+				<h5 class="centered">Joel Pereira</h5>
+
+				<li class="mt"><a href="index.xhtml"> <i
+						class="fa fa-dashboard"></i> <span>Dashboard</span>
+				</a></li>
+
+				<li class="sub-menu"><a class="active" href="#"> <i
+						class="fa fa-book"></i> <span>Patient</span>
+				</a>
+					<ul class="sub">
+						<li class="active"><a href="patientCreate.xhtml">New
+								Patient</a></li>
+						<li><a href="patientList.xhtml">Patient List</a></li>
+						<li><a href="patientEdit.xhtml">Edit Patient</a></li>
+					</ul></li>
+				<li class="sub-menu"><a href="javascript:;"> <i
+						class="fa fa-tasks"></i> <span>Triage</span>
+				</a>
+					<ul class="sub">
+						<li><a href="ticketCreate.xhtml">New Ticket</a></li>
+						<li><a href="ticketList.xhtml">Ticket List</a></li>
+					</ul></li>
+				<li class="sub-menu"><a href="#"> <i class="fa fa-cogs"></i>
+						<span>Team Manager</span>
+				</a>
+					<ul class="sub">
+						<li><a href="teamCreate.xhtml">Create New Team</a></li>
+						<li><a href="teamList.xhtml">Team List</a></li>
+						<li><a href="teamEdit.xhtml">Edit Team</a></li>
+					</ul></li>
+				<li class="sub-menu"><a href="javascript:;"> <i
+						class=" fa fa-bar-chart-o"></i> <span>Statistics</span>
+				</a>
+					<ul class="sub">
+						<li><a href="morris.html">Tendencies</a></li>
+						<li><a href="chartjs.html">Charts</a></li>
+					</ul></li>
+				<li class="sub-menu"><a href="javascript:;"> <i
+						class="fa fa-desktop"></i> <span>Help</span>
+				</a>
+					<ul class="sub">
+						<li><a href="general.html">F.A.Q</a></li>
+						<li><a href="buttons.html">Instructions Manual</a></li>
+						<li><a href="panels.html">Contact us!</a></li>
+					</ul></li>
+
+			</ul>
+
+			<!-- sidebar menu end-->
+
+		</div>
+		</aside> <!--sidebar end--> </section>
+
+		<!-- </body> -->
+
+	</ui:define>
+
+	<ui:define name="content">
+
+		<!-- <body> -->
+
+		<section id="container"> <!-- **********************************************************************************************************************************************************
+	    MAIN CONTENT
+	    *********************************************************************************************************************************************************** -->
+
+		<!--main content start--> <section id="main-content"> <section
+			class="wrapper">
+
+		<div class="row">
+			<div class="col-lg-9 main-chart">
+				<div class="row mt form-panel">
+					<!--CUSTOM CHART START -->
+					<div class="border-head">
+						<h3>Create new patient</h3>
+						<h:form styleClass="form">
+
+							<h:panelGrid columns="3" columnClasses="column" cellpadding="5"
+								styleClass="primefacesfont">
+								<h:outputLabel for="nHS" value="Insert NCSH: " />
+								<p:inputText id="nHS" value="#{patientBean.patient.nHS}" />
+								<h:outputLabel value=" " />
+
+								<h:outputLabel for="name" value="Name: " />
+								<p:inputText id="name" value="#{patientBean.patient.name}" />
+								<h:outputLabel value=" " />
+
+								<h:outputLabel for="bloodType" value="Blood Type: " />
+								<p:inputText id="bloodType"
+									value="#{patientBean.patient.bloodType}" />
+								<h:outputLabel value=" " />
+
+								<h:outputLabel for="dateofbirth" value="Date of Birth: " />
+								<p:inputText id="dateofbirth"
+									value="#{patientBean.patient.dateofbirth}" />
+								<h:outputLabel value=" " />
+
+								<h:outputLabel value="Address: " />
+								<h:outputLabel value=" " />
+								<h:outputLabel value=" " />
+
+								<h:outputLabel value=" " />
+								<h:outputLabel for="adddistrict" value="District: " />
+								<p:inputText id="adddistrict"
+									value="#{patientBean.patient.adddistrict}" />
+
+								<h:outputLabel value=" " />
+								<h:outputLabel for="addtownhall" value="Town Hall: " />
+								<p:inputText id="addtownhall"
+									value="#{patientBean.patient.addtownhall}" />
+
+								<h:outputLabel value=" " />
+								<h:outputLabel for="addstreet" value="Street: " />
+								<p:inputText id="addstreet"
+									value="#{patientBean.patient.addstreet}" />
+
+								<h:outputLabel value=" " />
+								<h:outputLabel for="addnumfloor" value="Door Nº, Floor: " />
+								<p:inputText id="addnumfloor"
+									value="#{patientBean.patient.addnumfloor}" />
+
+								<h:outputLabel value=" " />
+								<h:outputLabel for="addzipcode" value="Zip Code: " />
+								<p:inputText id="addzipcode"
+									value="#{patientBean.patient.addzipcode}" />
+
+								<h:outputLabel value=" " />
+								<h:outputLabel for="addtown" value="Town: " />
+								<p:inputText id="addtown" value="#{patientBean.patient.addtown}" />
+
+								<p:commandButton value="Create patient"
+									action="#{patientBean.patientService.createEntity(patientBean.patient, 'patientList')}" />
+							</h:panelGrid>
+
+						</h:form>
+					</div>
+
+				</div>
+				<!--custom chart end-->
+			</div>
+
+
+			<!-- **********************************************************************************************************************************************************
+			      RIGHT SIDEBAR CONTENT
+			      *********************************************************************************************************************************************************** -->
+
+			<div class="col-lg-3 ds">
+				<!--COMPLETED ACTIONS DONUTS CHART-->
+				<h3>NOTIFICATIONS</h3>
+
+				<!-- First Action -->
+				<div class="desc">
+					<div class="thumb">
+						<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+					</div>
+					<div class="details">
+						<p>
+							<muted>2 Minutes Ago</muted>
+							<br /> <a href="#">James Brown</a> was added to the Patient
+							List.<br />
+						</p>
+					</div>
+				</div>
+				<!-- Second Action -->
+				<div class="desc">
+					<div class="thumb">
+						<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+					</div>
+					<div class="details">
+						<p>
+							<muted>3 Hours Ago</muted>
+							<br /> <a href="#">Diana Kennedy</a> was added to the Patient
+							List.<br />
+						</p>
+					</div>
+				</div>
+				<!-- Third Action -->
+				<div class="desc">
+					<div class="thumb">
+						<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+					</div>
+					<div class="details">
+						<p>
+							<muted>7 Hours Ago</muted>
+							<br /> <a href="#">Ticket A013</a>was now called.<br />
+						</p>
+					</div>
+				</div>
+				<!-- Fourth Action -->
+				<div class="desc">
+					<div class="thumb">
+						<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+					</div>
+					<div class="details">
+						<p>
+							<muted>11 Hours Ago</muted>
+							<br /> <a href="#">Ticket A013</a> was created.<br />
+						</p>
+					</div>
+				</div>
+				<!-- Fifth Action -->
+				<div class="desc">
+					<div class="thumb">
+						<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+					</div>
+					<div class="details">
+						<p>
+							<muted>18 Hours Ago</muted>
+							<br /> <a href="#">Daniel Pratt</a> was added to the Patient
+							List.<br />
+						</p>
+					</div>
+				</div>
+
+				<!-- USERS ONLINE SECTION -->
+				<h3>WORKING TEAMS</h3>
+				<!-- First Member -->
+				<div class="desc">
+					<div class="thumb">
+						<img class="img-circle" src="assets/img/ui-divya.jpg" width="35px"
+							height="35px" align="" />
+					</div>
+					<div class="details">
+						<p>
+							<a href="#">Team 1</a><br />
+							<muted>Available - Room 1</muted>
+						</p>
+					</div>
+				</div>
+				<!-- Second Member -->
+				<div class="desc">
+					<div class="thumb">
+						<img class="img-circle" src="assets/img/ui-sherman.jpg"
+							width="35px" height="35px" align="" />
+					</div>
+					<div class="details">
+						<p>
+							<a href="#">Team 2</a><br />
+							<muted>Busy - Room 2</muted>
+						</p>
+					</div>
+				</div>
+				<!-- Third Member -->
+				<div class="desc">
+					<div class="thumb">
+						<img class="img-circle" src="assets/img/ui-danro.jpg" width="35px"
+							height="35px" align="" />
+					</div>
+					<div class="details">
+						<p>
+							<a href="#">Team 3</a><br />
+							<muted>Now with patients - Room 3</muted>
+						</p>
+					</div>
+				</div>
+				<!-- Fourth Member -->
+				<div class="desc">
+					<div class="thumb">
+						<img class="img-circle" src="assets/img/ui-zac.jpg" width="35px"
+							height="35px" align="" />
+					</div>
+					<div class="details">
+						<p>
+							<a href="#">Team 4</a><br />
+							<muted>Available - Room 4</muted>
+						</p>
+					</div>
+				</div>
+				<!-- Fifth Member -->
+				<div class="desc">
+					<div class="thumb">
+						<img class="img-circle" src="assets/img/ui-sam.jpg" width="35px"
+							height="35px" align="" />
+					</div>
+					<div class="details">
+						<p>
+							<a href="#">Team 5</a><br />
+							<muted>Lunch - Room 5</muted>
+						</p>
+					</div>
+				</div>
+
+				<!-- CALENDAR-->
+				<div id="calendar" class="mb">
+					<div class="panel green-panel no-margin">
+						<div class="panel-body">
+							<div id="date-popover" class="popover top"
+								style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
+								<div class="arrow"></div>
+								<h3 class="popover-title" style="disadding: none;"></h3>
+								<div id="date-popover-content" class="popover-content"></div>
+							</div>
+							<div id="my-calendar"></div>
+						</div>
+					</div>
+				</div>
+				<!-- / calendar -->
+
+			</div>
+			<!-- /col-lg-3 -->
+		</div>
+		</section> </section> </section>
+
+		<!--main content end-->
+		<!-- body -->
+
+	</ui:define>
+
+</ui:composition>
