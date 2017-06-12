@@ -4,7 +4,9 @@ import java.util.Collection;
 
 import javax.inject.Inject;
 
+import upacademy.grouproject.model.Team;
 import upacademy.grouproject.repository.EntityRepository;
+import upacademy.grouproject.repository.TeamRepository;
 
 public abstract class EntityService<T> {
 
@@ -29,8 +31,9 @@ public abstract class EntityService<T> {
 	}
 
 	// Merge entity to database - Don´t work yet
-	public void editEdity(Long ID, Class<T> t) {
-		er.mergeEntity(t, ID);
+	public void editEndity(Class<T> ent, Long ID) {
+		System.out.println("Chamou o edit");
+		er.mergeEntity(ent, ID);
 	}
 
 }

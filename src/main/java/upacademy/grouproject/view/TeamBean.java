@@ -1,8 +1,13 @@
 package upacademy.grouproject.view;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.primefaces.event.CellEditEvent;
+import org.primefaces.event.RowEditEvent;
 
 import upacademy.grouproject.model.Team;
 import upacademy.grouproject.service.TeamService;
@@ -22,6 +27,7 @@ public class TeamBean {
 
 	@Inject
 	private TeamService teamService;
+
 
 	// Getters & Setters
 	public void setTeam(Team team) {
@@ -43,10 +49,10 @@ public class TeamBean {
 	public void setSelectedTeam(Team selectedTeam) {
 		this.selectedTeam = selectedTeam;
 	}
-	
-	public Class<Team> teste(){
+
+	public Class<Team> teste() {
 		return Team.class;
-		
+
 	}
 
 }
