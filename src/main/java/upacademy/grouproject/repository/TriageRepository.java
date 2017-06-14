@@ -4,11 +4,11 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 
-import upacademy.grouproject.model.Patient;
+import upacademy.grouproject.model.Triage;
 
-@Named("patientRepository")
+@Named("triageRepository")
 @Transactional
 @RequestScoped
-public class PatientRepository extends EntityRepository<Patient> {
+public class TriageRepository extends EntityRepository<Triage> {
 
 }
