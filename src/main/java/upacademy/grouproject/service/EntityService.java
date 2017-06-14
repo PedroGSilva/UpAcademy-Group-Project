@@ -27,6 +27,7 @@ public abstract class EntityService<T> {
 	// Remove entity from database
 	public String deleteEntity(Long ID, Class<T> ent, String nextPage) {
 		er.removeEntity(ent, ID);
+		System.out.println(nextPage);
 		return nextPage;
 	}
 

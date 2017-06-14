@@ -110,6 +110,11 @@
 								<p:column headerText="Priority Level">
 									<h:outputText value="#{triage.priorityLevel}" />
 								</p:column>
+								
+								<p:column headerText="Edit / Remove">
+									<p:commandButton icon="ui-icon-trash"
+										action="#{triageBean.triageService.deleteEntity(triage.ID,triageBean.teste(), 'ticketCreate')}" />
+								</p:column>
 
 							</p:dataTable>
 
