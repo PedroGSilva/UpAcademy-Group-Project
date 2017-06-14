@@ -10,5 +10,7 @@ import upacademy.grouproject.model.Team;
 @Transactional
 @RequestScoped
 public class TeamRepository extends EntityRepository<Team> {
-
+	
+	
+	
 }

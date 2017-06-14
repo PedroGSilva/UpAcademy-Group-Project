@@ -1,10 +1,12 @@
 package upacademy.grouproject.view;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
@@ -27,7 +29,7 @@ public class TeamBean {
 
 	@Inject
 	private TeamService teamService;
-
+		
 
 	// Getters & Setters
 	public void setTeam(Team team) {

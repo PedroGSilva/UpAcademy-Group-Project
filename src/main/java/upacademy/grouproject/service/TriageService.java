@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 import upacademy.grouproject.model.Triage;
 
 @Named("triageService")
-@Transactional
 @RequestScoped
 public class TriageService /*extends EntityService<Triage>*/{
 	

@@ -99,6 +99,10 @@
 								styleClass="primefacesfont"
 								value="#{teamBean.teamService.consultEnity('Team')}">
 
+								<p:column>
+									<h:outputText value="#{team.ID}" />
+								</p:column>
+
 								<p:column headerText="Team name">
 									<h:outputText value="#{team.teamName}" />
 								</p:column>
@@ -119,53 +123,60 @@
 								<p:column headerText="Edit / Remove">
 									<p:commandButton icon="ui-icon-trash"
 										action="#{teamBean.teamService.deleteEntity(team.ID, teamBean.teste(), 'teamCreate')}" />
-									<p:commandButton update=":editform"
+									<p:commandButton update=":form:teamDetail"
 										oncomplete="PF('editdlg').show()" icon="ui-icon-pencil">
 										<f:setPropertyActionListener value="#{team}"
-											target="#{teamBean.selectedTeam}" />
+											target="#{teamBean.selectedTeam}" var="teamedition" />
 									</p:commandButton>
 								</p:column>
 
 							</p:dataTable>
-						</h:form>
 
-						<p:dialog header="Edit team" widgetVar="editdlg" height="500"
-							modal="true" appendTo="@(body)">
-							<h:form id="editform">
+
+							<p:dialog id="test2" header="Edit team" widgetVar="editdlg"
+								height="500" modal="true" closeOnEscape="true">
+
 								<p:outputPanel id="teamDetail">
-									<h:panelGrid columns="3"
-										rendered="#{not empty teamBean.selectedTeam}">
+									<h:panelGrid columns="4"
+										rendered="#{not empty teamBean.selectedTeam}" value="#{team}">
 
 
-										<h:outputText value="Team Id: " />
+										<h:outputLabel value="Team Id: " />
 										<h:outputText value="#{teamBean.selectedTeam.ID}" />
+										<p:inputText id="id" value="#{teamBean.selectedTeam.ID}"
+											type="hidden" />
 
-										<h:outputText value="Team name: " />
+										<h:outputLabel for="teamName" value="Team name: " />
 										<h:outputText value="#{teamBean.selectedTeam.teamName}" />
 										<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
-
-										<h:outputText value="Name of the professionals: " />
+										<p:message for="teamName" />
+										
+										<h:outputLabel for="profNames" value="Name of the professionals: " />
 										<h:outputText value="#{teamBean.selectedTeam.profNames}" />
 										<p:inputText id="profNames" value="#{teamBean.team.profNames}" />
+										<p:message for="profNames" />
 
-										<h:outputText value="Team attended priority level: " />
+										<h:outputLabel for="teamPriority" value="Team attended priority level: " />
 										<h:outputText value="#{teamBean.selectedTeam.teamPriority}" />
 										<p:inputText id="teamPriority"
 											value="#{teamBean.team.teamPriority}" />
+										<p:message for="teamPriority" />
 
-										<h:outputText value="Team room: " />
+										<h:outputLabel for="teamRomm" value="Team room: " />
 										<h:outputText value="#{teamBean.selectedTeam.teamRoom}" />
-										<p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}"
-											min="1" stepFactor="1" prefix="room " />
+										<p:inputText id="teamRoom" value="#{teamBean.team.teamRoom}" />
+										<p:message for="teamRoom" />
 
 									</h:panelGrid>
-									<p:commandButton value="Create team"
-										action="#{teamBean.teamService.editEndity(teamBean.teste(), 1)}" />
+									<p:commandButton value="Create team" ajax="false"
+										action="#{teamBean.teamService.mergeTeam(teamBean.team)}"
+										oncomplete="teamDetail.hide()" validateClient="true"/>
+
 								</p:outputPanel>
-							</h:form>
-						</p:dialog>
 
+							</p:dialog>
 
+						</h:form>
 					</div>
 				</div>
 				<!--custom chart end-->

@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-
 public class EntityRepository<T> {
 
 	// unitName defined in persistence.xml
@@ -23,7 +22,7 @@ public class EntityRepository<T> {
 		System.out.println("Chamou a lista");
 		return (Collection<T>) query.getResultList();
 	}
-	
+
 	public Object returnEntity(Class<T> c, Long ID) {
 		Object entEdit = em.find(c, ID);
 		return entEdit;
@@ -31,14 +30,19 @@ public class EntityRepository<T> {
 
 	// Remove team from database
 	public void removeEntity(Class<T> ent, Long ID) {
+		System.out.println(ent);
 		Object entRemove = em.find(ent, ID);
 		em.remove(entRemove);
 	}
 
-	// Edit team merge to database - Don't work yet
-	public void mergeEntity(Class<T> ent, Long ID) {
-		System.out.println("correu o edit");
-		T emp =em.find(ent, ID);
-		em.merge(emp);
+	// Find entity
+	public T findEntity(Class<T> ent, Long ID) {
+		T emp = em.find(ent, ID);
+		return emp;
+	}
+
+	// Edit team merge to database
+	public void mergeEntity(T entity) {
+		em.merge(entity);
 	}
 }
