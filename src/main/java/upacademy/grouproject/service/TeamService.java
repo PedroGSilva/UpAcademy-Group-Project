@@ -2,7 +2,6 @@ package upacademy.grouproject.service;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 import upacademy.grouproject.model.Team;
@@ -10,8 +9,6 @@ import upacademy.grouproject.repository.TeamRepository;
 import upacademy.grouproject.view.TeamBean;
 
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.spi.CreationalContext;
-import javax.faces.context.FacesContext;
 
 @Named("teamService")
 @RequestScoped
@@ -19,7 +16,7 @@ public class TeamService extends EntityService<Team> {
 
 	@Inject
 	TeamRepository er = new TeamRepository();
-	
+
 	@Inject
 	TeamBean team;
 
@@ -39,14 +36,14 @@ public class TeamService extends EntityService<Team> {
 		er.mergeEntity(emp);
 		newBean();
 	}
-	
-	public String newTeam (Team team, String nextpage) {
+
+	public String newTeam(Team team, String nextpage) {
 		er.persistEntity(team);
 		newBean();
 		return nextpage;
 	}
-	
-	public void newBean (){
+
+	public void newBean() {
 		this.team.setTeam(new Team());
 	}
 }

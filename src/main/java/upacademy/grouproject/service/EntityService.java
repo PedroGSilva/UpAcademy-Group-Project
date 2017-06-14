@@ -4,15 +4,12 @@ import java.util.Collection;
 
 import javax.inject.Inject;
 
-import upacademy.grouproject.model.Team;
 import upacademy.grouproject.repository.EntityRepository;
-import upacademy.grouproject.view.TeamBean;
 
 public abstract class EntityService<T> {
 
 	@Inject
 	EntityRepository<T> er = new EntityRepository<T>();
-
 
 	// Consult existing entities
 	public Collection<T> consultEnity(String querystring) {
