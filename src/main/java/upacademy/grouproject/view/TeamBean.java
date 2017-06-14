@@ -1,20 +1,17 @@
 package upacademy.grouproject.view;
 
-import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.primefaces.event.CellEditEvent;
-import org.primefaces.event.RowEditEvent;
-
 import upacademy.grouproject.model.Team;
 import upacademy.grouproject.service.TeamService;
+import java.io.Serializable;
 
 @Named("teamBean")
-@RequestScoped
-public class TeamBean {
+@SessionScoped
+public class TeamBean implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	private Team team = new Team();
 
@@ -27,7 +24,7 @@ public class TeamBean {
 
 	@Inject
 	private TeamService teamService;
-
+		
 
 	// Getters & Setters
 	public void setTeam(Team team) {

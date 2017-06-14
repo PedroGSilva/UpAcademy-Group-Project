@@ -23,9 +23,6 @@ public class Team extends EntityModel implements Serializable {
 	@NotNull(message = "Please choose a priority")
 	private String teamPriority;
 	
-	public void print() {
-		System.out.println("testar");
-	}
 
 	// Getters & Setters
 	public String getTeamPriority() {

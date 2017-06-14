@@ -98,9 +98,9 @@
 					<div class="inputs">
 						<h:form styleClass="form">
 
-							<h:panelGrid columns="3" cellpadding="2"
+							<h:panelGrid columns="3" cellpadding="2" id="createTeamGrid"
 								styleClass="primefacesfont" style="margin:20px">
-								
+
 								<h:outputLabel for="teamName" value="Team name: " />
 								<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
 								<p:message for="teamName" />
@@ -131,8 +131,8 @@
 
 							</h:panelGrid>
 							<p:commandButton id="createTeamButton" value="Create team"
-								ajax="false" validateClient="true"
-								action="#{teamBean.teamService.createEntity(teamBean.team, 'teamList')}" />
+								 validateClient="true" update="createTeamGrid"
+								action="#{teamBean.teamService.newTeam(teamBean.team, 'teamList')}" />
 
 						</h:form>
 					</div>
