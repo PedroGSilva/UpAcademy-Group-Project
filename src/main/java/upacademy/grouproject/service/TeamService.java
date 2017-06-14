@@ -7,8 +7,10 @@ import javax.transaction.Transactional;
 
 import upacademy.grouproject.model.Team;
 import upacademy.grouproject.repository.TeamRepository;
+import upacademy.grouproject.view.TeamBean;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.spi.CreationalContext;
 import javax.faces.context.FacesContext;
 
 @Named("teamService")
@@ -17,33 +19,34 @@ public class TeamService extends EntityService<Team> {
 
 	@Inject
 	TeamRepository er = new TeamRepository();
+	
+	@Inject
+	TeamBean team;
 
 	// Edit team
 	@Transactional
-	public void mergeTeam(Team team) {
-		// Get the values from the inputs - needs validation!!
-		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
-				.getRequest();
-		String idString = request.getParameter("form:id");
-		String teamName = request.getParameter("form:teamName");
-		String profNames = request.getParameter("form:profNames");
-		String teamPriority = request.getParameter("form:teamPriority");
-		String teamRoomString = request.getParameter("form:teamRoom");
-
-		// Needed conversions
-		Long teamRoom = Long.parseLong(teamRoomString);
-		Long id = Long.parseLong(idString);
-
+	public void mergeTeam(Long ID, Team team) {
+		System.out.println(ID);
 		// Find the team on the database
-		Team emp = er.findEntity(Team.class, id);
+		Team emp = er.findEntity(Team.class, ID);
 
-		// Set the new values
-		emp.setTeamName(teamName);
-		emp.setProfNames(profNames);
-		emp.setTeamPriority(teamPriority);
-		emp.setTeamRoom(teamRoom);
+		emp.setTeamName(team.getTeamName());
+		emp.setProfNames(team.getProfNames());
+		emp.setTeamPriority(team.getTeamPriority());
+		emp.setTeamRoom(team.getTeamRoom());
 
-		// Merge the new team to the databse
+		// Merge the new team to the database
 		er.mergeEntity(emp);
+		newBean();
+	}
+	
+	public String newTeam (Team team, String nextpage) {
+		er.persistEntity(team);
+		newBean();
+		return nextpage;
+	}
+	
+	public void newBean (){
+		this.team.setTeam(new Team());
 	}
 }
