@@ -5,7 +5,8 @@
 	<ui:composition template="/template/commonLayout.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 	
 	<ui:define name="leftbar">
     	<!-- <body> -->
@@ -95,7 +96,24 @@
                       <div class="border-head">
                           <h3>Ticket list</h3>
                       </div>
-                      
+                      	<h:form>
+							<p:dataTable var="triage" styleClass="primefacesfont"
+								value="#{triageBean.triageService.consultEntity('Triage')}">
+								<p:column headerText="Id">
+									<h:outputText value="#{triage.ID}" />
+								</p:column>
+
+								<p:column headerText="NSHC">
+									<h:outputText value="#{triage.nHS}" />
+								</p:column>
+
+								<p:column headerText="Priority Level">
+									<h:outputText value="#{triage.priorityLevel}" />
+								</p:column>
+
+							</p:dataTable>
+
+						</h:form>
                       </div>
                       <!--custom chart end-->
 					</div>

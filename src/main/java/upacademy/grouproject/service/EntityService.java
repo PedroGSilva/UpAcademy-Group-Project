@@ -20,7 +20,7 @@ public abstract class EntityService<T> {
 	}
 
 	// Consult existing entities
-	public Collection<T> consultEnity(String querystring) {
+	public Collection<T> consultEntity(String querystring) {
 		return er.returnEntities(querystring);
 	}
 
@@ -31,7 +31,7 @@ public abstract class EntityService<T> {
 	}
 
 	// Merge entity to database - Don´t work yet
-	public void editEndity(Class<T> ent, Long ID) {
+	public void editEntity(Class<T> ent, Long ID) {
 		System.out.println("Chamou o edit");
 		er.mergeEntity(ent, ID);
 	}

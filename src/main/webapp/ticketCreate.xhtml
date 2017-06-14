@@ -5,7 +5,8 @@
 	<ui:composition template="/template/commonLayout.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 	
 	<ui:define name="leftbar">
     	<!-- <body> -->
@@ -93,7 +94,31 @@
 					<div class="row mt">
                       <!--CUSTOM CHART START -->
                       <div class="border-head">
-                          <h3>Create new ticket</h3>
+                          <div class="inputs">
+                          
+                          <h:form>
+    <p:panel header="Fill in with the patient's info">
+        <p:messages />
+ 
+        <h:panelGrid columns="1" cellpadding="20">
+            <h:outputLabel for="nHS" value="NHS Number (9 digits)" />
+            <p:inputText id="nHS" value="#{triageBean.triage.nHS}" />
+            <p:message for="nHS" />
+            
+            <h:outputLabel for="name" value="Patient Name" />
+            <p:inputText id="name" />
+            
+            <h:outputLabel for="priorityLevel" value="Triage priority" />
+            <p:inputText id="priorityLevel" value="#{triageBean.triage.priorityLevel}" />
+            <p:message for="priorityLevel" />      
+ 
+        </h:panelGrid>
+ 
+        <p:commandButton value="Submit" ajax="false" icon="ui-icon-check" validateClient="true" 
+        action="#{triageBean.triageService.createEntity(triageBean.triage, 'ticketList')}"/>
+    </p:panel>
+</h:form>
+					</div>
                       </div>
                       
                       </div>
