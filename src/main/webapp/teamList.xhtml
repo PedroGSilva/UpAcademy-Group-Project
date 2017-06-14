@@ -36,7 +36,6 @@
 					<ul class="sub">
 						<li><a href="patientCreate.xhtml">New Patient</a></li>
 						<li><a href="patientList.xhtml">Patient List</a></li>
-						<li><a href="patientEdit.xhtml">Edit Patient</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="#"> <i class="fa fa-tasks"></i>
 						<span>Triage</span>
@@ -51,7 +50,6 @@
 					<ul class="sub">
 						<li><a href="teamCreate.xhtml">Create New Team</a></li>
 						<li class="active"><a href="teamList.xhtml">Team List</a></li>
-						<li><a href="teamEdit.xhtml">Edit Team</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class=" fa fa-bar-chart-o"></i> <span>Statistics</span>
@@ -99,10 +97,6 @@
 								styleClass="primefacesfont"
 								value="#{teamBean.teamService.consultEnity('Team')}">
 
-								<p:column>
-									<h:outputText value="#{team.ID}" />
-								</p:column>
-
 								<p:column headerText="Team name">
 									<h:outputText value="#{team.teamName}" />
 								</p:column>
@@ -120,8 +114,8 @@
 								</p:column>
 
 								<p:column headerText="Remove / Edit">
-									<p:commandButton icon="ui-icon-trash"
-										action="#{teamBean.teamService.deleteEntity(team.ID, teamBean.teste(), 'teamCreate')}" />
+									<p:commandButton icon="ui-icon-trash" update="teams"
+										action="#{teamBean.teamService.deleteEntity(team.ID, teamBean.teste())}" />
 									<p:commandButton update=":dlgform:teamDetail"
 										oncomplete="PF('editdlg').show()" icon="ui-icon-pencil">
 										<f:setPropertyActionListener value="#{team}"
@@ -138,41 +132,59 @@
 							<p:ajax event="close" update=":form" />
 							<h:form id="dlgform">
 								<p:outputPanel id="teamDetail">
-									<h:panelGrid columns="4" styleClass="primefacesfont"
-										id="editTeamGrid"
+									<h:panelGrid columns="2" styleClass="primefacesfont"
+										id="editTeamGrid" style="margin:20px"
 										rendered="#{not empty teamBean.selectedTeam}" value="#{team}">
+										
+										<p:layout style="min-width:700px;min-height:500px;">
+										
+											<p:layoutUnit header="Old values" position="west" size="300" resizable="true">
+													<h:outputLabel for="teamName" value="Team name: " />
+													<h:outputText value="#{teamBean.selectedTeam.teamName}" /><br/>
 
-										<h:outputLabel for="teamName" value="Team name: " />
-										<h:outputText value="#{teamBean.selectedTeam.teamName}" />
-										<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
-										<p:message for="teamName" />
+													<h:outputLabel for="profNames"
+														value="Name of the professionals: " />
+													<h:outputText value="#{teamBean.selectedTeam.profNames}" /><br/>
 
-										<h:outputLabel for="profNames"
-											value="Name of the professionals: " />
-										<h:outputText value="#{teamBean.selectedTeam.profNames}" />
-										<p:inputText id="profNames" value="#{teamBean.team.profNames}" />
-										<p:message for="profNames" />
+													<h:outputLabel for="teamRoom" value="Team room: " />
+													<h:outputText value="#{teamBean.selectedTeam.teamRoom}" /><br/>
 
-										<h:outputLabel for="teamRomm" value="Team room: " />
-										<h:outputText value="#{teamBean.selectedTeam.teamRoom}" />
-										<p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}"
-											min="1" stepFactor="1" prefix="room " />
-										<p:message for="teamRoom" />
+													<h:outputLabel for="teamPriority"
+														value="Team attended priority level: " />
+													<h:outputText value="#{teamBean.selectedTeam.teamPriority}" />
+											</p:layoutUnit>
+											
+											<p:layoutUnit header="New values" position="center" resizable="true" size="500" >
+													<h:outputLabel for="teamName" value="Team name: " /><br/>
+													<p:inputText id="teamName"
+														value="#{teamBean.team.teamName}" />
+													<p:message style="margin:20px" for="teamName" />
 
-										<h:outputLabel for="teamPriority"
-											value="Team attended priority level: " />
-										<h:outputText value="#{teamBean.selectedTeam.teamPriority}" />
-										<p:selectOneRadio id="teamPriority"
-											value="#{teamBean.team.teamPriority}"
-											style=" margin-left:10px;">
-											<f:selectItem itemLabel="A" itemValue="A" />
-											<f:selectItem itemLabel="B" itemValue="B" />
-											<f:selectItem itemLabel="C" itemValue="C" />
-											<f:selectItem itemLabel="D" itemValue="D" />
-											<f:selectItem itemLabel="E" itemValue="E" />
-										</p:selectOneRadio>
-										<p:message for="teamPriority" />
+													<h:outputLabel for="profNames"
+														value="Name of the professionals: " /><br/>
+													<p:inputText id="profNames"
+														value="#{teamBean.team.profNames}" />
+													<p:message style="margin:20px" for="profNames" />
 
+													<h:outputLabel for="teamRoom" value="Team room: " /><br/>
+													<p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}"
+														min="1" stepFactor="1" prefix="room " />
+													<p:message style="margin:20px" for="teamRoom" />
+
+													<h:outputLabel for="teamPriority"
+														value="Team attended priority level: " /><br/>
+													<p:selectOneRadio id="teamPriority"
+														value="#{teamBean.team.teamPriority}"
+														style=" margin-left:10px;">
+														<f:selectItem itemLabel="A" itemValue="A" />
+														<f:selectItem itemLabel="B" itemValue="B" />
+														<f:selectItem itemLabel="C" itemValue="C" />
+														<f:selectItem itemLabel="D" itemValue="D" />
+														<f:selectItem itemLabel="E" itemValue="E" />
+													</p:selectOneRadio>
+													<p:message for="teamPriority" />
+											</p:layoutUnit>
+										</p:layout>
 									</h:panelGrid>
 									<p:commandButton id="editTeamButton" value="Edit team"
 										validateClient="true" update="editTeamGrid"

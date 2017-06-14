@@ -36,7 +36,6 @@
 					<ul class="sub">
 						<li><a href="patientCreate.xhtml">New Patient</a></li>
 						<li><a href="patientList.xhtml">Patient List</a></li>
-						<li><a href="patientEdit.xhtml">Edit Patient</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="#"> <i class="fa fa-tasks"></i>
 						<span>Triage</span>
@@ -52,7 +51,6 @@
 						<li class="active"><a href="teamCreate.xhtml">Create New
 								Team</a></li>
 						<li><a href="teamList.xhtml">Team List</a></li>
-						<li><a href="teamEdit.xhtml">Edit Team</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class=" fa fa-bar-chart-o"></i> <span>Statistics</span>
@@ -98,23 +96,23 @@
 					<div class="inputs">
 						<h:form styleClass="form">
 
-							<h:panelGrid columns="3" cellpadding="2" id="createTeamGrid"
+							<h:panelGrid columns="1" cellpadding="10" id="createTeamGrid"
 								styleClass="primefacesfont" style="margin:20px">
 
 								<h:outputLabel for="teamName" value="Team name: " />
-								<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
-								<p:message for="teamName" />
+								<p:inputText  id="teamName" value="#{teamBean.team.teamName}" />
+								<p:message style="margin:20px" for="teamName" />
 
 
-								<h:outputLabel for="profNames"
+								<h:outputLabel style="margin:5px" for="profNames"
 									value="Name of the professionals: " />
-								<p:inputText id="profNames" value="#{teamBean.team.profNames}" />
-								<p:message for="profNames" />
+								<p:inputText style="margin:5px" id="profNames" value="#{teamBean.team.profNames}" />
+								<p:message style="margin:20px" for="profNames" />
 
 								<h:outputLabel for="teamRoom" value="Team room: " />
 								<p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}"
 									min="1" stepFactor="1" prefix="room " />
-								<p:message for="teamRoom" />
+								<p:message style="margin:20px" for="teamRoom" />
 
 								<p:outputLabel for="teamPriority"
 									value="Team attended priority level: " />
@@ -127,7 +125,7 @@
 									<f:selectItem itemLabel="D" itemValue="D" />
 									<f:selectItem itemLabel="E" itemValue="E" />
 								</p:selectOneRadio>
-								<p:message for="teamPriority" />
+								<p:message style="margin:20px" for="teamPriority" />
 
 							</h:panelGrid>
 							<p:commandButton id="createTeamButton" value="Create team"
