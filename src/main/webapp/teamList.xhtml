@@ -91,9 +91,9 @@
 					<div class="border-head">
 						<h3>Team List</h3>
 
-						<h:form id="form">
+						<h:form id="teamform">
 							<p:growl id="msgs" showDetail="true" />
-							<p:dataTable var="team" style="text-align:center;" id="teams"
+							<p:dataTable id="teams" var="team" style="text-align:center;"
 								styleClass="primefacesfont"
 								value="#{teamBean.teamService.consultEntity('Team')}">
 
@@ -127,62 +127,70 @@
 						</h:form>
 
 
-						<p:dialog id="test2" header="Edit team" widgetVar="editdlg"
+						<p:dialog id="teamdlg" header="Edit team" widgetVar="editdlg"
 							resizable="true" modal="true" closeOnEscape="true">
-							<p:ajax event="close" update=":form" />
+							<p:ajax event="close" update=":teamform" />
 							<h:form id="dlgform">
 								<p:outputPanel id="teamDetail">
 									<h:panelGrid columns="2" styleClass="primefacesfont"
 										id="editTeamGrid" style="margin:20px"
 										rendered="#{not empty teamBean.selectedTeam}" value="#{team}">
-										
+
 										<p:layout style="min-width:700px;min-height:500px;">
-										
-											<p:layoutUnit header="Old values" position="west" size="300" resizable="true">
-													<h:outputLabel for="teamName" value="Team name: " />
-													<h:outputText value="#{teamBean.selectedTeam.teamName}" /><br/>
 
-													<h:outputLabel for="profNames"
-														value="Name of the professionals: " />
-													<h:outputText value="#{teamBean.selectedTeam.profNames}" /><br/>
+											<p:layoutUnit header="Old values" position="west" size="300"
+												resizable="true">
+												<h:outputLabel for="teamName" value="Team name: " />
+												<h:outputText value="#{teamBean.selectedTeam.teamName}" />
+												<br />
 
-													<h:outputLabel for="teamRoom" value="Team room: " />
-													<h:outputText value="#{teamBean.selectedTeam.teamRoom}" /><br/>
+												<h:outputLabel for="profNames"
+													value="Name of the professionals: " />
+												<h:outputText value="#{teamBean.selectedTeam.profNames}" />
+												<br />
 
-													<h:outputLabel for="teamPriority"
-														value="Team attended priority level: " />
-													<h:outputText value="#{teamBean.selectedTeam.teamPriority}" />
+												<h:outputLabel for="teamRoom" value="Team room: " />
+												<h:outputText value="#{teamBean.selectedTeam.teamRoom}" />
+												<br />
+
+												<h:outputLabel for="teamPriority"
+													value="Team attended priority level: " />
+												<h:outputText value="#{teamBean.selectedTeam.teamPriority}" />
 											</p:layoutUnit>
-											
-											<p:layoutUnit header="New values" position="center" resizable="true" size="500" >
-													<h:outputLabel for="teamName" value="Team name: " /><br/>
-													<p:inputText id="teamName"
-														value="#{teamBean.team.teamName}" />
-													<p:message style="margin:20px" for="teamName" />
 
-													<h:outputLabel for="profNames"
-														value="Name of the professionals: " /><br/>
-													<p:inputText id="profNames"
-														value="#{teamBean.team.profNames}" />
-													<p:message style="margin:20px" for="profNames" />
+											<p:layoutUnit header="New values" position="center"
+												resizable="true" size="500">
+												<h:outputLabel for="teamName" value="Team name: " />
+												<br />
+												<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
+												<p:message style="margin:20px" for="teamName" />
 
-													<h:outputLabel for="teamRoom" value="Team room: " /><br/>
-													<p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}"
-														min="1" stepFactor="1" prefix="room " />
-													<p:message style="margin:20px" for="teamRoom" />
+												<h:outputLabel for="profNames"
+													value="Name of the professionals: " />
+												<br />
+												<p:inputText id="profNames"
+													value="#{teamBean.team.profNames}" />
+												<p:message style="margin:20px" for="profNames" />
 
-													<h:outputLabel for="teamPriority"
-														value="Team attended priority level: " /><br/>
-													<p:selectOneRadio id="teamPriority"
-														value="#{teamBean.team.teamPriority}"
-														style=" margin-left:10px;">
-														<f:selectItem itemLabel="A" itemValue="A" />
-														<f:selectItem itemLabel="B" itemValue="B" />
-														<f:selectItem itemLabel="C" itemValue="C" />
-														<f:selectItem itemLabel="D" itemValue="D" />
-														<f:selectItem itemLabel="E" itemValue="E" />
-													</p:selectOneRadio>
-													<p:message for="teamPriority" />
+												<h:outputLabel for="teamRoom" value="Team room: " />
+												<br />
+												<p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}"
+													min="1" stepFactor="1" prefix="room " />
+												<p:message style="margin:20px" for="teamRoom" />
+
+												<h:outputLabel for="teamPriority"
+													value="Team attended priority level: " />
+												<br />
+												<p:selectOneRadio id="teamPriority"
+													value="#{teamBean.team.teamPriority}"
+													style=" margin-left:10px;">
+													<f:selectItem itemLabel="A" itemValue="A" />
+													<f:selectItem itemLabel="B" itemValue="B" />
+													<f:selectItem itemLabel="C" itemValue="C" />
+													<f:selectItem itemLabel="D" itemValue="D" />
+													<f:selectItem itemLabel="E" itemValue="E" />
+												</p:selectOneRadio>
+												<p:message for="teamPriority" />
 											</p:layoutUnit>
 										</p:layout>
 									</h:panelGrid>

@@ -3,43 +3,51 @@ package upacademy.grouproject.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Patient extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// National Health Service Card Number
-	private int nHS;
+	@Size(min=1, message = "Please insert a NHS card number")
+	private String nHS;
 	// Patient name
+	@Size(min =1, message = "Please insert a name")
 	private String name;
 	// Patient blood type
+	@NotNull(message = "Please insert a blood type")
 	private String bloodType;
 	// Patient date of birth
-	private String dateofbirth;
+	@Size(min =1, message = "Please insert a date of birth")
+	private String dateOfBirth;
 	// Patient district (city)
-	private String adddistrict;
-	// Patient twon hall (city)
-	private String addtownhall;
+	@Size(min =1, message = "Please insert a district")
+	private String district;
+	// Patient town hall (city)
+	@Size(min =1, message = "Please insert a town hall")
+	private String townHall;
 	// Patient street
-	private String addstreet;
+	@Size(min =1, message = "Please insert a street")
+	private String street;
 	// Patient door number and floor
-	private String addnumfloor;
-	// Patient zipcode
-	private String addzipcode;
-	// Patient twon
-	private String addtown;
+	@Size(min =1, message = "Please insert a floor number")
+	private String numFloor;
+	// Patient zipCode
+	@Size(min =1, message = "Please insert ZIP code")
+	private String zipCode;
+	// Patient town
+	@Size(min =1, message = "Please insert a town")
+	private String town;
 
-	// Empty patient constructor
-	public Patient() {
-	}
 
 	// Getters & Setters
-
-	public int getnHS() {
+	public String getnHS() {
 		return nHS;
 	}
 
-	public void setnHS(int nHS) {
+	public void setnHS(String nHS) {
 		this.nHS = nHS;
 	}
 
@@ -59,60 +67,60 @@ public class Patient extends EntityModel implements Serializable {
 		this.bloodType = bloodType;
 	}
 
-	public String getDateofbirth() {
-		return dateofbirth;
+	public String getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public void setDateofbirth(String dateofbirth) {
-		this.dateofbirth = dateofbirth;
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String getAdddistrict() {
-		return adddistrict;
+	public String getDistrict() {
+		return district;
 	}
 
-	public void setAdddistrict(String adddistrict) {
-		this.adddistrict = adddistrict;
+	public void setDistrict(String district) {
+		this.district = district;
 	}
 
-	public String getAddtownhall() {
-		return addtownhall;
+	public String getTownHall() {
+		return townHall;
 	}
 
-	public void setAddtownhall(String addtownhall) {
-		this.addtownhall = addtownhall;
+	public void setTownHall(String townHall) {
+		this.townHall = townHall;
 	}
 
-	public String getAddstreet() {
-		return addstreet;
+	public String getStreet() {
+		return street;
 	}
 
-	public void setAddstreet(String addstreet) {
-		this.addstreet = addstreet;
+	public void setStreet(String street) {
+		this.street = street;
 	}
 
-	public String getAddnumfloor() {
-		return addnumfloor;
+	public String getNumFloor() {
+		return numFloor;
 	}
 
-	public void setAddnumfloor(String addnumfloor) {
-		this.addnumfloor = addnumfloor;
+	public void setNumFloor(String numFloor) {
+		this.numFloor = numFloor;
 	}
 
-	public String getAddzipcode() {
-		return addzipcode;
+	public String getZipCode() {
+		return zipCode;
 	}
 
-	public void setAddzipcode(String addzipcode) {
-		this.addzipcode = addzipcode;
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 
-	public String getAddtown() {
-		return addtown;
+	public String getTown() {
+		return town;
 	}
 
-	public void setAddtown(String addtown) {
-		this.addtown = addtown;
+	public void setTown(String town) {
+		this.town = town;
 	}
 
 }

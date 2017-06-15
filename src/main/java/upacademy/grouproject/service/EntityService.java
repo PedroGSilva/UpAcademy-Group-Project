@@ -12,7 +12,7 @@ public abstract class EntityService<T> {
 	EntityRepository<T> er = new EntityRepository<T>();
 
 	// Consult existing entities
-	public Collection<T> consultEnity(String querystring) {
+	public Collection<T> consultEntity(String querystring) {
 		return er.returnEntities(querystring);
 	}
 

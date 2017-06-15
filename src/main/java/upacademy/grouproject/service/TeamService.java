@@ -3,12 +3,11 @@ package upacademy.grouproject.service;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
+import javax.enterprise.context.RequestScoped;
 
 import upacademy.grouproject.model.Team;
 import upacademy.grouproject.repository.TeamRepository;
 import upacademy.grouproject.view.TeamBean;
-
-import javax.enterprise.context.RequestScoped;
 
 @Named("teamService")
 @RequestScoped
@@ -23,8 +22,7 @@ public class TeamService extends EntityService<Team> {
 	// Edit team
 	@Transactional
 	public void mergeTeam(Long ID, Team team) {
-		System.out.println(ID);
-		// Find the team on the database
+		// Find the team in the database
 		Team emp = er.findEntity(Team.class, ID);
 
 		emp.setTeamName(team.getTeamName());

@@ -6,6 +6,7 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="leftbar">
@@ -36,7 +37,6 @@
 						<li><a href="patientCreate.xhtml">New Patient</a></li>
 						<li class="active"><a href="patientList.xhtml">Patient
 								List</a></li>
-						<li><a href="patientEdit.xhtml">Edit Patient</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="#"> <i class="fa fa-tasks"></i>
 						<span>Triage</span>
@@ -51,7 +51,6 @@
 					<ul class="sub">
 						<li><a href="teamCreate.xhtml">Create New Team</a></li>
 						<li><a href="teamList.xhtml">Team List</a></li>
-						<li><a href="teamEdit.xhtml">Edit Team</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class=" fa fa-bar-chart-o"></i> <span>Statistics</span>
@@ -93,8 +92,9 @@
 					<div class="border-head">
 						<h3>Patient List</h3>
 
-						<h:form>
-							<p:dataTable var="patient" styleClass="primefacesfont"
+						<h:form id="patientform">
+							<p:dataTable id="patients" var="patient"
+								styleClass="primefacesfont" style="text-align:center;"
 								value="#{patientBean.patientService.consultEntity('Patient')}">
 								<p:column headerText="Id">
 									<h:outputText value="#{patient.ID}" />
@@ -113,40 +113,188 @@
 								</p:column>
 
 								<p:column headerText="Date of Birth">
-									<h:outputText value="#{patient.dateofbirth}" />
+									<h:outputText value="#{patient.dateOfBirth}" />
 								</p:column>
 
 								<p:column headerText="District">
-									<h:outputText value="#{patient.adddistrict}" />
+									<h:outputText value="#{patient.district}" />
 								</p:column>
 
 								<p:column headerText="Town Hall">
-									<h:outputText value="#{patient.addtownhall}" />
+									<h:outputText value="#{patient.townHall}" />
 								</p:column>
 
 								<p:column headerText="Street">
-									<h:outputText value="#{patient.addstreet}" />
+									<h:outputText value="#{patient.street}" />
 								</p:column>
 
 								<p:column headerText="Door Num/Floor">
-									<h:outputText value="#{patient.addnumfloor}" />
+									<h:outputText value="#{patient.numFloor}" />
 								</p:column>
 
 								<p:column headerText="Town">
-									<h:outputText value="#{patient.addtown}" />
+									<h:outputText value="#{patient.town}" />
 								</p:column>
 
 								<p:column headerText="Zip-Code">
-									<h:outputText value="#{patient.addzipcode}" />
+									<h:outputText value="#{patient.zipCode}" />
 								</p:column>
 
-								<p:column headerText="Edit / Remove">
-									<p:commandButton icon="ui-icon-trash"
-										action="#{patientBean.patientService.deleteEntity(patient.ID,patientBean.teste1(), 'patientCreate')}" />
+								<p:column headerText="Remove / Edit">
+									<p:commandButton icon="ui-icon-trash" update="patients"
+										action="#{patientBean.patientService.deleteEntity(patient.ID,patientBean.teste1())}" />
+
+									<p:commandButton update=":dlgform:patientDetail"
+										oncomplete="PF('editdlg').show()" icon="ui-icon-pencil">
+										<f:setPropertyActionListener value="#{patient}"
+											target="#{patientBean.selectedPatient}" var="patientedition" />
+									</p:commandButton>
 								</p:column>
 							</p:dataTable>
-
 						</h:form>
+
+
+						<p:dialog id="patientdlg" header="Edit patient"
+							widgetVar="editdlg" resizable="true" modal="true"
+							closeOnEscape="true">
+							<p:ajax event="close" update=":patientform" />
+							<h:form id="dlgform">
+								<p:outputPanel id="patientDetail">
+									<p:panelGrid columns="2" styleClass="primefacesfont"
+										id="editPatientGrid" style="margin:20px"
+										rendered="#{not empty patientBean.selectedPatient}"
+										value="#{patient}">
+										<p:layout style="min-width:800px;min-height:600px;">
+											<p:layoutUnit header="Old values" position="west" size="300"
+												resizable="true">
+												<h:outputLabel for="nHS" value="NHS: " />
+												<h:outputText value="#{patientBean.selectedPatient.nHS}" />
+												<br />
+												
+												<h:outputLabel for="name" value="Patient Name:" />
+												<h:outputText value="#{patientBean.selectedPatient.name}" />
+												<br />
+												
+												<h:outputLabel for="bloodType" value="Blood type:" />
+												<h:outputText
+													value="#{patientBean.selectedPatient.bloodType}" />
+												<br />
+												
+												<h:outputLabel for="dateOfBirth" value="Date of birth:" />
+												<h:outputText
+													value="#{patientBean.selectedPatient.dateOfBirth}" />
+												<br />
+												
+												<h:outputLabel for="district" value="District:" />
+												<h:outputText
+													value="#{patientBean.selectedPatient.district}" />
+												<br />
+												
+												<h:outputLabel for="townHall" value="Town hall: " />
+												<h:outputText
+													value="#{patientBean.selectedPatient.townHall}" />
+												<br />
+												
+												<h:outputLabel for="street" value="Street: " />
+												<h:outputText value="#{patientBean.selectedPatient.street}" />
+												<br />
+												
+												<h:outputLabel for="numFloor" value="Door num/Floor: " />
+												<h:outputText
+													value="#{patientBean.selectedPatient.numFloor}" />
+												<br />
+												
+												<h:outputLabel for="town" value="Town: " />
+												<h:outputText value="#{patientBean.selectedPatient.town}" />
+												<br />
+												
+												<h:outputLabel for="zipCode" value="ZIP code: " />
+												<h:outputText value="#{patientBean.selectedPatient.zipCode}" />
+											</p:layoutUnit>
+
+											<p:layoutUnit header="New values" position="center"
+												resizable="true" size="600">
+												<p:row>
+														<h:outputLabel style="width:100px" for="nHS" value="NCSH: " />
+														<p:inputText id="nHS" value="#{patientBean.patient.nHS}" />
+														<p:message style="margin:20px" for="nHS" />
+													
+														<h:outputLabel style="width:100px" for="name"
+															value="Name: " />
+														<p:inputText id="name" value="#{patientBean.patient.name}" />
+														<p:message style="margin:20px" for="name" />
+													
+														<h:outputLabel style="width:100px" for="bloodType"
+															value="Blood Type: " />
+														<p:selectOneButton id="bloodType"
+															value="#{patientBean.patient.bloodType}">
+															<f:selectItem itemLabel="O+" itemValue="O+" />
+															<f:selectItem itemLabel="O-" itemValue="O-" />
+															<f:selectItem itemLabel="A+" itemValue="A+" />
+															<f:selectItem itemLabel="A-" itemValue="A-" />
+															<f:selectItem itemLabel="B+" itemValue="B+" />
+															<f:selectItem itemLabel="B-" itemValue="B-" />
+															<f:selectItem itemLabel="AB+" itemValue="AB+" />
+															<f:selectItem itemLabel="AB-" itemValue="AB-" />
+														</p:selectOneButton>
+														<p:message style="margin:20px" for="bloodType" />
+													
+														<h:outputLabel style="width:100px" for="dateOfBirth"
+															value="Date of Birth: " />
+														<p:inputMask id="dateOfBirth" mask="99/99/9999"
+															value="#{patientBean.patient.dateOfBirth}" />
+														<p:message style="margin:20px" for="dateOfBirth" />
+												</p:row>
+
+												<p:row>
+													<h:outputLabel value="Address: " />
+													<br />
+
+
+													<h:outputLabel style="width:100px" for="district"
+														value="District: " />
+													<p:inputText id="district"
+														value="#{patientBean.patient.district}" />
+													<p:message style="margin:20px" for="district" />
+
+													<h:outputLabel style="width:100px" for="townHall"
+														value="Town Hall: " />
+													<p:inputText id="townHall"
+														value="#{patientBean.patient.townHall}" />
+													<p:message style="margin:20px" for="townHall" />
+
+													<h:outputLabel style="width:100px" for="street"
+														value="Street: " />
+													<p:inputText id="street"
+														value="#{patientBean.patient.street}" />
+													<p:message style="margin:20px" for="street" />
+
+													<h:outputLabel style="width:100px" for="numFloor"
+														value="Door Nº/Floor: " />
+													<p:inputText id="numFloor"
+														value="#{patientBean.patient.numFloor}" />
+													<p:message style="margin:20px" for="numFloor" />
+
+													<h:outputLabel style="width:100px" for="zipCode"
+														value="Zip Code: " />
+													<p:inputText id="zipCode"
+														value="#{patientBean.patient.zipCode}" />
+													<p:message style="margin:20px" for="zipCode" />
+
+													<h:outputLabel style="width:100px" for="town" value="Town: " />
+													<p:inputText id="town" value="#{patientBean.patient.town}" />
+													<p:message style="margin:20px" for="town" />
+												</p:row>
+											</p:layoutUnit>
+										</p:layout>
+									</p:panelGrid>
+									<p:commandButton id="editPatientButton" value="Edit patient"
+										validateClient="true" update="editPatientGrid"
+										oncomplete="if (!args.validationFailed) PF('editdlg').hide()"
+										action="#{patientBean.patientService.mergePatient(patientBean.selectedPatient.ID, patientBean.patient)}" />
+								</p:outputPanel>
+							</h:form>
+						</p:dialog>
 
 					</div>
 
