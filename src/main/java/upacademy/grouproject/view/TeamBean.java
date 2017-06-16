@@ -20,8 +20,6 @@ public class TeamBean implements Serializable {
 		return team;
 	}
 
-	private Team selectedTeam;
-
 	@Inject
 	private TeamService teamService;
 		
@@ -37,14 +35,6 @@ public class TeamBean implements Serializable {
 
 	public void setTeamService(TeamService teamService) {
 		this.teamService = teamService;
-	}
-
-	public Team getSelectedTeam() {
-		return selectedTeam;
-	}
-
-	public void setSelectedTeam(Team selectedTeam) {
-		this.selectedTeam = selectedTeam;
 	}
 
 	public Class<Team> teste() {

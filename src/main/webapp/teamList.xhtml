@@ -119,7 +119,7 @@
 									<p:commandButton update=":dlgform:teamDetail"
 										oncomplete="PF('editdlg').show()" icon="ui-icon-pencil">
 										<f:setPropertyActionListener value="#{team}"
-											target="#{teamBean.selectedTeam}" var="teamedition" />
+											target="#{teamBean.team}" var="teamedition" />
 									</p:commandButton>
 								</p:column>
 
@@ -134,31 +134,11 @@
 								<p:outputPanel id="teamDetail">
 									<h:panelGrid columns="2" styleClass="primefacesfont"
 										id="editTeamGrid" style="margin:20px"
-										rendered="#{not empty teamBean.selectedTeam}" value="#{team}">
+										rendered="#{not empty teamBean.team}" value="#{team}">
 
 										<p:layout style="min-width:700px;min-height:500px;">
 
-											<p:layoutUnit header="Old values" position="west" size="300"
-												resizable="true">
-												<h:outputLabel for="teamName" value="Team name: " />
-												<h:outputText value="#{teamBean.selectedTeam.teamName}" />
-												<br />
-
-												<h:outputLabel for="profNames"
-													value="Name of the professionals: " />
-												<h:outputText value="#{teamBean.selectedTeam.profNames}" />
-												<br />
-
-												<h:outputLabel for="teamRoom" value="Team room: " />
-												<h:outputText value="#{teamBean.selectedTeam.teamRoom}" />
-												<br />
-
-												<h:outputLabel for="teamPriority"
-													value="Team attended priority level: " />
-												<h:outputText value="#{teamBean.selectedTeam.teamPriority}" />
-											</p:layoutUnit>
-
-											<p:layoutUnit header="New values" position="center"
+											<p:layoutUnit position="center"
 												resizable="true" size="500">
 												<h:outputLabel for="teamName" value="Team name: " />
 												<br />
@@ -197,7 +177,7 @@
 									<p:commandButton id="editTeamButton" value="Edit team"
 										validateClient="true" update="editTeamGrid"
 										oncomplete="if (!args.validationFailed) PF('editdlg').hide()"
-										action="#{teamBean.teamService.mergeTeam(teamBean.selectedTeam.ID, teamBean.team)}" />
+										action="#{teamBean.teamService.mergeTeam(teamBean.team.ID, teamBean.team)}" />
 
 								</p:outputPanel>
 							</h:form>

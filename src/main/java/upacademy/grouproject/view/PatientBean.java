@@ -21,7 +21,6 @@ public class PatientBean implements Serializable {
 		return patient;
 	}
 
-	private Patient selectedPatient;
 
 	@Inject
 	private PatientService patientService;
@@ -37,14 +36,6 @@ public class PatientBean implements Serializable {
 
 	public void setPatientService(PatientService patientService) {
 		this.patientService = patientService;
-	}
-
-	public Patient getSelectedPatient() {
-		return selectedPatient;
-	}
-
-	public void setSelectedPatient(Patient selectedPatient) {
-		this.selectedPatient = selectedPatient;
 	}
 
 	public Class<Patient> teste1() {
