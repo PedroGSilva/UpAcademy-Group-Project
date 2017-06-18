@@ -1,8 +1,13 @@
 package upacademy.grouproject.model;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -22,9 +27,19 @@ public class Team extends EntityModel implements Serializable {
 	// Attended priority level
 	@NotNull(message = "Please choose a priority")
 	private String teamPriority;
-	
+
+	@OneToMany(targetEntity = Triage.class)
+	private Collection<Triage> tickets;
 
 	// Getters & Setters
+	public Collection<Triage> getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(Collection<Triage> tickets) {
+		this.tickets = tickets;
+	}
+
 	public String getTeamPriority() {
 		return teamPriority;
 	}

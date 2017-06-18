@@ -13,7 +13,8 @@ public class Triage extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	// Patient nHS
-	private Patient nHS;
+	@Size(min=1, message = "Please insert a NHS card number")
+	private String nHS;
 	
 	// Priority level
 	private char priorityLevel;
@@ -27,11 +28,11 @@ public class Triage extends EntityModel implements Serializable {
 		this.priorityLevel = priorityLevel;
 	}
 
-	public Patient getnHS() {
+	public String getnHS() {
 		return nHS;
 	}
 
-	public void setnHS(Patient nHS) {
+	public void setnHS(String nHS) {
 		this.nHS = nHS;
 	}
 }

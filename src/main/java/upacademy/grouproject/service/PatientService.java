@@ -1,6 +1,10 @@
 package upacademy.grouproject.service;
 
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
@@ -49,6 +53,18 @@ public class PatientService extends EntityService<Patient> {
 
 	public void newBean() {
 		this.patient.setPatient(new Patient());
+	}
+
+	public void checkNHS(String nHS) {
+		if (er.checkIfExists(nHS).isEmpty() == true) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Info",
+					"Patient does not exist, please create a new patient"));
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_INFO, "Info",
+							"Patient " + er.checkIfExists(nHS).get(0).getName()
+									+ " already exists, please proceed with the triage"));
+		}
 	}
 
 }

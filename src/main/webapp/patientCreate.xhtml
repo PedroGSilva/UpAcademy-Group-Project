@@ -106,7 +106,7 @@
 								<p:row>
 									<p:column>
 										<h:outputLabel style="width:75px" for="nHS" value="NCSH: " />
-										<p:inputText id="nHS" value="#{patientBean.patient.nHS}" />
+										<p:inputMask id="nHS" mask="999999999" value="#{patientBean.patient.nHS}" />
 										<p:message style="margin:20px" for="nHS" />
 									</p:column>
 									<p:column>
