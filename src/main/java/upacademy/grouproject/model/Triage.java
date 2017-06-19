@@ -11,14 +11,15 @@ import upacademy.grouproject.model.Patient;
 @Entity
 public class Triage extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	// Patient nHS
-	@Size(min=1, message = "Please insert a NHS card number")
+	@Size(min = 1, message = "Please insert a NHS card number")
 	private String nHS;
-	
+
 	// Priority level
 	private char priorityLevel;
 
+	
 	// Getters & Setters
 	public char getPriorityLevel() {
 		return priorityLevel;
@@ -35,4 +36,6 @@ public class Triage extends EntityModel implements Serializable {
 	public void setnHS(String nHS) {
 		this.nHS = nHS;
 	}
+
+	
 }

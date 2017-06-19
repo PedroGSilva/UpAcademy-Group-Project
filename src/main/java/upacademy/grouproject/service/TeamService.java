@@ -20,7 +20,6 @@ public class TeamService extends EntityService<Team> {
 	TeamBean team;
 
 	// Edit team
-	@Transactional
 	public void mergeTeam(Long ID, Team team) {
 		// Find the team in the database
 		Team emp = er.findEntity(Team.class, ID);

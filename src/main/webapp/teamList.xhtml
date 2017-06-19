@@ -97,6 +97,10 @@
 								styleClass="primefacesfont"
 								value="#{teamBean.teamService.consultEntity('Team')}">
 
+								<p:column headerText="ID">
+									<h:outputText value="#{team.ID}" />
+								</p:column>
+
 								<p:column headerText="Team name">
 									<h:outputText value="#{team.teamName}" />
 								</p:column>
@@ -128,7 +132,8 @@
 
 
 						<p:dialog id="teamdlg" header="Edit team" widgetVar="editdlg"
-							resizable="true" modal="true" closeOnEscape="true">
+							resizable="true" modal="true" closable="false"
+							onHide="#{patientBean.patientService.newBean()}">
 							<p:ajax event="close" update=":teamform" />
 							<h:form id="dlgform">
 								<p:outputPanel id="teamDetail">
@@ -138,8 +143,7 @@
 
 										<p:layout style="min-width:700px;min-height:500px;">
 
-											<p:layoutUnit position="center"
-												resizable="true" size="500">
+											<p:layoutUnit position="center" resizable="true" size="500">
 												<h:outputLabel for="teamName" value="Team name: " />
 												<br />
 												<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
@@ -178,6 +182,9 @@
 										validateClient="true" update="editTeamGrid"
 										oncomplete="if (!args.validationFailed) PF('editdlg').hide()"
 										action="#{teamBean.teamService.mergeTeam(teamBean.team.ID, teamBean.team)}" />
+									<p:commandButton id="editcancel" value="Cancel"
+										update="editTeamGrid" oncomplete="PF('editdlg').hide()"
+										action="#{teamBean.teamService.newBean()}" />
 
 								</p:outputPanel>
 							</h:form>

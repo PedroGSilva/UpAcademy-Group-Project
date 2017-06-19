@@ -100,14 +100,31 @@
 								<h:outputLabel for="nHS" value="NHS Number (9 digits)" />
 								<br />
 								<p:inputMask id="nHS" mask="999999999" style="margin:20px"
-									value="#{triageBean.triage.nHS}" />
+									value="#{patientBean.patient.nHS}" />
 								<p:messages id="messages" showDetail="true" autoUpdate="true"
 									closable="true" />
 								<p:commandButton value="Check patient" icon="ui-icon-check"
-									validateClient="true" update="createTicketGrid"
-									style="margin:20px"
-									action="#{patientBean.patientService.checkNHS(triageBean.triage.nHS)}" />
+									validateClient="true" style="margin:20px"
+									update="createP proceedT"
+									action="#{patientBean.patientCheck(patientBean.patient.nHS)}">
+								</p:commandButton>
 							</h:panelGrid>
+
+							<h:panelGroup id="createP">
+								<p:commandButton value="Create"
+									rendered="#{patientBean.showCreatePatient}"
+									action="patientCreate">
+									<f:actionListener binding="#{patientBean.showcreate(hide)}"/>
+								</p:commandButton>
+							</h:panelGroup>
+
+
+							<h:panelGroup id="proceedT">
+								<p:commandButton value="Proceed"
+									onclick="#{patientBean.showproceed('hide')}"
+									rendered="#{patientBean.showProceedTriage}">
+								</p:commandButton>
+							</h:panelGroup>
 						</h:form>
 
 					</div>

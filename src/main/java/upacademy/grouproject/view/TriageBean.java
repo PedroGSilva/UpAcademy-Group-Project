@@ -28,6 +28,9 @@ public class TriageBean {
 	@Inject
 	private TriageService triageService;
 
+	// Buttons show/hide
+	private boolean showCreatePatient = false;
+	private boolean showProceedTriage = false;
 
 	// Getters & Setters
 	public void setTriage(Triage triage) {
@@ -55,4 +58,19 @@ public class TriageBean {
 
 	}
 
+	public boolean isShowCreatePatient() {
+		return showCreatePatient;
+	}
+
+	public void setShowCreatePatient(boolean showCreatePatient) {
+		this.showCreatePatient = showCreatePatient;
+	}
+
+	public boolean isShowProceedTriage() {
+		return showProceedTriage;
+	}
+
+	public void setShowProceedTriage(boolean showProceedTriage) {
+		this.showProceedTriage = showProceedTriage;
+	}
 }

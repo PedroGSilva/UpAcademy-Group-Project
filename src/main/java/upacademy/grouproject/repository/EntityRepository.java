@@ -16,10 +16,10 @@ public class EntityRepository<T> {
 	public void persistEntity(T entity) {
 		em.persist(entity);
 	}
-
+	
+	//Consult all entity entries in the database
 	public Collection<T> returnEntities(String entity) {
 		Query query = em.createQuery("SELECT e FROM " + entity + " e");
-		System.out.println("Chamou a lista");
 		return (Collection<T>) query.getResultList();
 	}
 

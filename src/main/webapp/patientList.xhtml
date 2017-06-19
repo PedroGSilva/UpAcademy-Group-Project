@@ -155,8 +155,7 @@
 
 
 						<p:dialog id="patientdlg" header="Edit patient"
-							widgetVar="editdlg" resizable="true" modal="true"
-							closeOnEscape="true">
+							widgetVar="editdlg" resizable="true" modal="true">
 							<p:ajax event="close" update=":patientform" />
 							<h:form id="dlgform">
 								<p:outputPanel id="patientDetail">
@@ -168,7 +167,8 @@
 											<p:layoutUnit position="center" resizable="true" size="600">
 
 												<h:outputLabel style="width:100px" for="nHS" value="NCSH: " />
-												<p:inputText id="nHS" value="#{patientBean.patient.nHS}" />
+												<p:inputMask id="nHS" mask="999999999"
+													value="#{patientBean.patient.nHS}" />
 												<p:message style="margin:20px" for="nHS" />
 
 												<h:outputLabel style="width:100px" for="name" value="Name: " />
@@ -242,6 +242,9 @@
 										validateClient="true" update="editPatientGrid"
 										oncomplete="if (!args.validationFailed) PF('editdlg').hide()"
 										action="#{patientBean.patientService.mergePatient(patientBean.patient.ID, patientBean.patient)}" />
+									<p:commandButton id="editcancel" value="Cancel"
+										update="editPatientGrid" oncomplete="PF('editdlg').hide()"
+										action="#{patientBean.patientService.newBean()}" />
 								</p:outputPanel>
 							</h:form>
 						</p:dialog>

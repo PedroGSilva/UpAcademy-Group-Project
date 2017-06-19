@@ -27,6 +27,5 @@ public class PatientRepository extends EntityRepository<Patient> {
 	public List<Patient> checkIfExists(String nHS) {
 		Query query = em.createQuery("SELECT e FROM Patient e where nHS = " + nHS);
 		return query.getResultList();
-
 	}
 }

@@ -1,7 +1,5 @@
 package upacademy.grouproject.service;
 
-import java.util.List;
-
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -10,8 +8,10 @@ import javax.inject.Named;
 import javax.transaction.Transactional;
 
 import upacademy.grouproject.model.Patient;
+import upacademy.grouproject.model.Triage;
 import upacademy.grouproject.repository.PatientRepository;
 import upacademy.grouproject.view.PatientBean;
+import upacademy.grouproject.view.TriageBean;
 
 @Named("patientService")
 @RequestScoped
@@ -23,8 +23,14 @@ public class PatientService extends EntityService<Patient> {
 	@Inject
 	PatientBean patient;
 
+	// Add new Patient
+	public String newPatient(Patient patient, String nextpage) {
+		er.persistEntity(patient);
+		newBean();
+		return nextpage;
+	}
+
 	// Edit patient
-	@Transactional
 	public void mergePatient(Long ID, Patient patient) {
 		// Find patient in the database
 		Patient emp = er.findEntity(Patient.class, ID);
@@ -39,32 +45,24 @@ public class PatientService extends EntityService<Patient> {
 		emp.setNumFloor(patient.getNumFloor());
 		emp.setZipCode(patient.getZipCode());
 		emp.setTown(patient.getTown());
-
+		
 		// Merge the new patient to the database
 		er.mergeEntity(emp);
 		newBean();
+	
 	}
 
-	public String newPatient(Patient patient, String nextpage) {
-		er.persistEntity(patient);
-		newBean();
-		return nextpage;
-	}
-
-	public void newBean() {
-		this.patient.setPatient(new Patient());
-	}
-
-	public void checkNHS(String nHS) {
+	// Check if patient exists
+	public boolean checkNHS(String nHS) {
 		if (er.checkIfExists(nHS).isEmpty() == true) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Info",
-					"Patient does not exist, please create a new patient"));
+			return true;
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Info",
-							"Patient " + er.checkIfExists(nHS).get(0).getName()
-									+ " already exists, please proceed with the triage"));
+			return false;
 		}
 	}
 
+	// New bean
+	public void newBean() {
+		this.patient.setPatient(new Patient());
+	}
 }
