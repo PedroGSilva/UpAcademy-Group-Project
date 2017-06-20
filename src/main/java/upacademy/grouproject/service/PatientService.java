@@ -38,12 +38,14 @@ public class PatientService extends EntityService<Patient> {
 		emp.setName(patient.getName());
 		emp.setBloodType(patient.getBloodType());
 		emp.setDateOfBirth(patient.getDateOfBirth());
-		emp.setDistrict(patient.getDistrict());
-		emp.setTownHall(patient.getTownHall());
+		emp.setGender(patient.getGender());
+		emp.setPhone(patient.getPhone());
+		emp.setEmail(patient.getEmail());
 		emp.setStreet(patient.getStreet());
 		emp.setNumFloor(patient.getNumFloor());
 		emp.setZipCode(patient.getZipCode());
 		emp.setTown(patient.getTown());
+		emp.setObservations(patient.getObservations());
 		
 		// Merge the new patient to the database
 		er.mergeEntity(emp);
