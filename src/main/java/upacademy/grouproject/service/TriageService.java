@@ -6,6 +6,7 @@ import javax.inject.Named;
 import upacademy.grouproject.model.Patient;
 import upacademy.grouproject.model.Triage;
 import upacademy.grouproject.repository.TriageRepository;
+import upacademy.grouproject.view.PatientBean;
 import upacademy.grouproject.view.TriageBean;
 
 
