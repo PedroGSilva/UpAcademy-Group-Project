@@ -25,12 +25,14 @@ public class Patient extends EntityModel implements Serializable {
 	// Patient date of birth
 	@Size(min =1, message = "Please insert a date of birth")
 	private String dateOfBirth;
-	// Patient district (city)
-	@Size(min =1, message = "Please insert a district")
-	private String district;
-	// Patient town hall (city)
+	@NotNull(message = "Please specify a gender")
+	private String gender;
+	// Patient phone (city)
+	@Size(min =1, message = "Please insert a phone number")
+	private String phone;
+	// Patient Email (city)
 	@Size(min =1, message = "Please insert a town hall")
-	private String townHall;
+	private String email;
 	// Patient street
 	@Size(min =1, message = "Please insert a street")
 	private String street;
@@ -43,6 +45,8 @@ public class Patient extends EntityModel implements Serializable {
 	// Patient town
 	@Size(min =1, message = "Please insert a town")
 	private String town;
+	// Optional Observations; no validation required
+	private String observations;
 
 
 	// Getters & Setters
@@ -78,20 +82,28 @@ public class Patient extends EntityModel implements Serializable {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String getDistrict() {
-		return district;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setDistrict(String district) {
-		this.district = district;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
-	public String getTownHall() {
-		return townHall;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setTownHall(String townHall) {
-		this.townHall = townHall;
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getStreet() {
@@ -124,6 +136,14 @@ public class Patient extends EntityModel implements Serializable {
 
 	public void setTown(String town) {
 		this.town = town;
+	}
+
+	public String getObservations() {
+		return observations;
+	}
+
+	public void setObservations(String observations) {
+		this.observations = observations;
 	}
 
 }
