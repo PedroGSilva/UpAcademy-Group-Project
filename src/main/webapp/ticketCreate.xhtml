@@ -121,8 +121,9 @@
 
 							<h:panelGroup id="proceedT">
 								<p:commandButton value="Proceed"
-									onclick="#{patientBean.showproceed('hide')}"
-									rendered="#{patientBean.showProceedTriage}">
+									rendered="#{patientBean.showProceedTriage}"
+									action="formFilling">
+									<f:actionListener binding="#{patientBean.showproceed(hide)}"/>
 								</p:commandButton>
 							</h:panelGroup>
 						</h:form>

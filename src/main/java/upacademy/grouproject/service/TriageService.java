@@ -1,15 +1,15 @@
 package upacademy.grouproject.service;
 
+import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.Query;
 
+import upacademy.grouproject.model.Patient;
 import upacademy.grouproject.model.Triage;
 import upacademy.grouproject.repository.TriageRepository;
+import upacademy.grouproject.view.TriageBean;
 
-import javax.enterprise.context.Dependent;
+
 import javax.enterprise.context.RequestScoped;
-
-import upacademy.grouproject.model.Triage;
 
 @Named("triageService")
 @RequestScoped
@@ -25,4 +25,21 @@ public class TriageService extends EntityService<Triage>{
 		List <Triage> sortedList2 = triageList.stream().sorted().collect(Collectors.toList());
 		return sortedList2;
 	}*/
+	
+	@Inject
+	TriageRepository tr = new TriageRepository();
+	
+	@Inject
+	TriageBean triage;
+	
+	public void newTicket(Triage triage, Patient patient) {
+		triage.setnHS(patient.getnHS());
+		triage.priorityLevel(triage);
+		tr.persistEntity(triage);
+		System.out.println(triage.getPriorityLevel());
+		newBean();
+	}
+	public void newBean() {
+		this.triage.setTriage(new Triage());
+	}
 }

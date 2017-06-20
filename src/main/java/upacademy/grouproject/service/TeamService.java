@@ -2,7 +2,6 @@ package upacademy.grouproject.service;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.transaction.Transactional;
 import javax.enterprise.context.RequestScoped;
 
 import upacademy.grouproject.model.Team;
