@@ -102,79 +102,89 @@
 						<h:form styleClass="form">
 
 							<h:panelGrid columns="3" cellpadding="10" id="createPatientGrid"
-								styleClass="primefacesfont" style="margin:20px">
-								<p:row>
-									<p:column>
-										<h:outputLabel style="width:75px" for="nHS" value="NHS number: " />
-										<p:inputMask id="nHS" mask="999999999" value="#{patientBean.patient.nHS}" />
-										<p:message style="margin:20px" for="nHS" />
-									</p:column>
-									<p:column>
-										<h:outputLabel style="width:75px" for="name" value="Name: " />
-										<p:inputText id="name" value="#{patientBean.patient.name}" />
-										<p:message style="margin:20px" for="name" />
-									</p:column>
-									<p:column>
-										<h:outputLabel style="width:75px" for="bloodType" value="Blood Type: " />
-										<p:selectOneButton id="bloodType"
-											value="#{patientBean.patient.bloodType}">
-											<f:selectItem itemLabel="O+" itemValue="O+" />
-											<f:selectItem itemLabel="O-" itemValue="O-" />
-											<f:selectItem itemLabel="A+" itemValue="A+" />
-											<f:selectItem itemLabel="A-" itemValue="A-" />
-											<f:selectItem itemLabel="B+" itemValue="B+" />
-											<f:selectItem itemLabel="B-" itemValue="B-" />
-											<f:selectItem itemLabel="AB+" itemValue="AB+" />
-											<f:selectItem itemLabel="AB-" itemValue="AB-" />
-										</p:selectOneButton>
-										<p:message style="margin:20px" for="bloodType" />
-									</p:column>
-									<p:column>
-										<h:outputLabel style="width:75px" for="dateOfBirth" value="Date of Birth: " />
-										<p:inputMask id="dateOfBirth" mask="99/99/9999"
-											value="#{patientBean.patient.dateOfBirth}" />
-										<p:message style="margin:20px" for="dateOfBirth" />
-									</p:column>
-								</p:row>
-								
-								<p:row>
+								styleClass="primefacesfont" style="margin:10px">
+
+								<p:column>
+									<h:outputLabel style="width:75px" for="nHS"
+										value="NHS number: " />
+									<p:inputMask id="nHS" mask="999999999"
+										value="#{patientBean.patient.nHS}" style="margin:10px" />
+									<br />
+
+									<h:outputLabel style="width:75px" for="name" value="Name: " />
+									<p:inputText id="name" value="#{patientBean.patient.name}"
+										style="margin:10px" />
+									<br />
+
+									<h:outputLabel style="width:75px" for="bloodType"
+										value="Blood Type: " />
+									<p:selectOneButton id="bloodType" style="margin:10px"
+										value="#{patientBean.patient.bloodType}">
+										<f:selectItem itemLabel="O+" itemValue="O+" />
+										<f:selectItem itemLabel="O-" itemValue="O-" />
+										<f:selectItem itemLabel="A+" itemValue="A+" />
+										<f:selectItem itemLabel="A-" itemValue="A-" />
+										<f:selectItem itemLabel="B+" itemValue="B+" />
+										<f:selectItem itemLabel="B-" itemValue="B-" />
+										<f:selectItem itemLabel="AB+" itemValue="AB+" />
+										<f:selectItem itemLabel="AB-" itemValue="AB-" />
+									</p:selectOneButton>
+									<br />
+
+									<h:outputLabel style="width:75px" for="dateOfBirth"
+										value="Date of Birth: " />
+									<p:inputMask id="dateOfBirth" mask="99/99/9999"
+										value="#{patientBean.patient.dateOfBirth}" style="margin:10px" />
+									<br />
+								</p:column>
+
+
+								<p:column>
 									<h:outputLabel value="Address: " />
 									<br />
 
 
-									<h:outputLabel style="width:90px" for="district" value="District: " />
-									<p:inputText id="district"
+									<h:outputLabel style="width:90px" for="district"
+										value="District: " />
+									<p:inputText id="district" style="margin:10px"
 										value="#{patientBean.patient.district}" />
-									<p:message style="margin:20px" for="district" />
+									<br />
 
-									<h:outputLabel style="width:90px" for="townHall" value="Town Hall: " />
-									<p:inputText id="townHall"
+									<h:outputLabel style="width:90px" for="townHall"
+										value="Town Hall: " />
+									<p:inputText id="townHall" style="margin:10px"
 										value="#{patientBean.patient.townHall}" />
-									<p:message style="margin:20px" for="townHall" />
+									<br />
 
 									<h:outputLabel style="width:90px" for="street" value="Street: " />
-									<p:inputText id="street" value="#{patientBean.patient.street}" />
-									<p:message style="margin:20px" for="street" />
+									<p:inputText id="street" style="margin:10px"
+										value="#{patientBean.patient.street}" />
+									<br />
 
-									<h:outputLabel style="width:90px" for="numFloor" value="Door Nº, Floor: " />
-									<p:inputText id="numFloor"
+									<h:outputLabel style="width:90px" for="numFloor"
+										value="Door Nº, Floor: " />
+									<p:inputText id="numFloor" style="margin:10px"
 										value="#{patientBean.patient.numFloor}" />
-									<p:message style="margin:20px" for="numFloor" />
+									<br />
 
-									<h:outputLabel style="width:90px" for="zipCode" value="Zip Code: " />
-									<p:inputText id="zipCode"
+									<h:outputLabel style="width:90px" for="zipCode"
+										value="Zip Code: " />
+									<p:inputText id="zipCode" style="margin:10px"
 										value="#{patientBean.patient.zipCode}" />
-									<p:message style="margin:20px" for="zipCode" />
+									<br />
 
 									<h:outputLabel style="width:90px" for="town" value="Town: " />
-									<p:inputText id="town" value="#{patientBean.patient.town}" />
-									<p:message style="margin:20px" for="town" />
-								</p:row>
+									<p:inputText id="town" style="margin:10px"
+										value="#{patientBean.patient.town}" />
+									<br />
+								</p:column>
 							</h:panelGrid>
+
 							<p:commandButton id="createPatientButton" value="Create patient"
 								validateClient="true" update="createPatientGrid"
-								action="#{patientBean.patientService.newPatient(patientBean.patient, 'patientList')}" />
-
+								action="#{patientBean.patientCreate(patientBean.patient, 'patientList')}" />
+							<p:messages id="messages" showDetail="false" autoUpdate="true"
+								closable="true" />
 						</h:form>
 					</div>
 				</div>

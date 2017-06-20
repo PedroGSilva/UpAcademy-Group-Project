@@ -25,18 +25,29 @@ public class PatientBean implements Serializable {
 
 	@Inject
 	private PatientService patientService;
-
+	
+	// Create ticket patient check
 	public void patientCheck(String nHS) {
 		if (patientService.checkNHS(nHS) == true) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_WARN, "Info", "Patient does not exist"));
+					new FacesMessage(FacesMessage.SEVERITY_WARN, "Info: Patient does not exist", ""));
 			showcreate("show");
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info",
-					"Patient already exists"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info: Patient already exists",
+					""));
 			showproceed("show");
 		}
-
+	}
+	
+	// Create patient
+	public String patientCreate (Patient patient, String nextpage) {
+		if(patientService.checkNHS(patient.getnHS()) == true ) {
+			patientService.newPatient(patient);
+			return nextpage;			
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info: Patient already exists, please verify NHS number", ""));
+		}
+		return null;
 	}
 
 	// Buttons show/hide

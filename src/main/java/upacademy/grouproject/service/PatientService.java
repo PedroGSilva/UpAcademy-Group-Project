@@ -24,10 +24,9 @@ public class PatientService extends EntityService<Patient> {
 	PatientBean patient;
 
 	// Add new Patient
-	public String newPatient(Patient patient, String nextpage) {
+	public void newPatient(Patient patient) {
 		er.persistEntity(patient);
 		newBean();
-		return nextpage;
 	}
 
 	// Edit patient
