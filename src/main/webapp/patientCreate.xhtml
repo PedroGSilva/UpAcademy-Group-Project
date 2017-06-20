@@ -95,13 +95,13 @@
 				<div class="row mt form-panel">
 					<!--CUSTOM CHART START -->
 					<div class="border-head">
-						<h3>Create new patient</h3>
+						<h2>Create new patient</h2>
 					</div>
 
 					<div class="inputs">
 						<h:form styleClass="form">
 
-							<h:panelGrid columns="3" cellpadding="10" id="createPatientGrid"
+							<h:panelGrid columns="4" cellpadding="10" id="createPatientGrid"
 								styleClass="primefacesfont" style="margin:10px">
 
 								<p:column>
@@ -129,6 +129,7 @@
 										<f:selectItem itemLabel="AB+" itemValue="AB+" />
 										<f:selectItem itemLabel="AB-" itemValue="AB-" />
 									</p:selectOneButton>
+
 									<br />
 
 									<h:outputLabel style="width:75px" for="dateOfBirth"
@@ -136,24 +137,33 @@
 									<p:inputMask id="dateOfBirth" mask="99/99/9999"
 										value="#{patientBean.patient.dateOfBirth}" style="margin:10px" />
 									<br />
+
+									<h:outputLabel style="width:75px" for="gender" value="Gender: " />
+									<p:selectOneButton id="gender" style="margin:10px"
+										value="#{patientBean.patient.gender}">
+										<f:selectItem itemLabel="Male" itemValue="Male" />
+										<f:selectItem itemLabel="Female" itemValue="Female" />
+									</p:selectOneButton>
+
+									<br />
+
 								</p:column>
 
 
 								<p:column>
-									<h:outputLabel value="Address: " />
+									<h:outputLabel style="font-size:125%"
+										value="Contact Information" />
 									<br />
 
 
-									<h:outputLabel style="width:90px" for="district"
-										value="District: " />
-									<p:inputText id="district" style="margin:10px"
-										value="#{patientBean.patient.district}" />
+									<h:outputLabel style="width:90px" for="phone" value="Phone: " />
+									<p:inputMask id="phone" mask="999999999"
+										value="#{patientBean.patient.phone}" style="margin:10px" />
 									<br />
 
-									<h:outputLabel style="width:90px" for="townHall"
-										value="Town Hall: " />
-									<p:inputText id="townHall" style="margin:10px"
-										value="#{patientBean.patient.townHall}" />
+									<h:outputLabel style="width:90px" for="email" value="Email: " />
+									<p:inputText id="email" style="margin:10px"
+										value="#{patientBean.patient.email}" />
 									<br />
 
 									<h:outputLabel style="width:90px" for="street" value="Street: " />
@@ -162,7 +172,7 @@
 									<br />
 
 									<h:outputLabel style="width:90px" for="numFloor"
-										value="Door Nº, Floor: " />
+										value="Door/Floor: " />
 									<p:inputText id="numFloor" style="margin:10px"
 										value="#{patientBean.patient.numFloor}" />
 									<br />
@@ -177,6 +187,17 @@
 									<p:inputText id="town" style="margin:10px"
 										value="#{patientBean.patient.town}" />
 									<br />
+									
+								</p:column>
+								
+									<h:outputLabel style="width:90px" for="observations" value="Observations: " />
+									<h:inputTextarea cols="30" rows="10" id="observations" style="margin:10px; height:90px"
+										value="#{patientBean.patient.observations}" />
+									<br />
+									
+								<p:column>
+									
+								
 								</p:column>
 							</h:panelGrid>
 

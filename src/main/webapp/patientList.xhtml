@@ -116,12 +116,13 @@
 									<h:outputText value="#{patient.dateOfBirth}" />
 								</p:column>
 
+								<!-- 
 								<p:column headerText="District">
 									<h:outputText value="#{patient.district}" />
 								</p:column>
 
 								<p:column headerText="Town Hall">
-									<h:outputText value="#{patient.townHall}" />
+									<h:outputText value="#{patient.email}" />
 								</p:column>
 
 								<p:column headerText="Street">
@@ -139,8 +140,11 @@
 								<p:column headerText="Zip-Code">
 									<h:outputText value="#{patient.zipCode}" />
 								</p:column>
+								
+								 -->
 
-								<p:column headerText="Remove / Edit">
+								<p:column headerText="Remove / Edit / View Details">
+
 									<p:commandButton icon="ui-icon-trash" update="patients"
 										action="#{patientBean.patientService.deleteEntity(patient.ID,patientBean.teste1())}" />
 
@@ -149,13 +153,103 @@
 										<f:setPropertyActionListener value="#{patient}"
 											target="#{patientBean.patient}" var="patientedition" />
 									</p:commandButton>
+
+									<p:commandButton icon="ui-icon-search"
+										update=":dlgformV:viewPatientGrid"
+										oncomplete="PF('viewdlg').show()">
+										<f:setPropertyActionListener value="#{patient}"
+											target="#{patientBean.patient}" var="patientview" />
+									</p:commandButton>
 								</p:column>
 							</p:dataTable>
 						</h:form>
 
+						<p:dialog id="patientdlgV" header="View Patient Details"
+							widgetVar="viewdlg" resizable="true" modal="true"
+							closable="false">
+							<p:ajax event="close" update=":patientform" />
+							<h:form id="dlgformV">
+								<p:outputPanel id="patientDetailV">
+									<p:panelGrid columns="2" styleClass="primefacesfont"
+										id="viewPatientGrid" style="margin:20px"
+										value="#{patientBean.patientService.consultEntity('Patient')}">
+										<p:layout style="min-width:800px; min-height:600px;">
+
+											<p:layoutUnit position="center" resizable="true" size="600px">
+
+												<f:facet name="header">
+													<p:graphicImage name="assets/images/img/patient.ico" />
+												</f:facet>
+
+												<h:outputLabel style="width:100px" for="nHS" value="NCSH: " />
+												<h:outputText style="font-size:125%"
+													value=" #{patientBean.patient.nHS}" />
+
+												<br />
+
+												<h:outputLabel style="width:100px" for="name" value="Name: " />
+												<h:outputText style="font-size:125%"
+													value=" #{patientBean.patient.name}" />
+
+												<br />
+
+												<h:outputLabel style="width:100px" for="bloodType"
+													value="Blood Type: " />
+												<h:outputText style="font-size:125%"
+													value=" #{patientBean.patient.bloodType}" />
+
+												<br />
+
+												<h:outputLabel style="width:100px" for="dateOfBirth"
+													value="Date of Birth: " />
+												<h:outputText style="font-size:125%"
+													value=" #{patientBean.patient.dateOfBirth}" />
+
+												<br />
+												<p:separator />
+
+												<h:outputText escape="false" style="height: 225px"
+													value="- Additional Information -
+												&lt;br  /&gt; 
+												The patient resides in #{patientBean.patient.town}, #{patientBean.patient.street}, floor/door number - #{patientBean.patient.numFloor}, 
+												and zip-code - #{patientBean.patient.zipCode}
+												&lt;br /&gt;
+												Contact Details:
+												&lt;br /&gt;
+												Telephone: #{patientBean.patient.phone}
+												&lt;br /&gt;
+												E-mail: #{patientBean.patient.email}" />
+
+												<br />
+												<p:separator />
+												
+												<h:outputText escape="false" style="height: 225px"
+													value="- Observations -
+												&lt;br  /&gt;
+												#{patientBean.patient.observations}" />
+
+
+
+												<h:commandLink>
+													<p:graphicImage name="/assets/img/pdf.png" />
+													<p:dataExporter type="pdf" target="test"
+														fileName="Patient Details" pageOnly="true" />
+												</h:commandLink>
+
+
+											</p:layoutUnit>
+										</p:layout>
+									</p:panelGrid>
+									<p:commandButton id="viewcancel" value="Cancel"
+										oncomplete="PF('viewdlg').hide()"
+										action="#{patientBean.patientService.newBean()}" />
+								</p:outputPanel>
+							</h:form>
+						</p:dialog>
 
 						<p:dialog id="patientdlg" header="Edit patient"
-							widgetVar="editdlg" resizable="true" modal="true">
+							widgetVar="editdlg" resizable="true" modal="true"
+							closable="false">
 							<p:ajax event="close" update=":patientform" />
 							<h:form id="dlgform">
 								<p:outputPanel id="patientDetail">
@@ -197,21 +291,19 @@
 												<p:message style="margin:20px" for="dateOfBirth" />
 
 
-												<h:outputLabel value="Address: " />
+												<h:outputLabel value="Contact Information" />
 												<br />
 
 
-												<h:outputLabel style="width:100px" for="district"
-													value="District: " />
-												<p:inputText id="district"
-													value="#{patientBean.patient.district}" />
-												<p:message style="margin:20px" for="district" />
+												<h:outputLabel style="width:100px" for="phone"
+													value="Phone: " />
+												<p:inputText id="phone" value="#{patientBean.patient.phone}" />
+												<p:message style="margin:20px" for="phone" />
 
-												<h:outputLabel style="width:100px" for="townHall"
-													value="Town Hall: " />
-												<p:inputText id="townHall"
-													value="#{patientBean.patient.townHall}" />
-												<p:message style="margin:20px" for="townHall" />
+												<h:outputLabel style="width:100px" for="email"
+													value="Email: " />
+												<p:inputText id="email" value="#{patientBean.patient.email}" />
+												<p:message style="margin:20px" for="email" />
 
 												<h:outputLabel style="width:100px" for="street"
 													value="Street: " />
@@ -234,6 +326,14 @@
 												<h:outputLabel style="width:100px" for="town" value="Town: " />
 												<p:inputText id="town" value="#{patientBean.patient.town}" />
 												<p:message style="margin:20px" for="town" />
+
+												<h:outputLabel style="width:100px" for="observations"
+													value="Observations: " />
+												<p:inputText id="observations"
+													value="#{patientBean.patient.observations}" />
+												<p:message style="margin:20px" for="observations" />
+
+
 
 											</p:layoutUnit>
 										</p:layout>
