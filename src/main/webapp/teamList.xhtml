@@ -136,23 +136,20 @@
 
 
 						<p:dialog id="teamdelete" header="Delete team"
-							widgetVar="deletedlg" modal="true"
-							closable="false">
+							widgetVar="deletedlg" modal="true" closable="false">
 							<p:ajax event="close" update=":teamform" />
 							<h:form id="deleteform">
 								<h:panelGrid columns="2" styleClass="primefacesfont"
-									id="deleteTeamGrid" value="#{team}" 
+									id="deleteTeamGrid" value="#{team}"
 									rendered="#{not empty teamBean.team}">
 									<h:outputLabel style="margin:20px"
 										value="Are you sure you want to delete this team?" />
 									<br />
 									<p:commandButton value="Yes"
 										oncomplete="PF('deletedlg').hide()"
-										action="#{teamBean.teamService.newBean()}">
-										<f:actionListener binding="#{teamBean.teamService.deleteEntity(teamBean.team.ID, teamBean.teste())}" />
-									</p:commandButton>
+										action="#{teamBean.deleteTeam(teamBean.team.ID)}" />
 									<p:commandButton value="No" oncomplete="PF('deletedlg').hide()"
-										action="#{teamBean.teamService.newBean()}" />
+										action="#{teamBean.newBean()}" />
 								</h:panelGrid>
 							</h:form>
 						</p:dialog>
@@ -206,10 +203,10 @@
 									<p:commandButton id="editTeamButton" value="Edit team"
 										validateClient="true" update="editTeamGrid"
 										oncomplete="if (!args.validationFailed) PF('editdlg').hide()"
-										action="#{teamBean.teamService.mergeTeam(teamBean.team.ID, teamBean.team)}" />
+										action="#{teamBean.updateTeam(teamBean.team.ID, teamBean.team)}" />
 									<p:commandButton id="editcancel" value="Cancel"
 										update="editTeamGrid" oncomplete="PF('editdlg').hide()"
-										action="#{teamBean.teamService.newBean()}" />
+										action="#{teamBean.newBean()}" />
 
 								</p:outputPanel>
 							</h:form>

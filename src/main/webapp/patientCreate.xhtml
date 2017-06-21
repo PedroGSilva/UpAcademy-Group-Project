@@ -101,7 +101,7 @@
 					<div class="inputs">
 						<h:form styleClass="form">
 
-							<h:panelGrid columns="4" cellpadding="10" id="createPatientGrid"
+							<h:panelGrid columns="2" cellpadding="10" id="createPatientGrid"
 								styleClass="primefacesfont" style="margin:10px">
 
 								<p:column>
@@ -144,9 +144,6 @@
 										<f:selectItem itemLabel="Male" itemValue="Male" />
 										<f:selectItem itemLabel="Female" itemValue="Female" />
 									</p:selectOneButton>
-
-									<br />
-
 								</p:column>
 
 
@@ -187,18 +184,19 @@
 									<p:inputText id="town" style="margin:10px"
 										value="#{patientBean.patient.town}" />
 									<br />
-									
+
 								</p:column>
-								
-									<h:outputLabel style="width:90px" for="observations" value="Observations: " />
-									<h:inputTextarea cols="30" rows="10" id="observations" style="margin:10px; height:90px"
-										value="#{patientBean.patient.observations}" />
+
+								<p:row>
+									<h:outputLabel for="observations" value="Observations: " />
 									<br />
-									
-								<p:column>
-									
-								
-								</p:column>
+									<h:inputTextarea cols="30" rows="10" id="observations"
+										style="margin:10px; height:90px"
+										value="#{patientBean.patient.observations}" />
+
+								</p:row>
+
+
 							</h:panelGrid>
 
 							<p:commandButton id="createPatientButton" value="Create patient"
