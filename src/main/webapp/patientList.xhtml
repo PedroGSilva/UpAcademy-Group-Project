@@ -9,6 +9,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</h:head>
+
 	<ui:define name="leftbar">
 		<!-- <body> -->
 
@@ -108,6 +112,10 @@
 									<h:outputText value="#{patient.name}" />
 								</p:column>
 
+								<p:column headerText="Gender">
+									<h:outputText value="#{patient.gender}" />
+								</p:column>
+
 								<p:column headerText="Blood Type">
 									<h:outputText value="#{patient.bloodType}" />
 								</p:column>
@@ -193,6 +201,12 @@
 
 												<br />
 
+												<h:outputLabel style="width:100px" for="name" value="Gender: " />
+												<h:outputText style="font-size:125%"
+													value=" #{patientBean.patient.gender}" />
+
+												<br />
+
 												<h:outputLabel style="width:100px" for="bloodType"
 													value="Blood Type: " />
 												<h:outputText style="font-size:125%"
@@ -222,25 +236,17 @@
 
 												<br />
 												<p:separator />
-												
+
 												<h:outputText escape="false" style="height: 225px"
 													value="- Observations -
 												&lt;br  /&gt;
 												#{patientBean.patient.observations}" />
 
 
-
-												<h:commandLink>
-													<p:graphicImage name="/assets/img/pdf.png" />
-													<p:dataExporter type="pdf" target="test"
-														fileName="Patient Details" pageOnly="true" />
-												</h:commandLink>
-
-
 											</p:layoutUnit>
 										</p:layout>
 									</p:panelGrid>
-									<p:commandButton id="viewcancel" value="Cancel"
+									<p:commandButton id="viewclose" value="Close"
 										oncomplete="PF('viewdlg').hide()"
 										action="#{patientBean.patientService.newBean()}" />
 								</p:outputPanel>
@@ -268,6 +274,10 @@
 												<h:outputLabel style="width:100px" for="name" value="Name: " />
 												<p:inputText id="name" value="#{patientBean.patient.name}" />
 												<p:message style="margin:20px" for="name" />
+												
+												<h:outputLabel style="width:100px" for="gender" value="Gender: " />
+												<p:inputText id="gender" value="#{patientBean.patient.gender}" />
+												<p:message style="margin:20px" for="gender" />
 
 												<h:outputLabel style="width:100px" for="bloodType"
 													value="Blood Type: " />
