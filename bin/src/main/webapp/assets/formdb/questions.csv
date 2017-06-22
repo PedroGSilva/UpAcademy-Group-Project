@@ -1,0 +1,22 @@
+id;question;type
+1;Airway Compromises;red
+2;Inadequate Breathing;red
+3;Exsanguinating Haemorrhage;red
+4;Shock;red
+5;Unresponsive Child;red
+6;Currently Fitting;red
+7;Uncontrollable Major Haemorrhage;orange
+8;New Abnormal Pulse;orange
+9;Alterate Conscious Level;orange
+10;Very Hot;orange
+11;Hot Baby;orange
+12;Cold;orange
+13;Severe Pain;orange
+14;Uncontrollable Minor Haemorrhage;yellow
+15;History of Unconsciousness;yellow
+16;Hot;yellow
+17;Moderate Pain;yellow
+18;Warmth;general
+19;Vomit;general
+20;Recent Mild Pain (<7 days);general
+21;Precent Problem;general
