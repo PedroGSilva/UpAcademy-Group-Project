@@ -67,16 +67,16 @@ INSERT INTO `Questions` (`ID`,`Question`,`Type`) VALUES ('23','Precent Problem',
 
 ## Triage
 
-INSERT INTO `Triage` (`ID`,`nHS`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`) VALUES ('1','796717904','C','','','','[Uncontrollable Minor Haemorrhage]');
-INSERT INTO `Triage` (`ID`,`nHS`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`) VALUES ('2','242075798','E','','','','');
-INSERT INTO `Triage` (`ID`,`nHS`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`) VALUES ('3','529644930','D','[Warmth]','','','');
-INSERT INTO `Triage` (`ID`,`nHS`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`) VALUES ('4','982215882','D','[Warmth]','','','');
-INSERT INTO `Triage` (`ID`,`nHS`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`) VALUES ('5','094738741','B','','[Uncontrollable Major Haemorrhage]','','');
-INSERT INTO `Triage` (`ID`,`nHS`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`) VALUES ('6','973261352','A','','','[Airway Compromises]','');
-INSERT INTO `Triage` (`ID`,`nHS`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`) VALUES ('7','278954339','A','','','[Airway Compromises]','');
-INSERT INTO `Triage` (`ID`,`nHS`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`) VALUES ('8','474315653','C','','','','[Uncontrollable Minor Haemorrhage]');
-INSERT INTO `Triage` (`ID`,`nHS`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`) VALUES ('9','347614073','B','','[Uncontrollable Major Haemorrhage]','','');
-INSERT INTO `Triage` (`ID`,`nHS`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`) VALUES ('10','116577680','E','','','','');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('1','C','','','','[Uncontrollable Minor Haemorrhage]','1');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('2','E','','','','','2');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('3','D','[Warmth]','','','','3');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('4','D','[Warmth]','','','','4');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('5','B','','[Uncontrollable Major Haemorrhage]','','','5');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('6','A','','','[Airway Compromises]','','6');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('7','A','','','[Airway Compromises]','','7');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('8','C','','','','[Uncontrollable Minor Haemorrhage]','8');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('9','B','','[Uncontrollable Major Haemorrhage]','','','9');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('10','E','','','','','10');
 
 
 

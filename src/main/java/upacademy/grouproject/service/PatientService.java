@@ -1,9 +1,10 @@
 package upacademy.grouproject.service;
 
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
 
 import upacademy.grouproject.model.Patient;
 import upacademy.grouproject.repository.PatientRepository;
@@ -44,6 +45,11 @@ public class PatientService extends EntityService<Patient> {
 		} else {
 			return false;
 		}
+	}
+
+	// Get patient for triage
+	public List<Patient> retrievePatient(String nHS) {
+		return er.checkIfExists(nHS);
 	}
 
 }

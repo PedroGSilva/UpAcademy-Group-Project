@@ -95,7 +95,7 @@
 							<p:growl id="msgs" showDetail="true" />
 							<p:dataTable id="teams" var="team" style="text-align:center;"
 								styleClass="primefacesfont"
-								value="#{teamBean.teamService.consultEntity('Team')}">
+								value="#{teamBean.consultTeams('Team')}">
 
 								<p:column headerText="ID">
 									<h:outputText value="#{team.ID}" />

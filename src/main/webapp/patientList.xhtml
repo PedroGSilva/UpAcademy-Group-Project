@@ -99,7 +99,7 @@
 						<h:form id="patientform">
 							<p:dataTable id="patients" var="patient"
 								styleClass="primefacesfont" style="text-align:center;"
-								value="#{patientBean.patientService.consultEntity('Patient')}">
+								value="#{patientBean.consultPatients('Patient')}">
 								<p:column headerText="Id">
 									<h:outputText value="#{patient.ID}" />
 								</p:column>

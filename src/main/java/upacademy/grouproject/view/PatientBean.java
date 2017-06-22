@@ -7,8 +7,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import upacademy.grouproject.model.Patient;
+import upacademy.grouproject.model.Team;
 import upacademy.grouproject.service.PatientService;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Named("patientBean")
 @SessionScoped
@@ -48,6 +50,11 @@ public class PatientBean implements Serializable {
 	public void updatePatient(Long ID, Patient patient) {
 		patientService.mergePatient(ID, patient);
 		newBean();
+	}
+
+	// Consult all teams
+	public Collection<Patient> consultPatients(String entity) {
+		return patientService.consultEntity(entity);
 	}
 
 	// New bean

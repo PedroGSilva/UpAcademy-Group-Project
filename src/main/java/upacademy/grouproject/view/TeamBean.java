@@ -7,6 +7,7 @@ import javax.inject.Named;
 import upacademy.grouproject.model.Team;
 import upacademy.grouproject.service.TeamService;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Named("teamBean")
 @SessionScoped
@@ -42,6 +43,11 @@ public class TeamBean implements Serializable {
 		newBean();
 	}
 	
+	// Consult all teams
+	public Collection<Team> consultTeams (String entity) {
+		return teamService.consultEntity(entity);
+	}
+	
 	// New team bean
 	public void newBean() {
 		this.team = new Team();
@@ -60,9 +66,5 @@ public class TeamBean implements Serializable {
 		this.teamService = teamService;
 	}
 
-	public Class<Team> teste() {
-		return Team.class;
-
-	}
 
 }

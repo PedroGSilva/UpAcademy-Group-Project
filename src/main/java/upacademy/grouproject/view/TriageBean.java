@@ -1,11 +1,13 @@
 package upacademy.grouproject.view;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import upacademy.grouproject.model.Patient;
 import upacademy.grouproject.model.Triage;
 import upacademy.grouproject.service.TriageService;
 
@@ -22,6 +24,28 @@ public class TriageBean implements Serializable {
 
 	@Inject
 	private TriageService triageService;
+
+	// Create triage
+	public void triageCreate(Triage triage, String nHS) {
+		triageService.newTicket(triage, nHS);
+		newBean();
+	}
+
+	// Delete triage
+	public void deleteTriage(Long ID) {
+		triageService.deleteEntity(ID, Triage.class);
+		newBean();
+	}
+
+	// Sort triage
+	public List<Triage> sortTickets() {
+		return triageService.sortTriage();
+	}
+
+	// New triage bean
+	public void newBean() {
+		this.triage = new Triage();
+	}
 
 	// Buttons show/hide
 	private boolean showCreatePatient = false;

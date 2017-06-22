@@ -4,18 +4,22 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
 @Entity
 public class Triage extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	// Patient nHS
-	@Size(min = 1, message = "Please insert a NHS card number")
-	private String nHS;
+	//Patient associated
+	@ManyToOne(targetEntity = Patient.class)
+	private Patient patient;
 
 	// Priority level
 	private char priorityLevel;
+	
+	
+	// Set priority
 	public char priorityLevel(Triage triage){
 		char pl;
 				
@@ -45,20 +49,20 @@ public class Triage extends EntityModel implements Serializable {
 	private String selectedQuestionsGeneral = null;
 	
 	// Getters & Setters
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+	
 	public char getPriorityLevel() {
 		return priorityLevel;
 	}
 
 	public void setPriorityLevel(char priorityLevel) {
 		this.priorityLevel = priorityLevel;
-	}
-
-	public String getnHS() {
-		return nHS;
-	}
-
-	public void setnHS(String nHS) {
-		this.nHS = nHS;
 	}
 	
 	public ArrayList<String> getSelectedQuestionsRed() {
