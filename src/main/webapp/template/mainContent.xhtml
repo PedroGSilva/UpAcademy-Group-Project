@@ -192,34 +192,34 @@
 			<h3>TEAMS</h3>
 
 
+			<h:form>
+				<p:repeat id="teams" var="team" style="text-align:center;"
+					value="#{teamBean.teamService.consultEntity('Team')}">
+					<p:panelGrid columns="2" styleClass="removeGridBoard">
+						<p:outputPanel class="desc" style="width:100%">
+							<p:panelGrid >
+								<p:column style="width:150px">
+									<h:outputText styleClass="teamNameRightBar"
+										value="#{team.teamName}" />
+									<br />
 
-			<p:dataScroller id="teams" var="team" style="text-align:center;"
-				value="#{teamBean.teamService.consultEntity('Team')}">
-				<p:panelGrid columns="2" styleClass="removeGridBoard">
-					<p:outputPanel class="desc">
-						<p:panelGrid >
-							<p:column>
-								<h:outputText styleClass="teamNameRightBar"
-									value="#{team.teamName}" />
-								<br />
-
-								<h:outputText styleClass="temaDetailsRightBar"
-									value="Team room: " />
-								<h:outputText styleClass="temaDetailsRightBar"
-									value="#{team.teamRoom}" />
-								<br />
-							</p:column>
-							<p:column>
-								<h:outputText styleClass="teamPriorityRightBar"
-									value="Priority: " />
-								<h:outputText styleClass="teamPriorityRightBar"
-									value="#{team.teamPriority}" />
-							</p:column>
-						</p:panelGrid>
-					</p:outputPanel>
-				</p:panelGrid>
-			</p:dataScroller>
-
+									<h:outputText styleClass="temaDetailsRightBar"
+										value="Team room: " />
+									<h:outputText styleClass="temaDetailsRightBar"
+										value="#{team.teamRoom}" />
+									<br />
+								</p:column>
+								<p:column >
+									<h:outputText styleClass="teamPriorityRightBar"
+										value="Priority: " />
+									<h:outputText styleClass="teamPriorityRightBar"
+										value="#{team.teamPriority}" />
+								</p:column>
+							</p:panelGrid>
+						</p:outputPanel>
+					</p:panelGrid>
+				</p:repeat>
+			</h:form>
 
 			<!-- USERS ONLINE SECTION -->
 			<h3>WORKING TEAMS</h3>
