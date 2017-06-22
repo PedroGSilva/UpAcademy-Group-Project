@@ -124,37 +124,13 @@
 									<h:outputText value="#{patient.dateOfBirth}" />
 								</p:column>
 
-								<!-- 
-								<p:column headerText="District">
-									<h:outputText value="#{patient.district}" />
-								</p:column>
-
-								<p:column headerText="Town Hall">
-									<h:outputText value="#{patient.email}" />
-								</p:column>
-
-								<p:column headerText="Street">
-									<h:outputText value="#{patient.street}" />
-								</p:column>
-
-								<p:column headerText="Door Num/Floor">
-									<h:outputText value="#{patient.numFloor}" />
-								</p:column>
-
-								<p:column headerText="Town">
-									<h:outputText value="#{patient.town}" />
-								</p:column>
-
-								<p:column headerText="Zip-Code">
-									<h:outputText value="#{patient.zipCode}" />
-								</p:column>
-								
-								 -->
-
 								<p:column headerText="Remove / Edit / View Details">
-
-									<p:commandButton icon="ui-icon-trash" update="patients"
-										action="#{patientBean.patientService.deleteEntity(patient.ID,patientBean.teste1())}" />
+									<p:commandButton icon="ui-icon-trash"
+										update=":deleteform:deletePatientGrid"
+										oncomplete="PF('deletedlg').show()">
+										<f:setPropertyActionListener value="#{patient}"
+											target="#{patientBean.patient}" var="patientdelete" />
+									</p:commandButton>
 
 									<p:commandButton update=":dlgform:patientDetail"
 										oncomplete="PF('editdlg').show()" icon="ui-icon-pencil">
@@ -169,12 +145,32 @@
 											target="#{patientBean.patient}" var="patientview" />
 									</p:commandButton>
 								</p:column>
+
 							</p:dataTable>
 						</h:form>
 
+						<p:dialog id="patientdelete" header="Delete patient"
+							widgetVar="deletedlg" modal="true" closable="false">
+							<p:ajax event="close" update=":patientform" />
+							<h:form id="deleteform">
+								<h:panelGrid columns="2" styleClass="primefacesfont"
+									id="deletePatientGrid" value="#{patient}"
+									rendered="#{not empty patientBean.patient}">
+									<h:outputLabel style="margin:20px"
+										value="Are you sure you want to delete this patient?" />
+									<br />
+									<p:commandButton value="Yes"
+										oncomplete="PF('deletedlg').hide()"
+										action="#{patientBean.deletePatient(patientBean.patient.ID)}" />
+									<p:commandButton value="No" oncomplete="PF('deletedlg').hide()"
+										action="#{patientBean.newBean()}" />
+								</h:panelGrid>
+							</h:form>
+						</p:dialog>
+
 						<p:dialog id="patientdlgV" header="View Patient Details"
 							widgetVar="viewdlg" resizable="true" modal="true"
-							closable="false">
+							closable="false" >
 							<p:ajax event="close" update=":patientform" />
 							<h:form id="dlgformV">
 								<p:outputPanel id="patientDetailV">
@@ -248,7 +244,7 @@
 									</p:panelGrid>
 									<p:commandButton id="viewclose" value="Close"
 										oncomplete="PF('viewdlg').hide()"
-										action="#{patientBean.patientService.newBean()}" />
+										action="#{patientBean.newBean()}" />
 								</p:outputPanel>
 							</h:form>
 						</p:dialog>
@@ -262,99 +258,93 @@
 									<p:panelGrid columns="2" styleClass="primefacesfont"
 										id="editPatientGrid" style="margin:20px"
 										rendered="#{not empty patientBean.patient}" value="#{patient}">
-										<p:layout style="min-width:800px;min-height:600px;">
-
-											<p:layoutUnit position="center" resizable="true" size="600">
-
-												<h:outputLabel style="width:100px" for="nHS" value="NCSH: " />
-												<p:inputMask id="nHS" mask="999999999"
-													value="#{patientBean.patient.nHS}" />
-												<p:message style="margin:20px" for="nHS" />
-
-												<h:outputLabel style="width:100px" for="name" value="Name: " />
-												<p:inputText id="name" value="#{patientBean.patient.name}" />
-												<p:message style="margin:20px" for="name" />
-												
-												<h:outputLabel style="width:100px" for="gender" value="Gender: " />
-												<p:inputText id="gender" value="#{patientBean.patient.gender}" />
-												<p:message style="margin:20px" for="gender" />
-
-												<h:outputLabel style="width:100px" for="bloodType"
-													value="Blood Type: " />
-												<p:selectOneButton id="bloodType"
-													value="#{patientBean.patient.bloodType}">
-													<f:selectItem itemLabel="O+" itemValue="O+" />
-													<f:selectItem itemLabel="O-" itemValue="O-" />
-													<f:selectItem itemLabel="A+" itemValue="A+" />
-													<f:selectItem itemLabel="A-" itemValue="A-" />
-													<f:selectItem itemLabel="B+" itemValue="B+" />
-													<f:selectItem itemLabel="B-" itemValue="B-" />
-													<f:selectItem itemLabel="AB+" itemValue="AB+" />
-													<f:selectItem itemLabel="AB-" itemValue="AB-" />
-												</p:selectOneButton>
-												<p:message style="margin:20px" for="bloodType" />
-
-												<h:outputLabel style="width:100px" for="dateOfBirth"
-													value="Date of Birth: " />
-												<p:inputMask id="dateOfBirth" mask="99/99/9999"
-													value="#{patientBean.patient.dateOfBirth}" />
-												<p:message style="margin:20px" for="dateOfBirth" />
 
 
-												<h:outputLabel value="Contact Information" />
-												<br />
+										<p:column>
+											<h:outputLabel style="width:100px" for="nHS" value="NCSH: " />
+											<p:inputMask id="nHS" mask="999999999"
+												value="#{patientBean.patient.nHS}" />
+											<p:message style="margin:20px" for="nHS" />
 
+											<h:outputLabel style="width:100px" for="name" value="Name: " />
+											<p:inputText id="name" value="#{patientBean.patient.name}" />
+											<p:message style="margin:20px" for="name" />
 
-												<h:outputLabel style="width:100px" for="phone"
-													value="Phone: " />
-												<p:inputText id="phone" value="#{patientBean.patient.phone}" />
-												<p:message style="margin:20px" for="phone" />
+											<h:outputLabel style="width:100px" for="bloodType"
+												value="Blood Type: " />
+											<p:selectOneButton id="bloodType"
+												value="#{patientBean.patient.bloodType}">
+												<f:selectItem itemLabel="O+" itemValue="O+" />
+												<f:selectItem itemLabel="O-" itemValue="O-" />
+												<f:selectItem itemLabel="A+" itemValue="A+" />
+												<f:selectItem itemLabel="A-" itemValue="A-" />
+												<f:selectItem itemLabel="B+" itemValue="B+" />
+												<f:selectItem itemLabel="B-" itemValue="B-" />
+												<f:selectItem itemLabel="AB+" itemValue="AB+" />
+												<f:selectItem itemLabel="AB-" itemValue="AB-" />
+											</p:selectOneButton>
+											<p:message style="margin:20px" for="bloodType" />
 
-												<h:outputLabel style="width:100px" for="email"
-													value="Email: " />
-												<p:inputText id="email" value="#{patientBean.patient.email}" />
-												<p:message style="margin:20px" for="email" />
+											<h:outputLabel style="width:100px" for="dateOfBirth"
+												value="Date of Birth: " />
+											<p:inputMask id="dateOfBirth" mask="99/99/9999"
+												value="#{patientBean.patient.dateOfBirth}" />
+											<p:message style="margin:20px" for="dateOfBirth" />
+										</p:column>
 
-												<h:outputLabel style="width:100px" for="street"
-													value="Street: " />
-												<p:inputText id="street"
-													value="#{patientBean.patient.street}" />
-												<p:message style="margin:20px" for="street" />
+										<p:column>
+											<h:outputLabel value="Contact Information" />
+											<br />
 
-												<h:outputLabel style="width:100px" for="numFloor"
-													value="Door Nº/Floor: " />
-												<p:inputText id="numFloor"
-													value="#{patientBean.patient.numFloor}" />
-												<p:message style="margin:20px" for="numFloor" />
+											<h:outputLabel style="width:100px" for="phone"
+												value="Phone: " />
+											<p:inputText id="phone" value="#{patientBean.patient.phone}" />
+											<p:message style="margin:20px" for="phone" />
 
-												<h:outputLabel style="width:100px" for="zipCode"
-													value="Zip Code: " />
-												<p:inputText id="zipCode"
-													value="#{patientBean.patient.zipCode}" />
-												<p:message style="margin:20px" for="zipCode" />
+											<h:outputLabel style="width:100px" for="email"
+												value="Email: " />
+											<p:inputText id="email" value="#{patientBean.patient.email}" />
+											<p:message style="margin:20px" for="email" />
 
-												<h:outputLabel style="width:100px" for="town" value="Town: " />
-												<p:inputText id="town" value="#{patientBean.patient.town}" />
-												<p:message style="margin:20px" for="town" />
+											<h:outputLabel style="width:100px" for="street"
+												value="Street: " />
+											<p:inputText id="street"
+												value="#{patientBean.patient.street}" />
+											<p:message style="margin:20px" for="street" />
 
-												<h:outputLabel style="width:100px" for="observations"
-													value="Observations: " />
-												<p:inputText id="observations"
-													value="#{patientBean.patient.observations}" />
-												<p:message style="margin:20px" for="observations" />
+											<h:outputLabel style="width:100px" for="numFloor"
+												value="Door Nº/Floor: " />
+											<p:inputText id="numFloor"
+												value="#{patientBean.patient.numFloor}" />
+											<p:message style="margin:20px" for="numFloor" />
 
+											<h:outputLabel style="width:100px" for="zipCode"
+												value="Zip Code: " />
+											<p:inputText id="zipCode"
+												value="#{patientBean.patient.zipCode}" />
+											<p:message style="margin:20px" for="zipCode" />
 
+											<h:outputLabel style="width:100px" for="town" value="Town: " />
+											<p:inputText id="town" value="#{patientBean.patient.town}" />
+											<p:message style="margin:20px" for="town" />
 
-											</p:layoutUnit>
-										</p:layout>
+											<h:outputLabel style="width:100px" for="observations"
+												value="Observations: " />
+											<p:inputText id="observations"
+												value="#{patientBean.patient.observations}" />
+											<p:message style="margin:20px" for="observations" />
+										</p:column>
+
 									</p:panelGrid>
+
 									<p:commandButton id="editPatientButton" value="Edit patient"
 										validateClient="true" update="editPatientGrid"
 										oncomplete="if (!args.validationFailed) PF('editdlg').hide()"
-										action="#{patientBean.patientService.mergePatient(patientBean.patient.ID, patientBean.patient)}" />
+										action="#{patientBean.updatePatient(patientBean.patient.ID, patientBean.patient)}" />
 									<p:commandButton id="editcancel" value="Cancel"
 										update="editPatientGrid" oncomplete="PF('editdlg').hide()"
-										action="#{patientBean.patientService.newBean()}" />
+										action="#{patientBean.newBean()}" />
+
 								</p:outputPanel>
 							</h:form>
 						</p:dialog>

@@ -112,18 +112,18 @@
 
 							<h:panelGroup id="createP">
 								<p:commandButton value="Create"
-									rendered="#{patientBean.showCreatePatient}"
-									action="patientCreate">
-									<f:actionListener binding="#{patientBean.showcreate(hide)}"/>
+									disabled="#{!(patientBean.showCreatePatient)}"
+									action="patientCreate" actionListener="#{patientBean.showcreate('show')}">
+									
 								</p:commandButton>
 							</h:panelGroup>
 
 
 							<h:panelGroup id="proceedT">
 								<p:commandButton value="Proceed"
-									rendered="#{patientBean.showProceedTriage}"
-									action="formFilling">
-									<f:actionListener binding="#{patientBean.showproceed(hide)}"/>
+									disabled="#{!(patientBean.showProceedTriage)}"
+									action="formFilling" actionListener="#{patientBean.showproceed('show')}">
+									
 								</p:commandButton>
 							</h:panelGroup>
 						</h:form>

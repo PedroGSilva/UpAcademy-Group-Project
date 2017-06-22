@@ -130,7 +130,7 @@
 							</h:panelGrid>
 							<p:commandButton id="createTeamButton" value="Create team"
 								validateClient="true" update="createTeamGrid"
-								action="#{teamBean.teamService.newTeam(teamBean.team, 'teamList')}" />
+								action="#{teamBean.teamCreate(teamBean.team, 'teamList')}" />
 
 						</h:form>
 					</div>

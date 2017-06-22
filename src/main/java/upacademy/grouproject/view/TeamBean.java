@@ -22,7 +22,30 @@ public class TeamBean implements Serializable {
 
 	@Inject
 	private TeamService teamService;
-		
+
+	// Create team
+	public String teamCreate (Team team, String nextpage) {
+		teamService.addEntity(team);
+		newBean();
+		return nextpage;
+	}
+	
+	// Delete team
+	public void deleteTeam (Long ID) {
+		teamService.deleteEntity(ID, Team.class);
+		newBean();
+	}
+	
+	// Update team 
+	public void updateTeam (Long ID, Team team) {
+		teamService.mergeTeam(ID, team);
+		newBean();
+	}
+	
+	// New team bean
+	public void newBean() {
+		this.team = new Team();
+	}
 
 	// Getters & Setters
 	public void setTeam(Team team) {

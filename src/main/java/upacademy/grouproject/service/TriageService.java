@@ -4,10 +4,13 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import upacademy.grouproject.model.Patient;
+import upacademy.grouproject.model.Questions;
 import upacademy.grouproject.model.Triage;
+import upacademy.grouproject.repository.QuestionRepository;
 import upacademy.grouproject.repository.TriageRepository;
 import upacademy.grouproject.view.TriageBean;
 
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 
@@ -26,6 +29,8 @@ public class TriageService extends EntityService<Triage>{
 		return sortedList2;
 	}*/
 	
+	
+	
 	@Inject
 	TriageRepository tr = new TriageRepository();
 	
@@ -39,7 +44,15 @@ public class TriageService extends EntityService<Triage>{
 		System.out.println(triage.getPriorityLevel());
 		newBean();
 	}
+	
 	public void newBean() {
 		this.triage.setTriage(new Triage());
 	}
+
+	public List<Triage> getSortTriage (){
+		
+		TriageRepository trisort = (TriageRepository)this.er;
+		return trisort.sortTriage();
+	}	
+	
 }

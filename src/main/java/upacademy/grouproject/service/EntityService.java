@@ -11,6 +11,11 @@ public abstract class EntityService<T> {
 	@Inject
 	EntityRepository<T> er = new EntityRepository<T>();
 
+	// Add new entity to database
+	public void addEntity (T entity) {
+		er.persistEntity(entity);
+	}
+	
 	// Consult existing entities
 	public Collection<T> consultEntity(String querystring) {
 		return er.returnEntities(querystring);
