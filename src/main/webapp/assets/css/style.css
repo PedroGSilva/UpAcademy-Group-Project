@@ -2352,12 +2352,11 @@ label {
 }
 
 .teamPriorityRightBar {
-	font-size: 14px;
+	font-size: 12px;
 	text-transform: uppercase;
 	font-style: italic;
 	color: #666666;
 	font-family: 'Ruda', sans-serif;
-	padding-left: 15px;
 }
 
 .panelGridCenter {
