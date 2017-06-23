@@ -29,9 +29,12 @@ public class PatientBean implements Serializable {
 
 	// Create patient
 	public String patientCreate(Patient patient, String nextpage) {
-		if (patientService.checkNHS(patient.getnHS()) == true) {
+		if (patientService.checkNHS(patient.getnHS()) == true && nextpage.equals("patientList")) {
 			patientService.addEntity(patient);
 			newBean();
+			return nextpage;
+		} else if (patientService.checkNHS(patient.getnHS()) == true && nextpage.equals("formFilling")) {
+			patientService.addEntity(patient);
 			return nextpage;
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
