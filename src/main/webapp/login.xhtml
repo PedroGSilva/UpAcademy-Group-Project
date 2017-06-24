@@ -46,11 +46,11 @@
 	  <div id="login-page">
 	  	<div class="container">
 	  	
-		      <form class="form-login" action="index.html">
+		      <form method="post" class="form-login">
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <div class="login-wrap">
-		            <input type="text" class="form-control" placeholder="User ID"/>
-		            <input type="password" class="form-control" placeholder="Password"/>
+		            <input type="text" id="username" name="username" class="form-control" placeholder="User ID"/>
+		            <input type="text" id="password" name="password" class="form-control" placeholder="Password"/>
 		            <label class="checkbox">
 		                <span class="pull-right">
 		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
@@ -75,7 +75,8 @@
 		                      </div>
 		                      <div class="modal-footer">
 		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-		                          <button class="btn btn-theme" type="button">Submit</button>
+		                          <button class="btn btn-theme" value="Login" type="submit">Submit</button>
+		                          <span class="error">#{shiroLoginFailure}</span>
 		                      </div>
 		                  </div>
 		              </div>

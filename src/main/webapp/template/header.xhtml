@@ -130,7 +130,8 @@
 		<div class="top-menu">
 			<ul class="nav pull-right top-menu">
 				<li><a class="logout fa fa-lock" href="lock_screen.xhtml"></a></li>
-				<li><a class="logout" href="login.xhtml">Logout</a></li>
+				<li><h:form class="logout">
+				<h:commandButton value = "Logout" action="#{logout.submit}"> </h:commandButton></h:form></li>
 			</ul>
 		</div>
 		</header> <!--header end--> 
