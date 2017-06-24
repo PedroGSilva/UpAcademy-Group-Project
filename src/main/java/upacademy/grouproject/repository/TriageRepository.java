@@ -26,5 +26,7 @@ public class TriageRepository extends EntityRepository<Triage> {
 		Query query = em.createQuery("SELECT e FROM Patient e where nHS = " + nHS);
 		return (Patient) query.getResultList().get(0);
 	}
+	
+	
 
 }
