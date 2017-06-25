@@ -33,5 +33,10 @@ public class TriageService extends EntityService<Triage> {
 		TriageRepository trisort = (TriageRepository) this.er;
 		return trisort.returnsortTriage();
 	}
+	
+	public List<Integer> countTickets () {
+		return tr.listSizes();
+	}
+	
 
 }

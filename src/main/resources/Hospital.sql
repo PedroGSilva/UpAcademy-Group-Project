@@ -1,5 +1,8 @@
 ## Patients
-
+INSERT INTO `Patient` (`bloodType`,`dateOfBirth`,`email`,`gender`,`nHS`,`name`,`numFloor`,`observations`,`phone`,`street`,`town`,`zipCode`) VALUES ('A-','27/02/2014','cmb1@mdx6nz7.com','Female','111111111','Kevin Gates','34B','All good','961147859','North Street','Lisbon','1259-356');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('474315659','Dania Koester','O-','27/02/2014','Female','893 061 128','6s0mdedggvui@vrt4u27.com','Rosewood Drive','22','02132','Bleakburn','The merry remainder discharges the leaflet.');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('347614077','Olvan Merlier','A-','15/04/2037','Male','650 958 459','wi9hcj9__d4qad@segyk1gtlxb.com','North Street','1','20854','Larkinge','The jack opens a minor clone next to the bridge.');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('116577688','Martita Pappadopoulos','A+','21/03/2074','Female','735 879 544','5.cw@ukq3mzx.com','Arch Street','15','03054','Auchtermuchty','A remainder suspects with his piano!');
 INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('796717904','Shelley Griffin','O+','02/07/1923','Female','487 001 027','olobuhi-5536@yopmail.com','Lantern Lane','4','11510','Easthaven','');
 INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('242075798','Donetta Nasser','O+','31/03/1928','Female','022 505 607','6tsc2lrdtjc3@lvz93b8.com','Oxford Court','34','56001','Rotherhithe','The romance announces the delicate poster.');
 INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('529644930','Arthur Mahneke','AB+','03/09/1944','Male','999 161 362','m22qm1y@np4f8kiw.com','Circle Drive','11','60185','Varisvaara','Why will not another shoe stall? The mud dines this conditioned style beneath a butter.');
@@ -10,32 +13,30 @@ INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`
 INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('474315653','Dania Koester','O-','27/02/2014','Female','893 061 128','6s0mdedggvui@vrt4u27.com','Rosewood Drive','22','02132','Bleakburn','The merry remainder discharges the leaflet.');
 INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('347614073','Olvan Merlier','A-','15/04/2037','Male','650 958 459','wi9hcj9__d4qad@segyk1gtlxb.com','North Street','1','20854','Larkinge','The jack opens a minor clone next to the bridge.');
 INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('116577680','Martita Pappadopoulos','A+','21/03/2074','Female','735 879 544','5.cw@ukq3mzx.com','Arch Street','15','03054','Auchtermuchty','A remainder suspects with his piano!');
-
-
-
-
-
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('116577250','Mary S. Sanchez','A+','18/07/1956','Female','203-644-3498','MarySSanchez@dayrep.com','Walden Road','18','07854','GREENWAY','');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('114123250','Holly Lawson','AB+','05/11/1972','Female','079 8448 3071','HollyLawson@armyspy.com','Newport Road','7','452877','CARLOWAY','');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('452789654','Georgina Wallis','O+','13/10/1980','Female','078 3846 9124','GeorginaWallis@armyspy.com','Thompsons Lane','46','758877','MELTON MOWBRAY','');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('452789654','Brooke Barnes','A+','13/06/1988','Female','077 3246 9475','BrookeBarnes@dayrep.com','Dunmow Road','28','758428','Groby','');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('474315659','Anthony Farmer','B+','27/02/2001','Male','456 061 425','dfgdgfgdfi@vrt4u27.com','Manor Way','8','56489','Brown Town','');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('347614077','Francis Harry','AB-','10/05/1963','Male','650 554 321','F.HArry@segyk1gtlxb.com','Wrexham Rd','21','45287','Exford Green','');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('116577588','Aidan Gardiner','A+','21/08/1955','Female','333 452 578','GardAiden@ukq3mzx.com','Freezeland Lane','15','42578','Jaffrey','');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('645279846','Henry Read','O+','02/07/1923','Male','555 453 789','HeReRyAd@yopmail.com','Iffley Road','4','45687','Stuart','');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('632154897','Isobel Sykes','B+','23/06/1962','Male','456 553 456','sdfsdf@6i5wac9sjbb.com','High Street','33','12357','Pomona','');
+INSERT INTO `Patient` (`nHS`,`name`,`bloodType`,`dateOfBirth`,`gender`,`phone`,`email`,`street`,`numFloor`,`zipCode`, `town`, `observations`) VALUES ('634129857','Ethan Barrett','B-','29/08/1964','Male','456 456 882','qweqwe@cbqncb9lh.com','Kent Street','3','345378','Edinburg','');
 
 ## Teams
-
-INSERT INTO `Team` (`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('The Long-term Ostriches','Monty Tower',3 ,'A');
-INSERT INTO `Team` (`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('The Enchanted Rabbits','Reid Burcham',1 ,'C');
-INSERT INTO `Team` (`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('The Wretched Skunks','Dante Markell',12 ,'B');
-INSERT INTO `Team` (`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('The Tearful Alligators','Yaran Kemi',23 ,'C');
-INSERT INTO `Team` (`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('The Long-term Ostriches','Nishi Nako',7 ,'C');
-INSERT INTO `Team` (`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('The Observant Ducks','Anton Mishube',4 ,'A');
-INSERT INTO `Team` (`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('The Grieving Partridges','Leksei Rezhnova',32,'D');
-INSERT INTO `Team` (`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('The Homely Ponies','Psycho Ronin',11 ,'E');
-INSERT INTO `Team` (`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('The Plain Cockroaches','Alloy Nikita',9 ,'B');
-INSERT INTO `Team` (`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('The Brash Cheetahs','Ebeneezer Goode',14 ,'A');
-
-
-
-
-
+INSERT INTO `Team` (`ID`,`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('1','The Long-term Ostriches','Monty Tower',3 ,'A');
+INSERT INTO `Team` (`ID`,`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('2','The Enchanted Rabbits','Reid Burcham',1 ,'C');
+INSERT INTO `Team` (`ID`,`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('3','The Wretched Skunks','Dante Markell',12 ,'B');
+INSERT INTO `Team` (`ID`,`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('4','The Tearful Alligators','Yaran Kemi',23 ,'C');
+INSERT INTO `Team` (`ID`,`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('5','The Long-term Ostriches','Nishi Nako',7 ,'C');
+INSERT INTO `Team` (`ID`,`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('6','The Observant Ducks','Anton Mishube',4 ,'A');
+INSERT INTO `Team` (`ID`,`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('7','The Grieving Partridges','Leksei Rezhnova',32,'D');
+INSERT INTO `Team` (`ID`,`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('8','The Homely Ponies','Psycho Ronin',11 ,'E');
+INSERT INTO `Team` (`ID`,`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('9','The Plain Cockroaches','Alloy Nikita',9 ,'B');
+INSERT INTO `Team` (`ID`,`teamName`,`profNames`,`teamRoom`,`teamPriority`) VALUES ('10','The Brash Cheetahs','Ebeneezer Goode',14 ,'A');
 
 ## Questions
-
 INSERT INTO `Questions` (`ID`,`Question`,`Type`) VALUES ('1','Airway Compromises','red');
 INSERT INTO `Questions` (`ID`,`Question`,`Type`) VALUES ('2','Inadequate Breathing','red');
 INSERT INTO `Questions` (`ID`,`Question`,`Type`) VALUES ('3','Exsanguinating Haemorrhage','red');
@@ -60,13 +61,7 @@ INSERT INTO `Questions` (`ID`,`Question`,`Type`) VALUES ('21','Vomit','general')
 INSERT INTO `Questions` (`ID`,`Question`,`Type`) VALUES ('22','Recent Mild Pain (<7 days)','general');
 INSERT INTO `Questions` (`ID`,`Question`,`Type`) VALUES ('23','Precent Problem','general');
 
-
-
-
-
-
 ## Triage
-
 INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('1','C','','','','[Uncontrollable Minor Haemorrhage]','1');
 INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('2','E','','','','','2');
 INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('3','D','[Warmth]','','','','3');
@@ -77,6 +72,110 @@ INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQ
 INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('8','C','','','','[Uncontrollable Minor Haemorrhage]','8');
 INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('9','B','','[Uncontrollable Major Haemorrhage]','','','9');
 INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('10','E','','','','','10');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('11','C','','','','[Uncontrollable Minor Haemorrhage]','11');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('12','E','','','','','12');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('13','D','[Warmth]','','','','13');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('14','D','[Warmth]','','','','14');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('15','B','','[Uncontrollable Major Haemorrhage]','','','15');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('16','C','','','','[Uncontrollable Minor Haemorrhage]','16');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('17','B','','[Uncontrollable Major Haemorrhage]','','','17');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('18','E','','','','','18');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('19','C','','','','[Uncontrollable Minor Haemorrhage]','19');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('20','E','','','','','20');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('21','D','[Warmth]','','','','21');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('22','D','[Warmth]','','','','22');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('23','B','','[Uncontrollable Major Haemorrhage]','','','23');
+INSERT INTO `Triage` (`ID`,`PriorityLevel`,`selectedQuestionsGeneral`,`selectedQuestionsOrange`,`selectedQuestionsRed`,`selectedQuestionsYellow`,`patient_ID`) VALUES ('24','C','','','','[Uncontrollable Minor Haemorrhage]','24');
 
+
+## TriageHistoric
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Gary Ham','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Albert Smith','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Frank Austin','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Anthony Lin','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Mary Jane','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Jessica Fran','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Francesca Nolli','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bianca Peterson','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Sally Buintedag','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Kelly Ho','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bobby Grey','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Curt Konnor','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Kit Tod','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Malachi Mo','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Sullivan Kurt','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Alfie Tobias','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Maynerd Rain','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Wilmer Tex','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Jerrod Jon','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Gary Ham','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Albert Smith','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Frank Austin','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Anthony Lin','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Mary Jane','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Jessica Fran','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Francesca Nolli','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bianca Peterson','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Sally Buintedag','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Kelly Ho','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bobby Grey','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Curt Konnor','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Kit Tod','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Malachi Mo','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Sullivan Kurt','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Alfie Tobias','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Maynerd Rain','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Wilmer Tex','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Jerrod Jon','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Gary Ham','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Albert Smith','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Frank Austin','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Anthony Lin','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Mary Jane','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Jessica Fran','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Francesca Nolli','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bianca Peterson','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Sally Buintedag','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Kelly Ho','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bobby Grey','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Curt Konnor','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Kit Tod','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Malachi Mo','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Sullivan Kurt','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Alfie Tobias','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Maynerd Rain','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Wilmer Tex','A');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Jerrod Jon','B');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Francesca Nolli','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Francesca Nolli','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Francesca Nolli','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Francesca Nolli','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Francesca Nolli','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Francesca Nolli','E');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Alfie Tobias','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Alfie Tobias','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Alfie Tobias','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Alfie Tobias','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Alfie Tobias','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Alfie Tobias','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Alfie Tobias','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Alfie Tobias','D');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
+INSERT INTO `TriageHistoric` (`nameP`,`priorityL`) VALUES ('Bazza Jemmy','C');
 
 

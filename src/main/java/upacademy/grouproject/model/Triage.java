@@ -3,7 +3,9 @@ package upacademy.grouproject.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
@@ -12,7 +14,7 @@ public class Triage extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//Patient associated
-	@ManyToOne(targetEntity = Patient.class)
+	@ManyToOne(targetEntity = Patient.class,cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
 	private Patient patient;
 
 	// Priority level
