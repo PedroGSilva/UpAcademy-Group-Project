@@ -7,8 +7,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import upacademy.grouproject.model.Patient;
+import upacademy.grouproject.model.Team;
 import upacademy.grouproject.service.PatientService;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Named("patientBean")
 @SessionScoped
@@ -27,9 +29,12 @@ public class PatientBean implements Serializable {
 
 	// Create patient
 	public String patientCreate(Patient patient, String nextpage) {
-		if (patientService.checkNHS(patient.getnHS()) == true) {
+		if (patientService.checkNHS(patient.getnHS()) == true && nextpage.equals("patientList")) {
 			patientService.addEntity(patient);
 			newBean();
+			return nextpage;
+		} else if (patientService.checkNHS(patient.getnHS()) == true && nextpage.equals("formFilling")) {
+			patientService.addEntity(patient);
 			return nextpage;
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
@@ -48,6 +53,11 @@ public class PatientBean implements Serializable {
 	public void updatePatient(Long ID, Patient patient) {
 		patientService.mergePatient(ID, patient);
 		newBean();
+	}
+
+	// Consult all teams
+	public Collection<Patient> consultPatients(String entity) {
+		return patientService.consultEntity(entity);
 	}
 
 	// New bean

@@ -158,14 +158,14 @@
 											</p:tab>			
 										</p:accordionPanel>
 										
-										<p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" action="#{triageService.newTicket(triageBean.triage, patientBean.patient)}"/>
+										<p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" action="#{triageBean.triageCreate(patientBean.patient.nHS)}"/>
 										
 										<p:dialog header="Values" modal="true" showEffect="clip" widgetVar="dlg" resizable="false" closable="false">
 											<p:outputPanel id="display">
 											Ticket Created
 											<br />
 											<p:commandButton id="formcancel" value="Ok" action="ticketList" >
-												<f:actionListener binding="#{patientBean.patientService.newBean()}" />
+												<f:actionListener binding="#{patientBean.newBean()}" />
 											</p:commandButton>
 											
 											</p:outputPanel>
