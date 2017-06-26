@@ -8,6 +8,7 @@ import javax.inject.Named;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import upacademy.grouproject.model.Patient;
 import upacademy.grouproject.model.TriageHistoric;
 
 @Named("triageHistoricRepository")
@@ -35,4 +36,10 @@ public class TriageHistoricRepository extends EntityRepository<TriageHistoric> {
 		calledTicketsCount.add(ticketsE.size());
 		return calledTicketsCount;
 	}
+	
+	// Get patient from database with nHS
+		public Patient findPatient (Long ID) {
+			Query query = em.createQuery("SELECT e FROM Patient e where ID = " + ID);
+			return (Patient) query.getResultList().get(0);
+		}
 }

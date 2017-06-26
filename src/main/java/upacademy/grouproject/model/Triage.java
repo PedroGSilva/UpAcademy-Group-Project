@@ -14,8 +14,10 @@ public class Triage extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//Patient associated
-	@ManyToOne(targetEntity = Patient.class,cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
-	private Patient patient;
+	@ManyToOne(targetEntity = Patient.class)
+	private Long patientID;
+
+	
 
 	// Priority level
 	private char priorityLevel;
@@ -51,12 +53,12 @@ public class Triage extends EntityModel implements Serializable {
 	private String selectedQuestionsGeneral = null;
 	
 	// Getters & Setters
-	public Patient getPatient() {
-		return patient;
+	public Long getPatientID() {
+		return patientID;
 	}
 
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setPatientID(Long patientID) {
+		this.patientID = patientID;
 	}
 	
 	public char getPriorityLevel() {

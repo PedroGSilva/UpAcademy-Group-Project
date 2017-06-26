@@ -158,7 +158,7 @@
 											</p:tab>			
 										</p:accordionPanel>
 										
-										<p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" action="#{triageBean.triageCreate(triageBean.triage, patientBean.patient.nHS)}"/>
+										<p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" action="#{triageBean.triageCreate(patientBean.patient.nHS)}"/>
 										
 										<p:dialog header="Values" modal="true" showEffect="clip" widgetVar="dlg" resizable="false" closable="false">
 											<p:outputPanel id="display">

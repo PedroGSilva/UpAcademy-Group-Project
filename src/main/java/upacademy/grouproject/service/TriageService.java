@@ -24,7 +24,7 @@ public class TriageService extends EntityService<Triage> {
 		Patient patientTriage = tr.findPatient(nHS);
 		
 		// Set attributes
-		triage.setPatient(patientTriage);
+		triage.setPatientID(patientTriage.getID());
 		triage.priorityLevel(triage);
 		tr.persistEntity(triage);
 	}

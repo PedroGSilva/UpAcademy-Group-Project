@@ -31,7 +31,7 @@ public class TriageBean implements Serializable {
 	private TriageHistoricBean triageHistoricBean;
 
 	// Create triage
-	public void triageCreate(Triage triage, String nHS) {
+	public void triageCreate(String nHS) {
 		triageService.newTicket(triage, nHS);
 		newBean();
 	}
