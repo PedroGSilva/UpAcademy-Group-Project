@@ -16,8 +16,10 @@
 	<!--main content start--> <section id="main-content"> <section
 		class="wrapper"> <!-- TICKET PANEL -->
 	<div class="row mt">
+
 		<div class="col-lg-12">
 			<div class="row">
+
 				<p:outputPanel id="callerPanel" styleClass="primefacesfont">
 
 					<div class="col-lg-4 col-md-4 col-sm-4 mb">
@@ -121,6 +123,14 @@
 
 			</div>
 			<p:outputPanel id="nextcounters" styleClass="primefacesfont">
+				<div class="border-head">
+					<h2>Waiting Room</h2>
+					<p>
+						Total
+						<p:outputLabel value="#{triageBean.counters[5]}" />
+						tickets waiting
+					</p>
+				</div>
 				<div class="row mtbox">
 					<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
 						<div class="box1">
@@ -189,79 +199,13 @@
 
 			<div class="row mt">
 				<p:outputPanel id="prevcounters">
-					<!--CUSTOM CHART START -->
-					<div class="border-head">
-						<h3>Called Tickets</h3>
-					</div>
-					<div class="custom-bar-chart">
-						<ul class="y-axis">
-							<li><span>100</span></li>
-							<li><span>80</span></li>
-							<li><span>60</span></li>
-							<li><span>40</span></li>
-							<li><span>20</span></li>
-							<li><span>0</span></li>
-						</ul>
-						<div class="bar">
-							<div class="title">RED</div>
-							<div class="value tooltips" data-toggle="tooltip"
-								data-placement="top">
-								<h:outputText value="#{triageHsitoricBean.counters[0]}" />
-							</div>
-							<p>
-								<h:outputText value="#{triageHsitoricBean.counters[0]}" />
-								tickets
-							</p>
-
-						</div>
-						<div class="bar ">
-							<div class="title">ORA</div>
-							<div class="value tooltips" data-original-title="50"
-								data-toggle="tooltip" data-placement="top">
-								<h:outputText value="#{triageHsitoricBean.counters[1]}" />
-							</div>
-							<p>
-								<h:outputText value="#{triageHsitoricBean.counters[1]}" />
-								tickets
-							</p>
-						</div>
-						<div class="bar ">
-							<div class="title">YEL</div>
-							<div class="value tooltips" data-original-title="60"
-								data-toggle="tooltip" data-placement="top">
-								<h:outputText value="#{triageHsitoricBean.counters[2]}" />
-							</div>
-							<p>
-								<h:outputText value="#{triageHsitoricBean.counters[2]}" />
-								tickets
-							</p>
-						</div>
-						<div class="bar ">
-							<div class="title">BLU</div>
-							<div class="value tooltips" data-original-title="45"
-								data-toggle="tooltip" data-placement="top">
-								<h:outputText value="#{triageHsitoricBean.counters[3]}" />
-							</div>
-							<p>
-								<h:outputText value="#{triageHsitoricBean.counters[3]}" />
-								tickets
-							</p>
-						</div>
-						<div class="bar">
-							<div class="title">GRE</div>
-							<div class="value tooltips" data-original-title="32"
-								data-toggle="tooltip" data-placement="top">
-								<h:outputText value="#{triageHsitoricBean.counters[4]}" />
-							</div>
-							<p>
-								<h:outputText value="#{triageHsitoricBean.counters[4]}" />
-								tickets
-							</p>
-						</div>
-					</div>
 					<!--custom chart end-->
+					<div class="border-head">
+						<h2>Called Tickets</h2>
+					</div>
 					<p:chart type="pie" model="#{triageHsitoricBean.calledPie}"
-						style="width:400px;height:300px;seriesColors:['#db2929','#db8229','#f7f32a','#29db43','#2964db']" />
+						styleClass="primefacesfont" style="height:550px;"
+						responsive="true" />
 				</p:outputPanel>
 			</div>
 			<!-- /row -->

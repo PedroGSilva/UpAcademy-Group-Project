@@ -83,15 +83,12 @@ public class TriageBean implements Serializable {
 			counters.add(triageService.countTickets().get(2));
 			counters.add(triageService.countTickets().get(3));
 			counters.add(triageService.countTickets().get(4));
+			counters.add(triageService.countTickets().get(5));
 		}
 
 	}
 
-	// Count tickets
-	public void ticketCounter() {
-
-	}
-
+	
 	// New triage bean
 	public void newBean() {
 		this.triage = new Triage();

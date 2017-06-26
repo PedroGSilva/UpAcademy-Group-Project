@@ -2,6 +2,7 @@ package upacademy.grouproject.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,44 +11,58 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Patient extends EntityModel implements Serializable {
+public class Patient implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
+	@Column(name="PATIENT_ID")
+	private Long ID;
+
+	// Getters & Setters
+	public Long getID() {
+		return ID;
+	}
+
+	public void setID(Long iD) {
+		ID = iD;
+	}
+	
+	
 	// National Health Service Card Number
-	@Size(min=1, message = "Please insert a NHS card number")
+	@Size(min = 1, message = "Please insert a NHS card number")
 	private String nHS;
 	// Patient name
-	@Size(min =1, message = "Please insert a name")
+	@Size(min = 1, message = "Please insert a name")
 	private String name;
 	// Patient blood type
 	@NotNull(message = "Please insert a blood type")
 	private String bloodType;
 	// Patient date of birth
-	@Size(min =1, message = "Please insert a date of birth")
+	@Size(min = 1, message = "Please insert a date of birth")
 	private String dateOfBirth;
 	@NotNull(message = "Please specify a gender")
 	private String gender;
 	// Patient phone (city)
-	@Size(min =1, message = "Please insert a phone number")
+	@Size(min = 1, message = "Please insert a phone number")
 	private String phone;
 	// Patient Email (city)
-	@Size(min =1, message = "Please insert a town hall")
+	@Size(min = 1, message = "Please insert a town hall")
 	private String email;
 	// Patient street
-	@Size(min =1, message = "Please insert a street")
+	@Size(min = 1, message = "Please insert a street")
 	private String street;
 	// Patient door number and floor
-	@Size(min =1, message = "Please insert a floor number")
+	@Size(min = 1, message = "Please insert a floor number")
 	private String numFloor;
 	// Patient zipCode
-	@Size(min =1, message = "Please insert ZIP code")
+	@Size(min = 1, message = "Please insert ZIP code")
 	private String zipCode;
 	// Patient town
-	@Size(min =1, message = "Please insert a town")
+	@Size(min = 1, message = "Please insert a town")
 	private String town;
 	// Optional Observations; no validation required
 	private String observations;
-
 
 	// Getters & Setters
 	public String getnHS() {

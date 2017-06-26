@@ -37,9 +37,4 @@ public class TriageHistoricRepository extends EntityRepository<TriageHistoric> {
 		return calledTicketsCount;
 	}
 	
-	// Get patient from database with nHS
-		public Patient findPatient (Long ID) {
-			Query query = em.createQuery("SELECT e FROM Patient e where ID = " + ID);
-			return (Patient) query.getResultList().get(0);
-		}
 }
