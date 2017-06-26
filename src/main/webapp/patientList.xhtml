@@ -7,7 +7,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:l="http://www.lapis.com/jsf/exporter">
 
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -125,7 +126,7 @@
 								</p:column>
 
 								<p:column headerText="Edit / View Details">
-			
+
 									<p:commandButton update=":dlgform:patientDetail"
 										oncomplete="PF('editdlg').show()" icon="ui-icon-pencil">
 										<f:setPropertyActionListener value="#{patient}"
@@ -143,6 +144,8 @@
 							</p:dataTable>
 						</h:form>
 
+
+
 						<p:dialog id="patientdlgV" header="View Patient Details"
 							widgetVar="viewdlg" resizable="true" modal="true"
 							closable="false" width="900" height="500">
@@ -156,9 +159,6 @@
 
 											<p:layoutUnit position="center" resizable="true" size="600px">
 
-												<f:facet name="header">
-													<p:graphicImage name="assets/images/img/patient.ico" />
-												</f:facet>
 
 												<h:outputLabel style="width:100px" for="nHS" value="NCSH: " />
 												<h:outputText style="font-size:125%"
@@ -172,7 +172,8 @@
 
 												<br />
 
-												<h:outputLabel style="width:100px" for="name" value="Gender: " />
+												<h:outputLabel style="width:100px" for="name"
+													value="Gender: " />
 												<h:outputText style="font-size:125%"
 													value=" #{patientBean.patient.gender}" />
 
@@ -217,12 +218,57 @@
 											</p:layoutUnit>
 										</p:layout>
 									</p:panelGrid>
+
+
+									<h:panelGrid columns="1" id="teste" rendered="false">
+									
+										<h:outputText  value="**************************************************************" />
+										<h:outputText  value="**************************************************************" />
+										<h:outputText  value="- Identification -" />
+										<h:outputText  value="NCSH:  #{patientBean.patient.nHS}" />
+										<h:outputText  value="Name:  #{patientBean.patient.name}" />
+										<h:outputText  value="Gender:  #{patientBean.patient.gender}" />
+										<h:outputText  value="Blood Type:  #{patientBean.patient.bloodType}" />
+										<h:outputText  value="Date of Birth:  #{patientBean.patient.dateOfBirth}" />
+										<h:outputText  value="**************************************************************" />
+										<h:outputText  value="**************************************************************" />
+										<h:outputText  value="- Additional Information -" />
+										<h:outputText  value="Hometown:  #{patientBean.patient.town}" />
+										<h:outputText  value="Place of residence:  #{patientBean.patient.street}, #{patientBean.patient.numFloor}, #{patientBean.patient.zipCode}" />
+										<h:outputText  value="**************************************************************" />
+										<h:outputText  value="**************************************************************" />
+										<h:outputText  value="- Contact Information -" />
+										<h:outputText  value="Telephone:  #{patientBean.patient.phone}" />
+										<h:outputText  value="E-mail:  #{patientBean.patient.email}" />
+										<h:outputText  value="**************************************************************" />
+										<h:outputText  value="**************************************************************" />
+										<h:outputText  value="- Observations -" />
+										<h:outputText  value="#{patientBean.patient.observations}" />
+										<h:outputText  value="**************************************************************" />
+										<h:outputText  value="**************************************************************" />
+
+									</h:panelGrid>
+
+
+
 									<p:commandButton id="viewclose" value="Close"
 										oncomplete="PF('viewdlg').hide()"
 										action="#{patientBean.newBean()}" />
+
+									<p:commandButton value="Export PDF" ajax="false">
+										<l:dataExporter source="teste" fileType="pdf"
+											fileName="#{patientBean.patient.name} Detail" />
+									</p:commandButton>
+
 								</p:outputPanel>
+
+
 							</h:form>
 						</p:dialog>
+
+
+
+
 
 						<p:dialog id="patientdlg" header="Edit patient"
 							widgetVar="editdlg" resizable="true" modal="true"
