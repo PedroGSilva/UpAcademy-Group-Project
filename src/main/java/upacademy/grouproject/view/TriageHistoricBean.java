@@ -63,6 +63,21 @@ public class TriageHistoricBean implements Serializable {
 		calledTicket();
 		triageHistoricService.countCalledTickets();
 	}
+	
+	// Dynamic CSS class
+	public String getHistoricPriorityClass(){
+        if(previous.get(0).getPriorityL()=='A'){
+        	return "weather-3A";
+        }else if(previous.get(0).getPriorityL()=='B'){
+        	return "weather-3B";
+        }else if(previous.get(0).getPriorityL()=='C'){
+        	return "weather-3C";
+        }else if(previous.get(0).getPriorityL()=='D'){
+        	return "weather-3D";
+        }else{
+        	return "weather-3E";
+        	}
+	}
 
 	// Pie Chart
 	private PieChartModel calledPie;

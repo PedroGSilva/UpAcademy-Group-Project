@@ -87,6 +87,35 @@ public class TriageBean implements Serializable {
 
 	}
 
+	//Dynamic CSS class
+	public String getCurrentPriorityClass(){
+        if(ticketShow.get(0).getPriorityLevel()=='A'){
+        	return "weather-3A";
+        }else if(ticketShow.get(0).getPriorityLevel()=='B'){
+        	return "weather-3B";
+        }else if(ticketShow.get(0).getPriorityLevel()=='C'){
+        	return "weather-3C";
+        }else if(ticketShow.get(0).getPriorityLevel()=='D'){
+        	return "weather-3D";
+        }else{
+        	return "weather-3E";
+        	}
+	}
+	
+	public String getNextPriorityClass(){
+        if(ticketShow.get(1).getPriorityLevel()=='A'){
+        	return "weather-3A";
+        }else if(ticketShow.get(1).getPriorityLevel()=='B'){
+        	return "weather-3B";
+        }else if(ticketShow.get(1).getPriorityLevel()=='C'){
+        	return "weather-3C";
+        }else if(ticketShow.get(1).getPriorityLevel()=='D'){
+        	return "weather-3D";
+        }else{
+        	return "weather-3E";
+        	}
+	}
+
 	// Count tickets
 	public void ticketCounter() {
 
