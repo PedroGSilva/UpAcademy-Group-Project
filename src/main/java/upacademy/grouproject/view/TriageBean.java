@@ -88,7 +88,7 @@ public class TriageBean implements Serializable {
 
 	}
 
-<<<<<<< HEAD
+
 	//Dynamic CSS class
 	public String getCurrentPriorityClass(){
         if(ticketShow.get(0).getPriorityLevel()=='A'){
@@ -123,9 +123,6 @@ public class TriageBean implements Serializable {
 
 	}
 
-=======
-	
->>>>>>> dc317f04c2588a9a54d4a1f4169b372c60df61c6
 	// New triage bean
 	public void newBean() {
 		this.triage = new Triage();
