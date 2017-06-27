@@ -52,6 +52,14 @@
 								Team</a></li>
 						<li><a href="teamList.xhtml">Team List</a></li>
 					</ul></li>
+				<li class="sub-menu"><a href="javascript:;"> <i
+						class="fa fa-desktop"></i> <span>Help</span>
+				</a>
+					<ul class="sub">
+						<li><a href="general.html">F.A.Q</a></li>
+						<li><a href="buttons.html">Instructions Manual</a></li>
+						<li><a href="panels.html">Contact us!</a></li>
+					</ul></li>
 
 			</ul>
 			<!-- sidebar menu end-->
@@ -85,32 +93,35 @@
 								styleClass="primefacesfont" style="margin:20px">
 
 								<h:outputLabel for="teamName" value="Team name: " />
-								<p:inputText id="teamName" value="#{teamBean.team.teamName}" style="margin-bottom:20px"/>
-							
+								<p:inputText id="teamName" value="#{teamBean.team.teamName}"
+									style="margin-bottom:20px" />
+
 
 
 								<h:outputLabel for="profNames"
 									value="Name of the professionals: " />
-								<p:inputText id="profNames" value="#{teamBean.team.profNames}" style="margin-bottom:20px"/>
-								
+								<p:inputText id="profNames" value="#{teamBean.team.profNames}"
+									style="margin-bottom:20px" />
+
 
 								<h:outputLabel for="teamRoom" value="Team room: " />
 								<p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}"
-									min="1" stepFactor="1" prefix="room " style="margin-bottom:20px"/>
-								
+									min="1" stepFactor="1" prefix="room "
+									style="margin-bottom:20px" />
+
 
 								<p:outputLabel for="teamPriority"
 									value="Team attended priority level: " />
 								<p:selectOneRadio id="teamPriority"
 									value="#{teamBean.team.teamPriority}"
-									style=" margin-left:10px; margin:20px" >
+									style=" margin-left:10px; margin:20px">
 									<f:selectItem itemLabel="A" itemValue="A" />
 									<f:selectItem itemLabel="B" itemValue="B" />
 									<f:selectItem itemLabel="C" itemValue="C" />
 									<f:selectItem itemLabel="D" itemValue="D" />
 									<f:selectItem itemLabel="E" itemValue="E" />
 								</p:selectOneRadio>
-								
+
 
 							</h:panelGrid>
 							<p:commandButton id="createTeamButton" value="Create team"
