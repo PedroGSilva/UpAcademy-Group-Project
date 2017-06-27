@@ -43,4 +43,12 @@ public class TriageHistoricRepository extends EntityRepository<TriageHistoric> {
 		return calledTicketsCount;
 	}
 
+	public List<Integer> dbPrioSize() {
+		List<Integer> test = em
+				.createNativeQuery(
+						"SELECT COUNT(*) FROM TriageHistoric WHERE priorityL like 'A') AS 'Count A', (SELECT COUNT(*) FROM TriageHistoric WHERE priorityL like 'B') AS 'Count B', (SELECT COUNT(*) FROM TriageHistoric WHERE priorityL like 'C') AS 'Count C', (SELECT COUNT(*) FROM TriageHistoric WHERE priorityL like 'D') AS 'Count D', (SELECT COUNT(*) FROM TriageHistoric WHERE priorityL like 'E') AS 'Count E' from TriageHistoric group by 1")
+				.getResultList();
+		return test;
+	}
+
 }
