@@ -31,7 +31,7 @@ public class TriageBean implements Serializable {
 	private TriageHistoricBean triageHistoricBean;
 
 	// Create triage
-	public void triageCreate(Triage triage, String nHS) {
+	public void triageCreate(String nHS) {
 		triageService.newTicket(triage, nHS);
 		newBean();
 	}
@@ -83,10 +83,12 @@ public class TriageBean implements Serializable {
 			counters.add(triageService.countTickets().get(2));
 			counters.add(triageService.countTickets().get(3));
 			counters.add(triageService.countTickets().get(4));
+			counters.add(triageService.countTickets().get(5));
 		}
 
 	}
 
+<<<<<<< HEAD
 	//Dynamic CSS class
 	public String getCurrentPriorityClass(){
         if(ticketShow.get(0).getPriorityLevel()=='A'){
@@ -121,6 +123,9 @@ public class TriageBean implements Serializable {
 
 	}
 
+=======
+	
+>>>>>>> dc317f04c2588a9a54d4a1f4169b372c60df61c6
 	// New triage bean
 	public void newBean() {
 		this.triage = new Triage();

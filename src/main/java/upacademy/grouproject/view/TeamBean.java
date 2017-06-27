@@ -1,6 +1,8 @@
 package upacademy.grouproject.view;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -25,10 +27,16 @@ public class TeamBean implements Serializable {
 	private TeamService teamService;
 
 	// Create team
-	public String teamCreate (Team team, String nextpage) {
-		teamService.addEntity(team);
-		newBean();
-		return nextpage;
+	public String teamCreate (String nextpage) {
+		if (teamService.checkRoom(team) == true) {
+			teamService.addEntity(team);
+			newBean();
+			return nextpage;
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+					"Info: Room already occupied, please change room number", ""));
+		}
+		return null;
 	}
 	
 	// Delete team
@@ -46,6 +54,11 @@ public class TeamBean implements Serializable {
 	// Consult all teams
 	public Collection<Team> consultTeams (String entity) {
 		return teamService.consultEntity(entity);
+	}
+	
+	// Consult teams, order by priority
+	public Collection<Team> consultTeamsByRoom () {
+		return teamService.orderTeamByRoom();
 	}
 	
 	// New team bean

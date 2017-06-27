@@ -50,22 +50,15 @@
 				</a>
 					<ul class="sub">
 						<li><a href="teamCreate.xhtml">Create New Team</a></li>
-						<li><a href="teamList.html">Team List</a></li>
-					</ul></li>
-				<li class="sub-menu"><a href="javascript:;"> <i
-						class=" fa fa-bar-chart-o"></i> <span>Statistics</span>
-				</a>
-					<ul class="sub">
-						<li><a href="morris.html">Tendencies</a></li>
-						<li><a href="chartjs.html">Charts</a></li>
+						<li><a href="teamList.xhtml">Team List</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-desktop"></i> <span>Help</span>
 				</a>
 					<ul class="sub">
-						<li><a href="general.html">F.A.Q</a></li>
-						<li><a href="buttons.html">Instructions Manual</a></li>
+						<li><a href="panels.html">Instructions Manuals</a></li>
 						<li><a href="panels.html">Contact us!</a></li>
+						<li><a href="panels.html">About us!</a></li>
 					</ul></li>
 
 			</ul>
@@ -113,8 +106,8 @@
 							<h:panelGroup id="createP">
 								<p:commandButton value="Create"
 									disabled="#{!(patientBean.showCreatePatient)}"
-									action="patientCreate" actionListener="#{patientBean.showcreate('show')}">
-									
+									action="patientCreate"
+									actionListener="#{patientBean.showcreate('show')}">
 								</p:commandButton>
 							</h:panelGroup>
 
@@ -122,10 +115,11 @@
 							<h:panelGroup id="proceedT">
 								<p:commandButton value="Proceed"
 									disabled="#{!(patientBean.showProceedTriage)}"
-									action="formFilling" actionListener="#{patientBean.showproceed('show')}">
-									
+									action="formFilling"
+									actionListener="#{patientBean.showproceed('show')}">
 								</p:commandButton>
 							</h:panelGroup>
+							
 						</h:form>
 
 					</div>
@@ -141,10 +135,10 @@
 			<div class="col-lg-3 ds">
 				<!--COMPLETED ACTIONS DONUTS CHART-->
 				<h3>NOTIFICATIONS</h3>
-				
+
 				<h:form>
 					<p:repeat id="patients" var="patient" style="text-align:center;"
-						value="#{patientBean.consultPatients('Patient')}">
+						value="#{patientBean.patientService.patientFromLastID()}">
 						<p:panelGrid columns="2" styleClass="removeGridBoard">
 							<p:outputPanel class="desc" style="width:100%">
 								<p:panelGrid>
@@ -152,14 +146,14 @@
 										<h:outputText styleClass="teamNameRightBar"
 											value="#{patient.name}" />
 										<br />
-	
+
 										<h:outputText styleClass="temaDetailsRightBar"
 											value="Patient NHS: " />
 										<h:outputText styleClass="temaDetailsRightBar"
 											value="#{patient.nHS}" />
 										<br />
 									</p:column>
-									<p:column >
+									<p:column>
 										<h:outputText styleClass="teamPriorityRightBar"
 											value="Blod Type: " />
 										<h:outputText styleClass="teamPriorityRightBar"
@@ -171,7 +165,7 @@
 					</p:repeat>
 				</h:form>
 
-				
+
 			</div>
 			<!-- /col-lg-3 -->
 		</div>

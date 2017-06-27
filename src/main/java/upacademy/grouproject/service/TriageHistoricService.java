@@ -6,6 +6,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import upacademy.grouproject.model.Patient;
 import upacademy.grouproject.model.Triage;
 import upacademy.grouproject.model.TriageHistoric;
 import upacademy.grouproject.repository.TriageHistoricRepository;
@@ -20,6 +21,7 @@ public class TriageHistoricService extends EntityService<TriageHistoric> {
 	
 	public void addTriageHistoric (Triage triage) {
 		TriageHistoric oldTicket = new TriageHistoric();
+		
 		oldTicket.setNameP(triage.getPatient().getName());
 		oldTicket.setPriorityL(triage.getPriorityLevel());
 		thr.persistEntity(oldTicket);

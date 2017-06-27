@@ -2,7 +2,12 @@ package upacademy.grouproject.service;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import java.util.Collection;
+
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import upacademy.grouproject.model.Team;
 import upacademy.grouproject.repository.TeamRepository;
@@ -14,6 +19,16 @@ public class TeamService extends EntityService<Team> {
 	@Inject
 	TeamRepository er = new TeamRepository();
 
+	//Team create and check if room is occupied
+	public boolean checkRoom (Team team) {
+		if (er.selectRoom(team.getTeamRoom()).isEmpty() == true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
 	// Edit team
 	public void mergeTeam(Long ID, Team team) {
 		// Find the team in the database
@@ -26,6 +41,10 @@ public class TeamService extends EntityService<Team> {
 
 		// Merge the new team to the database
 		er.mergeEntity(emp);
+	}
+	
+	public Collection<Team> orderTeamByRoom () {
+		return er.returnTeamsByRoom();
 	}
 
 }

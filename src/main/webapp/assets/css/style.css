@@ -2362,3 +2362,44 @@ label {
 .panelGridCenter {
 	margin: 0 auto;
 }
+
+.border-head h2 {
+	margin-top: 20px;
+	margin-left: 15px;
+	font-weight: normal;
+	font-size: 18px;
+	display: inline-block;
+	width: 100%;
+	font-weight: 700;
+	color: #989898;
+	font-family: 'Ruda', sans-serif;
+}
+
+.border-head p {
+	margin-left: 15px;
+	font-weight: normal;
+	font-size: 12px;
+	display: inline-block;
+	width: 100%;
+	font-weight: 500;
+	color: #989898;
+}
+
+.callButton {
+	background: #3498db;
+	padding: 20px;
+	font-weight: 500;
+	color: white;
+	display: block;
+	text-align: center;
+	font-size: 18px;
+}
+
+.callButton:hover {
+	background: #65a9d6;
+	color: white;
+	display: block;
+	text-align: center;
+}
+
+}

@@ -7,7 +7,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import upacademy.grouproject.model.Patient;
+import upacademy.grouproject.model.Triage;
 import upacademy.grouproject.repository.PatientRepository;
+import upacademy.grouproject.repository.TriageRepository;
 
 @Named("patientService")
 @RequestScoped
@@ -50,6 +52,11 @@ public class PatientService extends EntityService<Patient> {
 	// Get patient for triage
 	public List<Patient> retrievePatient(String nHS) {
 		return er.checkIfExists(nHS);
+	}
+	
+	public List<Patient> patientFromLastID() {
+		PatientRepository patfromlastID = (PatientRepository) this.er;
+		return patfromlastID.returnPatientFromLastID();
 	}
 
 }
