@@ -53,13 +53,6 @@
 						<li><a href="teamList.xhtml">Team List</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
-						class=" fa fa-bar-chart-o"></i> <span>Statistics</span>
-				</a>
-					<ul class="sub">
-						<li><a href="morris.html">Tendencies</a></li>
-						<li><a href="chartjs.html">Charts</a></li>
-					</ul></li>
-				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-desktop"></i> <span>Help</span>
 				</a>
 					<ul class="sub">
@@ -86,7 +79,7 @@
 			class="wrapper">
 
 		<div class="row">
-			<div class="col-lg-12 main-chart">
+			<div class="col-lg-9 main-chart">
 				<div class="row mt form-panel">
 					<!--CUSTOM CHART START -->
 					<div class="border-head">
@@ -100,38 +93,42 @@
 								styleClass="primefacesfont" style="margin:20px">
 
 								<h:outputLabel for="teamName" value="Team name: " />
-								<p:inputText id="teamName" value="#{teamBean.team.teamName}" />
-								<p:message style="margin:20px" for="teamName" />
+								<p:inputText id="teamName" value="#{teamBean.team.teamName}"
+									style="margin-bottom:20px" />
+
 
 
 								<h:outputLabel for="profNames"
 									value="Name of the professionals: " />
-								<p:inputText id="profNames" value="#{teamBean.team.profNames}" />
-								<p:message style="margin:20px" for="profNames" />
+								<p:inputText id="profNames" value="#{teamBean.team.profNames}"
+									style="margin-bottom:20px" />
+
 
 								<h:outputLabel for="teamRoom" value="Team room: " />
 								<p:spinner id="teamRoom" value="#{teamBean.team.teamRoom}"
-									min="1" stepFactor="1" prefix="room " />
-								<p:message style="margin:20px" for="teamRoom" />
+									min="1" stepFactor="1" prefix="room "
+									style="margin-bottom:20px" />
+
 
 								<p:outputLabel for="teamPriority"
 									value="Team attended priority level: " />
 								<p:selectOneRadio id="teamPriority"
 									value="#{teamBean.team.teamPriority}"
-									style=" margin-left:10px;">
+									style=" margin-left:10px; margin:20px">
 									<f:selectItem itemLabel="A" itemValue="A" />
 									<f:selectItem itemLabel="B" itemValue="B" />
 									<f:selectItem itemLabel="C" itemValue="C" />
 									<f:selectItem itemLabel="D" itemValue="D" />
 									<f:selectItem itemLabel="E" itemValue="E" />
 								</p:selectOneRadio>
-								<p:message style="margin:20px" for="teamPriority" />
+
 
 							</h:panelGrid>
 							<p:commandButton id="createTeamButton" value="Create team"
 								validateClient="true" update="createTeamGrid"
-								action="#{teamBean.teamCreate(teamBean.team, 'teamList')}" />
-
+								action="#{teamBean.teamCreate('teamList')}" />
+							<p:messages id="messages" showDetail="false" autoUpdate="true"
+								closable="true" />
 						</h:form>
 					</div>
 				</div>
@@ -142,7 +139,40 @@
 			<!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->
+			<div class="col-lg-3 ds">
+				<!--COMPLETED ACTIONS DONUTS CHART-->
+				<h3>TEAMS</h3>
 
+
+				<h:form>
+					<p:repeat id="teams" var="team" style="text-align:center;"
+						value="#{teamBean.consultTeamsByRoom()}">
+						<p:panelGrid columns="2" styleClass="removeGridBoard">
+							<p:outputPanel class="desc" style="width:100%">
+								<p:panelGrid>
+									<p:column style="width:150px">
+										<h:outputText styleClass="teamNameRightBar"
+											value="#{team.teamName}" />
+										<br />
+
+										<h:outputText styleClass="temaDetailsRightBar"
+											value="Team room: " />
+										<h:outputText styleClass="temaDetailsRightBar"
+											value="#{team.teamRoom}" />
+										<br />
+									</p:column>
+									<p:column>
+										<h:outputText styleClass="teamPriorityRightBar"
+											value="Priority: " />
+										<h:outputText styleClass="teamPriorityRightBar"
+											value="#{team.teamPriority}" />
+									</p:column>
+								</p:panelGrid>
+							</p:outputPanel>
+						</p:panelGrid>
+					</p:repeat>
+				</h:form>
+			</div>
 			<!-- /col-lg-3 -->
 		</div>
 		</section> </section> </section>

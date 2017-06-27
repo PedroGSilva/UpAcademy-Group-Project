@@ -42,6 +42,7 @@ public class TriageRepository extends EntityRepository<Triage> {
 		TicketsCount.add(ticketsC.size());
 		TicketsCount.add(ticketsD.size());
 		TicketsCount.add(ticketsE.size());
+		TicketsCount.add(returnsortTriage().size());
 		return TicketsCount;
 	}
 

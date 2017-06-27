@@ -15,7 +15,7 @@ import upacademy.grouproject.model.Triage;
 import upacademy.grouproject.model.TriageHistoric;
 import upacademy.grouproject.service.TriageHistoricService;
 
-@Named("triageHsitoricBean")
+@Named("triageHistoricBean")
 @RequestScoped
 public class TriageHistoricBean implements Serializable {
 
@@ -33,40 +33,46 @@ public class TriageHistoricBean implements Serializable {
 
 	private List<TriageHistoric> previous = new ArrayList<TriageHistoric>();
 
-	private List<Integer> counters = new ArrayList<Integer>();
-
 	// Get called ticket
 	@PostConstruct
 	public void calledTicket() {
 		previous.add(triageHistoricService.getCalledTicket());
-		counters.add(triageHistoricService.countCalledTickets().get(0));
-		counters.add(triageHistoricService.countCalledTickets().get(1));
-		counters.add(triageHistoricService.countCalledTickets().get(2));
-		counters.add(triageHistoricService.countCalledTickets().get(3));
-		counters.add(triageHistoricService.countCalledTickets().get(4));
 
 		calledPie = new PieChartModel();
-
-		calledPie.set("Red", triageHistoricService.countCalledTickets().get(0));
-		calledPie.set("Orange", triageHistoricService.countCalledTickets().get(1));
-		calledPie.set("Yellow", triageHistoricService.countCalledTickets().get(2));
-		calledPie.set("Green", triageHistoricService.countCalledTickets().get(3));
-		calledPie.set("Blue", triageHistoricService.countCalledTickets().get(4));
-
-		calledPie.setTitle("Called Tickets");
-		calledPie.setLegendPosition("w");
+		
+		calledPie.set("A tickets", triageHistoricService.countCalledTickets().get(0));
+		calledPie.set("B tickets", triageHistoricService.countCalledTickets().get(1));
+		calledPie.set("C tickets", triageHistoricService.countCalledTickets().get(2));
+		calledPie.set("D tickets", triageHistoricService.countCalledTickets().get(3));
+		calledPie.set("E tickets", triageHistoricService.countCalledTickets().get(4));
+		calledPie.setSeriesColors("ff5f47,ff9a21,ffcf00,48b32e,428aca");
+		calledPie.setLegendPosition("e");
+		calledPie.setDiameter(450);
 	}
 
 	public void callTicketPrev() {
 		previous.clear();
-		counters.clear();
 		calledTicket();
 		triageHistoricService.countCalledTickets();
+	}
+	
+	// Dynamic CSS class
+	public String getHistoricPriorityClass(){
+        if(previous.get(0).getPriorityL()=='A'){
+        	return "weather-3A";
+        }else if(previous.get(0).getPriorityL()=='B'){
+        	return "weather-3B";
+        }else if(previous.get(0).getPriorityL()=='C'){
+        	return "weather-3C";
+        }else if(previous.get(0).getPriorityL()=='D'){
+        	return "weather-3D";
+        }else{
+        	return "weather-3E";
+        	}
 	}
 
 	// Pie Chart
 	private PieChartModel calledPie;
-
 
 	// Getters & Setters
 	public TriageHistoric getTriageHistoric() {
@@ -91,14 +97,6 @@ public class TriageHistoricBean implements Serializable {
 
 	public void setPrevious(List<TriageHistoric> previous) {
 		this.previous = previous;
-	}
-
-	public List<Integer> getCounters() {
-		return counters;
-	}
-
-	public void setCounters(List<Integer> counters) {
-		this.counters = counters;
 	}
 
 	public PieChartModel getCalledPie() {

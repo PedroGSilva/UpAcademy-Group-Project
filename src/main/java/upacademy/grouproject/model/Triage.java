@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
@@ -14,8 +15,9 @@ public class Triage extends EntityModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//Patient associated
-	@ManyToOne(targetEntity = Patient.class)
-	private Long patientID;
+	@ManyToOne
+	@JoinColumn(name="PATIENT_ID")
+	private Patient patient;
 
 	
 
@@ -53,12 +55,12 @@ public class Triage extends EntityModel implements Serializable {
 	private String selectedQuestionsGeneral = null;
 	
 	// Getters & Setters
-	public Long getPatientID() {
-		return patientID;
+	public Patient getPatient() {
+		return patient;
 	}
 
-	public void setPatientID(Long patientID) {
-		this.patientID = patientID;
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 	
 	public char getPriorityLevel() {

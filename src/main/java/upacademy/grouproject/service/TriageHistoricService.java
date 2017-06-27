@@ -21,8 +21,8 @@ public class TriageHistoricService extends EntityService<TriageHistoric> {
 	
 	public void addTriageHistoric (Triage triage) {
 		TriageHistoric oldTicket = new TriageHistoric();
-		Patient patientTriageH = thr.findPatient(triage.getPatientID());
-		oldTicket.setNameP(patientTriageH.getName());
+		
+		oldTicket.setNameP(triage.getPatient().getName());
 		oldTicket.setPriorityL(triage.getPriorityLevel());
 		thr.persistEntity(oldTicket);
 	}
