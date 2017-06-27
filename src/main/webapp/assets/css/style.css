@@ -2385,3 +2385,21 @@ label {
 	color: #989898;
 }
 
+.callButton {
+	background: #3498db;
+	padding: 20px;
+	font-weight: 500;
+	color: white;
+	display: block;
+	text-align: center;
+	font-size: 18px;
+}
+
+.callButton:hover {
+	background: #65a9d6;
+	color: white;
+	display: block;
+	text-align: center;
+}
+
+}

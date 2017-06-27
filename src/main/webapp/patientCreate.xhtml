@@ -101,10 +101,10 @@
 					<div class="inputs">
 						<h:form styleClass="form">
 
-							<h:panelGrid columns="2" cellpadding="10" id="createPatientGrid"
+							<h:panelGrid columns="3" cellpadding="10" id="createPatientGrid"
 								styleClass="primefacesfont" style="margin:10px">
 
-								<p:column>
+								<p:column >
 									<h:outputLabel style="width:75px" for="nHS"
 										value="NHS number: " />
 									<p:inputMask id="nHS" mask="999999999"
@@ -147,7 +147,7 @@
 								</p:column>
 
 
-								<p:column>
+								<p:column >
 									<h:outputLabel style="font-size:125%"
 										value="Contact Information" />
 									<br />
@@ -187,14 +187,14 @@
 
 								</p:column>
 
-								<p:row>
-									<h:outputLabel for="observations" value="Observations: " />
+								<p:column>
+									<h:outputLabel style="margin-left:20px;" for="observations" value="Observations: " />
 									<br />
 									<h:inputTextarea cols="30" rows="10" id="observations"
-										style="margin:10px; height:90px"
+										style="margin:10px; height:90px; margin-left: 20px"
 										value="#{patientBean.patient.observations}" />
 
-								</p:row>
+								</p:column>
 
 
 							</h:panelGrid>
