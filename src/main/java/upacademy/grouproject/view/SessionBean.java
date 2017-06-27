@@ -1,13 +1,10 @@
 package upacademy.grouproject.view;
 
+import java.io.Serializable;
+
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
-import upacademy.grouproject.model.Team;
-import upacademy.grouproject.service.TeamService;
-import java.io.Serializable;
-import java.util.Collection;
 import org.apache.shiro.SecurityUtils;
 
 @Named("SessionBean")

@@ -7,9 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import upacademy.grouproject.model.Patient;
-import upacademy.grouproject.model.Triage;
 import upacademy.grouproject.repository.PatientRepository;
-import upacademy.grouproject.repository.TriageRepository;
 
 @Named("patientService")
 @RequestScoped

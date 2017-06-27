@@ -17,7 +17,7 @@ public abstract class EntityService<T> {
 	}
 	
 	// Consult existing entities
-	public Collection<T> consultEntity(String querystring) {
+	public Collection<Object> consultEntity(String querystring) {
 		return er.returnEntities(querystring);
 	}
 

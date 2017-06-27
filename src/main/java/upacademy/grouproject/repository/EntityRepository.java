@@ -1,10 +1,9 @@
 package upacademy.grouproject.repository;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 public class EntityRepository<T> {
 
@@ -18,9 +17,9 @@ public class EntityRepository<T> {
 	}
 	
 	//Consult all entity entries in the database
-	public Collection<T> returnEntities(String entity) {
-		Query query = em.createQuery("SELECT e FROM " + entity + " e");
-		return (Collection<T>) query.getResultList();
+	public List<Object> returnEntities(String entity) {
+		List<Object> query = em.createQuery("SELECT e FROM " + entity + " e", Object.class).getResultList();
+		return  query;
 	}
 
 	// Find entity

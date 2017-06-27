@@ -14,7 +14,7 @@ import upacademy.grouproject.model.Questions;
 public class QuestionRepository extends EntityRepository<Questions>  {
 
 	public List<Questions> getQuestions(String color){
-		List<Questions> question = em.createQuery("Select e from Questions e where e.type = '" + color + "'").getResultList();
+		List<Questions> question = em.createQuery("Select e from Questions e where e.type = '" + color + "'", Questions.class).getResultList();
 		return question;
 	}
 }

@@ -52,7 +52,7 @@ public class TeamBean implements Serializable {
 	}
 	
 	// Consult all teams
-	public Collection<Team> consultTeams (String entity) {
+	public Collection<Object> consultTeams (String entity) {
 		return teamService.consultEntity(entity);
 	}
 	

@@ -1,5 +1,8 @@
 package upacademy.grouproject.view;
 
+import java.io.Serializable;
+import java.util.Collection;
+
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -7,10 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import upacademy.grouproject.model.Patient;
-import upacademy.grouproject.model.Team;
 import upacademy.grouproject.service.PatientService;
-import java.io.Serializable;
-import java.util.Collection;
 
 @Named("patientBean")
 @SessionScoped
@@ -56,7 +56,7 @@ public class PatientBean implements Serializable {
 	}
 
 	// Consult all teams
-	public Collection<Patient> consultPatients(String entity) {
+	public Collection<Object> consultPatients(String entity) {
 		return patientService.consultEntity(entity);
 	}
 

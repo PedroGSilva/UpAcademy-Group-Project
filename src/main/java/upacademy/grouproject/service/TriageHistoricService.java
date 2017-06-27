@@ -6,11 +6,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import upacademy.grouproject.model.Patient;
 import upacademy.grouproject.model.Triage;
 import upacademy.grouproject.model.TriageHistoric;
 import upacademy.grouproject.repository.TriageHistoricRepository;
-import upacademy.grouproject.view.TriageHistoricBean;
 
 @Named("triageHistoricService")
 @RequestScoped
@@ -31,7 +29,14 @@ public class TriageHistoricService extends EntityService<TriageHistoric> {
 		return thr.returnLastEntry();
 	}
 	
+	
 	public List<Integer> countCalledTickets () {
 		return thr.listSizes();
 	}
+	
+//	//Test --------------
+//	public List<Integer> testcount () {
+//		System.out.println("correu service");
+//		return thr.dbPrioSize();
+//	}
 }

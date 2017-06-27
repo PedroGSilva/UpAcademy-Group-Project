@@ -10,7 +10,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import upacademy.grouproject.model.Triage;
-import upacademy.grouproject.model.TriageHistoric;
 import upacademy.grouproject.service.TriageService;
 
 @Named("triageBean")

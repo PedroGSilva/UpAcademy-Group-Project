@@ -39,7 +39,7 @@ public class TriageHistoricBean implements Serializable {
 		previous.add(triageHistoricService.getCalledTicket());
 
 		calledPie = new PieChartModel();
-		
+
 		calledPie.set("A tickets", triageHistoricService.countCalledTickets().get(0));
 		calledPie.set("B tickets", triageHistoricService.countCalledTickets().get(1));
 		calledPie.set("C tickets", triageHistoricService.countCalledTickets().get(2));
@@ -48,6 +48,8 @@ public class TriageHistoricBean implements Serializable {
 		calledPie.setSeriesColors("ff5f47,ff9a21,ffcf00,48b32e,428aca");
 		calledPie.setLegendPosition("e");
 		calledPie.setDiameter(450);
+		
+		
 	}
 
 	public void callTicketPrev() {
@@ -55,20 +57,53 @@ public class TriageHistoricBean implements Serializable {
 		calledTicket();
 		triageHistoricService.countCalledTickets();
 	}
-	
+
+	// Test
+	// ---------------------------------------------------------------------------------
+//	private PieChartModel pietest;
+//
+//	public PieChartModel getPietest() {
+//		return pietest;
+//	}
+//
+//	public void setPietest(PieChartModel pietest) {
+//		this.pietest = pietest;
+//	}
+//
+//	public void test() {
+//		// Add previously called ticket -test
+//		previous.add(triageHistoricService.getCalledTicket());
+//
+//		// New pie chart - test
+//		pietest = new PieChartModel();
+//		pietest.setSeriesColors("ff5f47,ff9a21,ffcf00,48b32e,428aca");
+//		pietest.setLegendPosition("e");
+//		pietest.setDiameter(450);
+//
+//		// Add data to pie chart -test
+//		pietest.set("A tickets", triageHistoricService.testcount().get(0));
+//		pietest.set("B tickets", triageHistoricService.testcount().get(1));
+//		pietest.set("C tickets", triageHistoricService.testcount().get(2));
+//		pietest.set("D tickets", triageHistoricService.testcount().get(3));
+//		pietest.set("E tickets", triageHistoricService.testcount().get(4));
+//	}
+
+	// End test
+	// ------------------------------------------------------------------------------
+
 	// Dynamic CSS class
-	public String getHistoricPriorityClass(){
-        if(previous.get(0).getPriorityL()=='A'){
-        	return "weather-3A";
-        }else if(previous.get(0).getPriorityL()=='B'){
-        	return "weather-3B";
-        }else if(previous.get(0).getPriorityL()=='C'){
-        	return "weather-3C";
-        }else if(previous.get(0).getPriorityL()=='D'){
-        	return "weather-3D";
-        }else{
-        	return "weather-3E";
-        	}
+	public String getHistoricPriorityClass() {
+		if (previous.get(0).getPriorityL() == 'A') {
+			return "weather-3A";
+		} else if (previous.get(0).getPriorityL() == 'B') {
+			return "weather-3B";
+		} else if (previous.get(0).getPriorityL() == 'C') {
+			return "weather-3C";
+		} else if (previous.get(0).getPriorityL() == 'D') {
+			return "weather-3D";
+		} else {
+			return "weather-3E";
+		}
 	}
 
 	// Pie Chart

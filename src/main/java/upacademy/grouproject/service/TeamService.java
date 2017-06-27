@@ -1,13 +1,10 @@
 package upacademy.grouproject.service;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import java.util.Collection;
 
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import upacademy.grouproject.model.Team;
 import upacademy.grouproject.repository.TeamRepository;

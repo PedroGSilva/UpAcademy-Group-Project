@@ -1,16 +1,14 @@
 package upacademy.grouproject.service;
 
+import java.util.List;
+
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import upacademy.grouproject.model.Patient;
 import upacademy.grouproject.model.Triage;
 import upacademy.grouproject.repository.TriageRepository;
-import upacademy.grouproject.view.PatientBean;
-
-import java.util.List;
-
-import javax.enterprise.context.RequestScoped;
 
 @Named("triageService")
 @RequestScoped

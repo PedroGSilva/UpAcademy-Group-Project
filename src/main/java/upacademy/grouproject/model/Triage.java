@@ -3,12 +3,9 @@ package upacademy.grouproject.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Triage extends EntityModel implements Serializable {
