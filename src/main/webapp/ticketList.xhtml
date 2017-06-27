@@ -86,9 +86,6 @@
 						<h:form id="prioritytable">
 							<p:dataTable var="triage" style="text-align:center;"
 								styleClass="primefacesfont" value="#{triageBean.sortTickets()}">
-								<p:column headerText="Id">
-									<h:outputText value="#{triage.ID}" />
-								</p:column>
 
 								<p:column headerText="NSHC">
 									<h:outputText value="#{triage.patient.nHS}" />

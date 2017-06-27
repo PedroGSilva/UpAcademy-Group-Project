@@ -94,9 +94,6 @@
 							<p:dataTable id="patients" var="patient"
 								styleClass="primefacesfont" style="text-align:center;"
 								value="#{patientBean.consultPatients('Patient')}">
-								<p:column headerText="Id">
-									<h:outputText value="#{patient.ID}" />
-								</p:column>
 
 								<p:column headerText="NSHC">
 									<h:outputText value="#{patient.nHS}" />
