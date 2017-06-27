@@ -10,7 +10,6 @@ import javax.transaction.Transactional;
 
 import upacademy.grouproject.model.Patient;
 import upacademy.grouproject.model.Triage;
-import upacademy.grouproject.model.TriageHistoric;
 
 @Named("triageRepository")
 @Transactional
@@ -18,7 +17,7 @@ import upacademy.grouproject.model.TriageHistoric;
 public class TriageRepository extends EntityRepository<Triage> {
 
 	public List<Triage> returnsortTriage() {
-		List<Triage> sorttriage = em.createQuery("Select e from Triage e order by e.priorityLevel asc").getResultList();
+		List<Triage> sorttriage = em.createQuery("Select e from Triage e order by e.priorityLevel asc", Triage.class).getResultList();
 
 		return sorttriage;
 	}
@@ -30,11 +29,11 @@ public class TriageRepository extends EntityRepository<Triage> {
 	}
 	
 	public List<Integer> listSizes () {
-		List<Triage> ticketsA = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='A'").getResultList();
-		List<Triage> ticketsB = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='B'").getResultList();
-		List<Triage> ticketsC = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='C'").getResultList();
-		List<Triage> ticketsD = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='D'").getResultList();
-		List<Triage> ticketsE = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='E'").getResultList();
+		List<Triage> ticketsA = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='A'", Triage.class).getResultList();
+		List<Triage> ticketsB = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='B'", Triage.class).getResultList();
+		List<Triage> ticketsC = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='C'", Triage.class).getResultList();
+		List<Triage> ticketsD = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='D'", Triage.class).getResultList();
+		List<Triage> ticketsE = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='E'", Triage.class).getResultList();
 		
 		List<Integer> TicketsCount = new ArrayList<Integer>();
 		TicketsCount.add(ticketsA.size());
