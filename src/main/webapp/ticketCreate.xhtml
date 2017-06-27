@@ -113,8 +113,8 @@
 							<h:panelGroup id="createP">
 								<p:commandButton value="Create"
 									disabled="#{!(patientBean.showCreatePatient)}"
-									action="patientCreate" actionListener="#{patientBean.showcreate('show')}">
-									
+									action="patientCreate"
+									actionListener="#{patientBean.showcreate('show')}">
 								</p:commandButton>
 							</h:panelGroup>
 
@@ -122,10 +122,11 @@
 							<h:panelGroup id="proceedT">
 								<p:commandButton value="Proceed"
 									disabled="#{!(patientBean.showProceedTriage)}"
-									action="formFilling" actionListener="#{patientBean.showproceed('show')}">
-									
+									action="formFilling"
+									actionListener="#{patientBean.showproceed('show')}">
 								</p:commandButton>
 							</h:panelGroup>
+							
 						</h:form>
 
 					</div>
@@ -141,7 +142,7 @@
 			<div class="col-lg-3 ds">
 				<!--COMPLETED ACTIONS DONUTS CHART-->
 				<h3>NOTIFICATIONS</h3>
-				
+
 				<h:form>
 					<p:repeat id="patients" var="patient" style="text-align:center;"
 						value="#{patientBean.consultPatients('Patient')}">
@@ -152,14 +153,14 @@
 										<h:outputText styleClass="teamNameRightBar"
 											value="#{patient.name}" />
 										<br />
-	
+
 										<h:outputText styleClass="temaDetailsRightBar"
 											value="Patient NHS: " />
 										<h:outputText styleClass="temaDetailsRightBar"
 											value="#{patient.nHS}" />
 										<br />
 									</p:column>
-									<p:column >
+									<p:column>
 										<h:outputText styleClass="teamPriorityRightBar"
 											value="Blod Type: " />
 										<h:outputText styleClass="teamPriorityRightBar"
@@ -171,7 +172,7 @@
 					</p:repeat>
 				</h:form>
 
-				
+
 			</div>
 			<!-- /col-lg-3 -->
 		</div>
