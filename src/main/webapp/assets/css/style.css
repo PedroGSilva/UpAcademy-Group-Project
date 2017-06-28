@@ -2373,6 +2373,18 @@ label {
 	font-weight: 700;
 	color: #989898;
 	font-family: 'Ruda', sans-serif;
+	text-align: left;
+}
+#waitingroom {
+	margin-top: 20px;
+	margin-left: 15px;
+	font-weight: normal;
+	font-size: 22px;
+	display: inline-block;
+	width: 100%;
+	font-weight: 700;
+	color: #989898;
+	font-family: 'Ruda', sans-serif;
 	text-align: center;
 }
 
