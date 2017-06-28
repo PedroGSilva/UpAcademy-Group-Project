@@ -1345,7 +1345,6 @@ PANELS CONFIGURATIONS
 
 /* Soptify Panel */
 #spotify {
-	background: url(../img/lorde.jpg) no-repeat center top;
 	margin-top: -15px;
 	background-attachment: relative;
 	background-position: center center;
@@ -1359,6 +1358,19 @@ PANELS CONFIGURATIONS
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+}
+
+.spotifyImg1 {
+background: url(../img/friends/PedroSilva.jpeg) no-repeat center top;
+}
+.spotifyImg2 {
+background: url(../img/friends/JoaoValentim.jpg) no-repeat center top;
+}
+.spotifyImg3 {
+background: url(../img/friends/JoaoMarques.jpg) no-repeat center top;
+}
+.spotifyImg4 {
+background: url(../img/friends/JoelPereira.jpg) no-repeat center top;
 }
 
 #spotify .btn-clear-g {

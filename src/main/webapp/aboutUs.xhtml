@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="/template/commonLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="leftbar">
+		<!-- <body> -->
+
+		<section id="container"> <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+		<!--sidebar start--> <aside>
+		<div id="sidebar" class="nav-collapse ">
+			<!-- sidebar menu start-->
+			<ul class="sidebar-menu" id="nav-accordion">
+
+				<p class="centered">
+					<img src="assets/img/ui-sam.jpg"
+						class="img-circle" width="60" />
+				</p>
+				
+				<div class="centered">
+				
+					<li><h:outputText styleClass="primefacesfont" style="font-size: 18px; color: white" value="#{SessionBean.username}" /></li>
+				
+				</div>
+
+				<li class="mt"><a href="index.xhtml"> <i
+						class="fa fa-dashboard"></i> <span>Dashboard</span>
+				</a></li>
+
+				<li class="sub-menu"><a href="#"> <i class="fa fa-book"></i>
+						<span>Patient</span>
+				</a>
+					<ul class="sub">
+						<li><a href="patientCreate.xhtml">New Patient</a></li>
+						<li><a href="patientList.xhtml">Patient List</a></li>
+					</ul></li>
+				<li class="sub-menu"><a href="#"> <i
+						class="fa fa-tasks"></i> <span>Triage</span>
+				</a>
+					<ul class="sub">
+						<li><a href="ticketCreate.xhtml">New Ticket</a></li>
+						<li><a href="ticketList.xhtml">Ticket List</a></li>
+					</ul></li>
+				<li class="sub-menu"><a href="#"> <i class="fa fa-cogs"></i>
+						<span>Team Manager</span>
+				</a>
+					<ul class="sub">
+						<li><a href="teamCreate.xhtml">Create New Team</a></li>
+						<li><a href="teamList.xhtml">Team List</a></li>
+					</ul></li>
+				<li class="sub-menu"><a class="active" href="javascript:;"> <i
+						class="fa fa-desktop"></i> <span>About us!</span>
+				</a>
+					<ul class="sub">
+						<li class="active"><a href="aboutUs.xhtml">The Dev. Team</a></li>
+						<li><a href="goals.xhtml">Our Goals</a></li>
+					</ul></li>
+
+			</ul>
+			<!-- sidebar menu end-->
+		</div>
+		</aside> <!--sidebar end--> </section>
+
+		<!-- </body> -->
+	</ui:define>
+
+	<ui:define name="content">
+		<!-- <body> -->
+
+		<section id="container"> <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+		<!--main content start--> <section id="main-content"> <section
+			class="wrapper">
+
+		<div class="row">
+			<div class="col-lg-12 main-chart">
+				<div class="row mt form-panel">
+				<div class="border-head">
+						<h2>Meet the Developers!</h2>
+						<p></p>
+					</div>
+
+					<div class="col-lg-3 col-md-3 col-sm-3 mb">
+						<div class="content-panel pn">
+							<div id="spotify" class="spotifyImg3">
+								<div class="col-xs-4 col-xs-offset-8" style="color: white">
+									<button class="btn btn-sm btn-clear-g" style="color: white"
+										onclick="window.open('https://github.com/joaomarques89')">GitHub</button>
+								</div>
+								<div class="sp-title">
+									<h3
+										style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; color: white; font-size: 17px">
+										João Marques</h3>
+								</div>
+								<div class="play">
+									<a href="#"><i class="fa fa-facebook" style="color: white"></i></a>
+								</div>
+							</div>
+							<p class="followers">Civil Engineer</p>
+						</div>
+					</div>
+
+
+					<div class="col-lg-3 col-md-3 col-sm-3 mb">
+						<div class="content-panel pn">
+							<div id="spotify" class="spotifyImg2">
+								<div class="col-xs-4 col-xs-offset-8" style="color: white">
+									<button class="btn btn-sm btn-clear-g" style="color: white"
+										onclick="window.open('https://github.com/Not-Vincent')">GitHub</button>
+								</div>
+								<div class="sp-title">
+									<h3
+										style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; color: white; font-size: 17px">
+										João Valentim</h3>
+								</div>
+								<div class="play">
+									<a href="#"><i class="fa fa-facebook" style="color: white"></i></a>
+								</div>
+							</div>
+							<p class="followers">Biological Engineer</p>
+						</div>
+					</div>
+
+
+					<div class="col-lg-3 col-md-3 col-sm-3 mb">
+						<div class="content-panel pn">
+							<div id="spotify" class="spotifyImg4">
+								<div class="col-xs-4 col-xs-offset-8" style="color: white">
+									<button class="btn btn-sm btn-clear-g" style="color: white"
+										onclick="window.open('https://github.com/joelnunopereira')">GitHub</button>
+								</div>
+								<div class="sp-title">
+									<h3
+										style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; color: white; font-size: 17px">
+										Joel Pereira</h3>
+								</div>
+								<div class="play">
+									<a href="#"><i class="fa fa-facebook" style="color: white"></i></a>
+								</div>
+							</div>
+							<p class="followers">Pharmacist</p>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-3 col-sm-3 mb">
+						<div class="content-panel pn">
+							<div id="spotify" class="spotifyImg1">
+								<div class="col-xs-4 col-xs-offset-8" style="color: white">
+									<button class="btn btn-sm btn-clear-g" style="color: white"
+										onclick="window.open('https://github.com/PedroGSilva')">GitHub</button>
+								</div>
+								<div class="sp-title">
+									<h3
+										style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; color: white; font-size: 17px">
+										Pedro Silva</h3>
+								</div>
+								<div class="play">
+									<a href="#"><i class="fa fa-facebook" style="color: white"></i></a>
+								</div>
+							</div>
+							<p class="followers">Geotechnical Engineer</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!--/ col-md-4 -->
+		</div>
+		<!--custom chart end--> <!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->
+		</section> </section> </section>
+
+		<!--main content end-->
+		<!-- body -->
+	</ui:define>
+
+</ui:composition>

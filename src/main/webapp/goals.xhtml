@@ -41,12 +41,12 @@
 						<li><a href="patientCreate.xhtml">New Patient</a></li>
 						<li><a href="patientList.xhtml">Patient List</a></li>
 					</ul></li>
-				<li class="sub-menu"><a class="active" href="#"> <i
+				<li class="sub-menu"><a href="#"> <i
 						class="fa fa-tasks"></i> <span>Triage</span>
 				</a>
 					<ul class="sub">
 						<li><a href="ticketCreate.xhtml">New Ticket</a></li>
-						<li class="active"><a href="ticketList.xhtml">Ticket List</a></li>
+						<li><a href="ticketList.xhtml">Ticket List</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="#"> <i class="fa fa-cogs"></i>
 						<span>Team Manager</span>
@@ -55,12 +55,12 @@
 						<li><a href="teamCreate.xhtml">Create New Team</a></li>
 						<li><a href="teamList.xhtml">Team List</a></li>
 					</ul></li>
-				<li class="sub-menu"><a href="javascript:;"> <i
+				<li class="sub-menu"><a class="active" href="javascript:;"> <i
 						class="fa fa-desktop"></i> <span>About us!</span>
 				</a>
 					<ul class="sub">
 						<li><a href="aboutUs.xhtml">The Dev. Team</a></li>
-						<li><a href="goals.xhtml">Our Goals</a></li>
+						<li class="active"><a href="goals.xhtml">Our Goals</a></li>
 					</ul></li>
 
 			</ul>
@@ -83,41 +83,27 @@
 		<div class="row">
 			<div class="col-lg-12 main-chart">
 				<div class="row mt form-panel">
-					<!--CUSTOM CHART START -->
-					<div class="border-head">
-						<h3>Ticket list</h3>
-
-						<h:form id="prioritytable">
-							<p:dataTable var="triage" style="text-align:center;"
-								styleClass="primefacesfont" value="#{triageBean.sortTickets()}">
-
-								<p:column headerText="NSHC">
-									<h:outputText value="#{triage.patient.nHS}" />
-								</p:column>
-
-
-								<p:column headerText="Patient name">
-									<h:outputText value="#{triage.patient.name}" />
-								</p:column>
-
-								<p:column headerText="Priority Level">
-									<h:outputText value="#{triage.priorityLevel}" />
-								</p:column>
-
-							</p:dataTable>
-						</h:form>
+				<div class="border-head">
+						<h2>Our Goals!</h2>
+						<h3>From Scrap to Paper...</h3>
+						<p style="text-align: justify; padding-right: 30px;">E.MED is a platform created to benefit and optimize the time health and administrative professionals take to sort and allocate patients to the correct emergency sections. 
+						It is designed to not only improve the user experience, but also automatize the patient triage process as well.</p>
+						<p style="text-align: justify; padding-right: 30px;">Based on the Manchester Triage System, we hope our platform ensures an intuitive and fast paced interface to you while providing you the best experience possible</p>
+						<p style="text-align: justify; padding-right: 30px;">E.MED started off as a project developed during UpAcademy 2017 and we hope that in one day it grows further.</p>
+						<p></p><p></p>
+						<p style="text-align: justify; padding-right: 30px;">Thank you for sharing this experience with us.</p>
+						<p style="text-align: justify; padding-right: 30px;">See you soon!</p>
 					</div>
+
+
 				</div>
-				<!--custom chart end-->
+
 			</div>
-
-
-			<!-- **********************************************************************************************************************************************************
+			<!--/ col-md-4 -->
+		</div>
+		<!--custom chart end--> <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->
-
-			
-		</div>
 		</section> </section> </section>
 
 		<!--main content end-->
