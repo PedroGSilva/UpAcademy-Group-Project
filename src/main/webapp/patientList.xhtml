@@ -26,14 +26,15 @@
 			<ul class="sidebar-menu" id="nav-accordion">
 
 				<p class="centered">
-					<img src="assets/img/ui-sam.jpg"
-						class="img-circle" width="60" />
+					<img src="assets/img/ui-sam.jpg" class="img-circle" width="60" />
 				</p>
-				
+
 				<div class="centered">
-				
-					<li><h:outputText styleClass="primefacesfont" style="font-size: 18px; color: white" value="#{SessionBean.username}" /></li>
-				
+
+					<li><h:outputText styleClass="primefacesfont"
+							style="font-size: 18px; color: white"
+							value="#{SessionBean.username}" /></li>
+
 				</div>
 
 				<li class="mt"><a href="index.xhtml"> <i
@@ -95,15 +96,17 @@
 						<h3>Patient List</h3>
 
 						<h:form id="patientform">
-							<p:dataTable id="patients" var="patient"
+							<p:dataTable id="patients" var="patient" widgetVar="patientTable"
 								styleClass="primefacesfont" style="text-align:center;"
 								value="#{patientBean.consultPatients('Patient')}">
 
-								<p:column headerText="NSHC">
+								<p:column id="keyword" headerText="NSHC"
+									filterBy="#{patient.nHS}" filterMatchMode="contains">
 									<h:outputText value="#{patient.nHS}" />
 								</p:column>
 
-								<p:column headerText="Patient Name">
+								<p:column headerText="Patient Name" filterBy="#{patient.name}"
+									filterMatchMode="contains">
 									<h:outputText value="#{patient.name}" />
 								</p:column>
 
@@ -210,31 +213,44 @@
 									</p:panelGrid>
 
 									<h:panelGrid columns="1" id="teste" rendered="false">
-									
-										<h:outputText  value="**************************************************************" />
-										<h:outputText  value="**************************************************************" />
-										<h:outputText  value="- Identification -" />
-										<h:outputText  value="NCSH:  #{patientBean.patient.nHS}" />
-										<h:outputText  value="Name:  #{patientBean.patient.name}" />
-										<h:outputText  value="Gender:  #{patientBean.patient.gender}" />
-										<h:outputText  value="Blood Type:  #{patientBean.patient.bloodType}" />
-										<h:outputText  value="Date of Birth:  #{patientBean.patient.dateOfBirth}" />
-										<h:outputText  value="**************************************************************" />
-										<h:outputText  value="**************************************************************" />
-										<h:outputText  value="- Additional Information -" />
-										<h:outputText  value="Hometown:  #{patientBean.patient.town}" />
-										<h:outputText  value="Place of residence:  #{patientBean.patient.street}, #{patientBean.patient.numFloor}, #{patientBean.patient.zipCode}" />
-										<h:outputText  value="**************************************************************" />
-										<h:outputText  value="**************************************************************" />
-										<h:outputText  value="- Contact Information -" />
-										<h:outputText  value="Telephone:  #{patientBean.patient.phone}" />
-										<h:outputText  value="E-mail:  #{patientBean.patient.email}" />
-										<h:outputText  value="**************************************************************" />
-										<h:outputText  value="**************************************************************" />
-										<h:outputText  value="- Observations -" />
-										<h:outputText  value="#{patientBean.patient.observations}" />
-										<h:outputText  value="**************************************************************" />
-										<h:outputText  value="**************************************************************" />
+
+										<h:outputText
+											value="**************************************************************" />
+										<h:outputText
+											value="**************************************************************" />
+										<h:outputText value="- Identification -" />
+										<h:outputText value="NCSH:  #{patientBean.patient.nHS}" />
+										<h:outputText value="Name:  #{patientBean.patient.name}" />
+										<h:outputText value="Gender:  #{patientBean.patient.gender}" />
+										<h:outputText
+											value="Blood Type:  #{patientBean.patient.bloodType}" />
+										<h:outputText
+											value="Date of Birth:  #{patientBean.patient.dateOfBirth}" />
+										<h:outputText
+											value="**************************************************************" />
+										<h:outputText
+											value="**************************************************************" />
+										<h:outputText value="- Additional Information -" />
+										<h:outputText value="Hometown:  #{patientBean.patient.town}" />
+										<h:outputText
+											value="Place of residence:  #{patientBean.patient.street}, #{patientBean.patient.numFloor}, #{patientBean.patient.zipCode}" />
+										<h:outputText
+											value="**************************************************************" />
+										<h:outputText
+											value="**************************************************************" />
+										<h:outputText value="- Contact Information -" />
+										<h:outputText value="Telephone:  #{patientBean.patient.phone}" />
+										<h:outputText value="E-mail:  #{patientBean.patient.email}" />
+										<h:outputText
+											value="**************************************************************" />
+										<h:outputText
+											value="**************************************************************" />
+										<h:outputText value="- Observations -" />
+										<h:outputText value="#{patientBean.patient.observations}" />
+										<h:outputText
+											value="**************************************************************" />
+										<h:outputText
+											value="**************************************************************" />
 
 									</h:panelGrid>
 
@@ -294,14 +310,14 @@
 											<p:inputMask id="dateOfBirth" mask="99/99/9999"
 												value="#{patientBean.patient.dateOfBirth}" />
 											<p:message style="margin:20px" for="dateOfBirth" />
-											
+
 											<h:outputLabel for="observations" value="Observations: " />
 											<br />
 											<h:inputTextarea cols="30" rows="10" id="observations"
 												style="width:75%; margin:15px; height:90px; margin-left: 20px"
 												value="#{patientBean.patient.observations}" />
-											
-											
+
+
 											<p:message style="margin:15px" for="observations" />
 										</p:column>
 
@@ -341,7 +357,7 @@
 											<p:inputText id="town" value="#{patientBean.patient.town}" />
 											<p:message style="margin:20px" for="town" />
 
-											
+
 										</p:column>
 
 									</p:panelGrid>
