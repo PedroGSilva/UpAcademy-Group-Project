@@ -24,7 +24,7 @@ public class PatientRepository extends EntityRepository<Patient> {
 		return query;
 	}
 	public List<Patient> returnPatientFromLastID() {
-		List<Patient> patientlastID = em.createQuery("Select e from Patient e order by e.ID desc", Patient.class).getResultList();
+		List<Patient> patientlastID = em.createQuery("Select e from Patient e order by e.ID desc", Patient.class).setMaxResults(5).getResultList();
 		return patientlastID;
 	}
 }
