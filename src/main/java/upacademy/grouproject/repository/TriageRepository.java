@@ -2,6 +2,7 @@ package upacademy.grouproject.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -29,20 +30,18 @@ public class TriageRepository extends EntityRepository<Triage> {
 	}
 	
 	public List<Integer> listSizes () {
-		List<Triage> ticketsA = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='A'", Triage.class).getResultList();
-		List<Triage> ticketsB = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='B'", Triage.class).getResultList();
-		List<Triage> ticketsC = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='C'", Triage.class).getResultList();
-		List<Triage> ticketsD = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='D'", Triage.class).getResultList();
-		List<Triage> ticketsE = em.createQuery("SELECT e FROM Triage e WHERE e.priorityLevel='E'", Triage.class).getResultList();
-		
-		List<Integer> TicketsCount = new ArrayList<Integer>();
-		TicketsCount.add(ticketsA.size());
-		TicketsCount.add(ticketsB.size());
-		TicketsCount.add(ticketsC.size());
-		TicketsCount.add(ticketsD.size());
-		TicketsCount.add(ticketsE.size());
-		TicketsCount.add(returnsortTriage().size());
-		return TicketsCount;
-	}
+		String query = "SELECT (SELECT COUNT(*) FROM Triage WHERE priorityLevel like \"A\") AS 'countA', (SELECT COUNT(*) FROM Triage WHERE priorityLevel like \"B\") AS 'countB', (SELECT COUNT(*) FROM Triage WHERE priorityLevel like \"C\") AS 'countC', (SELECT COUNT(*) FROM Triage WHERE priorityLevel like \"D\") AS 'countD', (SELECT COUNT(*) FROM Triage WHERE priorityLevel like \"E\") AS 'countE' from TriageHistoric group by 1";
 
+		List<Object[]> countersList = em.createNativeQuery(query).getResultList();
+		List<Integer> calling = new ArrayList<Integer>();
+
+		for (Object[] t : countersList) {
+			for (Object t2 : t) {
+				calling.add(Integer.parseInt(t2.toString()));
+			}
+		}
+		int total = calling.stream().mapToInt(Integer::intValue).sum();
+		calling.add(total);
+		return calling;
+	}
 }

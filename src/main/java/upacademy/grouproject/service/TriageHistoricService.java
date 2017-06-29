@@ -15,28 +15,21 @@ import upacademy.grouproject.repository.TriageHistoricRepository;
 public class TriageHistoricService extends EntityService<TriageHistoric> {
 
 	@Inject
-	TriageHistoricRepository thr = new TriageHistoricRepository();
-	
-	public void addTriageHistoric (Triage triage) {
+	TriageHistoricRepository thr;
+
+	public void addTriageHistoric(Triage triage) {
 		TriageHistoric oldTicket = new TriageHistoric();
-		
-		oldTicket.setNameP(triage.getPatient().getName());
+
+		oldTicket.setPatient(triage.getPatient());
 		oldTicket.setPriorityL(triage.getPriorityLevel());
 		thr.persistEntity(oldTicket);
 	}
-	
-	public TriageHistoric getCalledTicket (){
+
+	public List<TriageHistoric> getCalledTicket() {
 		return thr.returnLastEntry();
 	}
-	
-	
-	public List<Integer> countCalledTickets () {
-		return thr.listSizes();
+
+	public List<Integer> countTickets() {
+		return thr.countSize();
 	}
-	
-//	//Test --------------
-//	public List<Integer> testcount () {
-//		System.out.println("correu service");
-//		return thr.dbPrioSize();
-//	}
 }

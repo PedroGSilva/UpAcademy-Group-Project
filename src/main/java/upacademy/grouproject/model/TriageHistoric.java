@@ -3,22 +3,27 @@ package upacademy.grouproject.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class TriageHistoric extends EntityModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private String nameP;
+	@ManyToOne
+	@JoinColumn(name = "PATIENT_ID")
+	private Patient patient;
+
 	private char priorityL;
 
 	// Getters & Setters
-	public String getNameP() {
-		return nameP;
+	public Patient getPatient() {
+		return patient;
 	}
 
-	public void setNameP(String nameP) {
-		this.nameP = nameP;
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 
 	public char getPriorityL() {
