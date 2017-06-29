@@ -15,7 +15,7 @@ import upacademy.grouproject.repository.TriageRepository;
 public class TriageService extends EntityService<Triage> {
 
 	@Inject
-	TriageRepository tr = new TriageRepository();
+	TriageRepository tr;
 
 	public void newTicket(Triage triage, String nHS) {
 		// Get patient for triage

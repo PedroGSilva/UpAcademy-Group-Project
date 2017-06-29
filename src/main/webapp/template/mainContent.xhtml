@@ -6,7 +6,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"> 
 
 	<!-- <body> -->
 
@@ -30,13 +30,13 @@
 								<div class="row">
 									<h3 class="centered" style="font-size:35px">
 										<p:outputLabel
-											value="#{triageHistoricBean.previous[0].priorityL}" />
+											value="#{triageHistoricBean.ticketHistory.get(1).priorityL}" />
 									</h3>
 									<div class="col-sm-6 col-xs-6 pull-left">
 										<p class="goleft">
 											<i class="fa"></i>
 											<p:outputLabel
-												value="#{triageHistoricBean.previous[0].nameP}" />
+												value="#{triageHistoricBean.ticketHistory.get(1).patient.name}" />
 										</p>
 									</div>
 
@@ -52,20 +52,20 @@
 
 
 					<div class="col-lg-4 col-md-4 col-sm-4 mb">
-						<div class="weather-3 pn centered #{triageBean.getCurrentPriorityClass()}">
+						<div class="weather-3 pn centered #{triageHistoricBean.getCurrentPriorityClass()}">
 							<i class="fa"></i>
 							<h1>Now Calling</h1>
 							<div class="info">
 								<div class="row">
 									<h3 class="centered" style="font-size:35px">
 										<p:outputLabel
-											value="#{triageBean.ticketShow[0].priorityLevel}" />
+											value="#{triageHistoricBean.ticketHistory.get(1).priorityL}" />
 									</h3>
 									<div class="col-sm-6 col-xs-6 pull-left">
 										<p class="goleft">
 											<i class="fa"></i>
 											<p:outputLabel
-												value="#{triageBean.ticketShow[0].patient.name}" />
+												value="#{triageHistoricBean.nextTickets.get(0).patient.name}" />
 										</p>
 									</div>
 									<div class="col-sm-6 col-xs-6 pull-right">
@@ -79,20 +79,20 @@
 					</div>
 
 					<div class="col-lg-4 col-md-4 col-sm-4 mb">
-						<div class="weather-3 pn centered #{triageBean.getNextPriorityClass()}">
+						<div class="weather-3 pn centered #{triageHistoricBean.getNextPriorityClass()}">
 							<i class="fa"></i>
 							<h1>Next in Line</h1>
 							<div class="info">
 								<div class="row">
 									<h3 class="centered" style="font-size:35px">
 										<p:outputLabel
-											value="#{triageBean.ticketShow[1].priorityLevel}" />
+											value="#{triageHistoricBean.nextTickets.get(1).priorityLevel}" />
 									</h3>
 									<div class="col-sm-6 col-xs-6 pull-left">
 										<p class="goleft">
 											<i class="fa"></i>
 											<p:outputLabel
-												value="#{triageBean.ticketShow[1].patient.name}" />
+												value="#{triageHistoricBean.nextTickets.get(1).patient.name}" />
 										</p>
 									</div>
 									<div class="col-sm-6 col-xs-6 pull-right">
@@ -116,8 +116,8 @@
 			<div class="col-md-4 col-sm-4 col-md-offset-4">
 
 				<p:commandLink styleClass="primefacesfont callButton"
-					value="Call Ticket" action="#{triageBean.callTicket()}"
-					update=":callerPanel :nextcounters :prevcounters" />
+					value="Call Ticket" action="#{triageHistoricBean.callTicket()}"
+					update=":callerPanel :nextcounters  :pieChart" />
 
 			
 
@@ -127,7 +127,7 @@
 					<h2 id="waitingroom">Waiting Room</h2>
 					<p>
 						Total
-						<p:outputLabel value="#{triageBean.counters[5]}" />
+						<p:outputLabel value="#{triageHistoricBean.waitingRoom.get(5)}" />
 						tickets waiting
 					</p>
 				</div>
@@ -136,11 +136,11 @@
 						<div class="box1">
 							<img src="assets/img/redticket.png" alt="Red Tickets" />
 							<h3>
-								<p:outputLabel value="#{triageBean.counters[0]}" />
+								<p:outputLabel value="#{triageHistoricBean.waitingRoom.get(0)}" />
 							</h3>
 						</div>
 						<p>
-							<p:outputLabel value="#{triageBean.counters[0]}" />
+							<p:outputLabel value="#{triageHistoricBean.waitingRoom.get(0)}" />
 							Red Tickets waiting.
 						</p>
 					</div>
@@ -148,11 +148,11 @@
 						<div class="box1">
 							<img src="assets/img/orangeticket.png" alt="Orange Tickets" />
 							<h3>
-								<p:outputLabel value="#{triageBean.counters[1]}" />
+								<p:outputLabel value="#{triageHistoricBean.waitingRoom.get(1)}" />
 							</h3>
 						</div>
 						<p>
-							<p:outputLabel value="#{triageBean.counters[1]}" />
+							<p:outputLabel value="#{triageHistoricBean.waitingRoom.get(1)}" />
 							Orange Tickets waiting.
 						</p>
 					</div>
@@ -160,11 +160,11 @@
 						<div class="box1">
 							<img src="assets/img/yellowticket.png" alt="Yellow Tickets" />
 							<h3>
-								<p:outputLabel value="#{triageBean.counters[2]}" />
+								<p:outputLabel value="#{triageHistoricBean.waitingRoom.get(2)}" />
 							</h3>
 						</div>
 						<p>
-							<p:outputLabel value="#{triageBean.counters[2]}" />
+							<p:outputLabel value="#{triageHistoricBean.waitingRoom.get(2)}" />
 							Yellow Tickets waiting.
 						</p>
 					</div>
@@ -172,11 +172,11 @@
 						<div class="box1">
 							<img src="assets/img/greenticket.png" alt="Green Tickets" />
 							<h3>
-								<p:outputLabel value="#{triageBean.counters[3]}" />
+								<p:outputLabel value="#{triageHistoricBean.waitingRoom.get(3)}" />
 							</h3>
 						</div>
 						<p>
-							<p:outputLabel value="#{triageBean.counters[3]}" />
+							<p:outputLabel value="#{triageHistoricBean.waitingRoom.get(3)}" />
 							Green Tickets waiting.
 						</p>
 					</div>
@@ -184,11 +184,11 @@
 						<div class="box1">
 							<img src="assets/img/blueticket.png" alt="Blue Tickets" />
 							<h3>
-								<p:outputLabel value="#{triageBean.counters[4]}" />
+								<p:outputLabel value="#{triageHistoricBean.waitingRoom.get(4)}" />
 							</h3>
 						</div>
 						<p>
-							<p:outputLabel value="#{triageBean.counters[4]}" />
+							<p:outputLabel value="#{triageHistoricBean.waitingRoom.get(4)}" />
 							Blue Tickets waiting.
 						</p>
 					</div>
@@ -196,9 +196,9 @@
 				</div>
 			</p:outputPanel>
 			<!-- /row mt -->
-
+			
 			<div class="row mt">
-				<p:outputPanel id="prevcounters">
+				<p:outputPanel id="pieChart">
 					<!--custom chart end-->
 					<div class="border-head">
 						<h2>Called Tickets</h2>
